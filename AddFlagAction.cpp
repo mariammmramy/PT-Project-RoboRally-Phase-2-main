@@ -17,12 +17,21 @@ void AddFlagAction::ReadActionParameters()
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
 	// 1- Get a Pointer to the Input / Output Interfaces
+	/* Implemented same method in AddBeltAction */
+	Grid* pGrid = pManager->GetGrid(); 
+	Output* pOut = pGrid->GetOutput();    //Output pointer
+	Input* pIn = pGrid->GetInput();       //Input pointer 
 
 	// 2- Read the flagPos
 
+	pOut->PrintMessage("New Flag: Click on the cell to add a flag ...");
+	flagPos = pIn->GetCellClicked();
+
 	// 4- Make the needed validations on the read parameters
 
+
 	// 5- Clear status bar
+	pOut->ClearStatusBar();
 }
 
 void AddFlagAction::Execute()
