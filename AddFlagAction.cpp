@@ -24,7 +24,7 @@ void AddFlagAction::ReadActionParameters()
 
 	// 2- Read the flagPos
 
-	pOut->PrintMessage("New Flag: Click on the cell to add a flag ...");
+	pOut->PrintMessage("New Flag: Click on the cell to add a flag ...");  
 	flagPos = pIn->GetCellClicked();
 
 	// 4- Make the needed validations on the read parameters

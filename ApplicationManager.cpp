@@ -4,6 +4,7 @@
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
 #include "AddFlagAction.h"
+#include "ToPlayModeAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -73,7 +74,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
-		pOut->CreatePlayModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+		pAct = new ToPlayModeAction(this); // temporary till you made its action class (CHANGE THIS LATTER) 
+		//in progress
 		break;
 
 	

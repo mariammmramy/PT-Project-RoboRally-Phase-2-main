@@ -26,6 +26,10 @@ enum ActionType // The actions supported (add more as needed)
 	DELETE_OBJECT,
 	SAVE,
 	OPEN,
+	ADD_FLAG,
+	ADD_BELT,
+	ADD_ROTATINGGEAR,
+
 
 	//  [2] Actions of Play Mode
 
