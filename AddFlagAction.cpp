@@ -31,7 +31,7 @@ void AddFlagAction::ReadActionParameters()
 
 
 	// 5- Clear status bar
-	pOut->ClearStatusBar();
+	pOut->ClearStatusBar();   //Use output pointer to clear status bar
 }
 
 void AddFlagAction::Execute()
