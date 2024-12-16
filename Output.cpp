@@ -443,7 +443,7 @@ void Output::PrintPlayersInfo(string info)
 {
 	///TODO: Clear what was written on the toolbar
 
-	// One of the correct ways to implement the above TODO is to call 	// One of the correct ways to implement the above TODO is to call ToPlayModeAction();
+	// One of the correct ways to implement the above TODO is to call CreatePlayModeToolBar(); 
 	// to clear what was written in the player info (there are other ways too   You are free to use any)
 
 	// Set the pen and font before drawing the string on the window
