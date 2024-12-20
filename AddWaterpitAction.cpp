@@ -23,7 +23,7 @@ void AddWaterpitAction::ReadActionParameters()
 
 	// 2- Read the WaterpitPos
 
-	pOut->PrintMessage("New Flag: Click on the cell to add a flag ...");
+	pOut->PrintMessage("New WaterPit: Click on the cell to add a WaterPit ...");
 	WaterpitPos = pIn->GetCellClicked();
 
 	
