@@ -29,7 +29,11 @@ void AddWaterpitAction::ReadActionParameters()
 	
 	// 4- Make the needed validations on the read parameters
 
+<<<<<<< Updated upstream
 	if (WaterpitPos.VCell() == WaterpitPos.HCell() == 0)
+=======
+	if (WaterpitPos.VCell() == 4 && WaterpitPos.HCell() == 0)
+>>>>>>> Stashed changes
 	{
 		pOut->PrintMessage("You can't put a game object in the first cell");
 		return;
