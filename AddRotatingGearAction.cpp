@@ -1,7 +1,8 @@
 #include "AddRotatingGearAction.h"
 
-AddRotatingGearAction::AddRotatingGearAction(ApplicationManager * pApp):Action(pApp)
+AddRotatingGearAction::AddRotatingGearAction(ApplicationManager * pApp, bool direction):Action(pApp)
 {
+	clockwise = direction;
 }
 
 void AddRotatingGearAction::ReadActionParameters()
@@ -12,13 +13,28 @@ void AddRotatingGearAction::ReadActionParameters()
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
 	// 1- Get a Pointer to the Input / Output Interfaces
+	Grid* pGrid = pManager->GetGrid();
+	Output* pOut = pGrid->GetOutput();    //Output pointer
+	Input* pIn = pGrid->GetInput();       //Input pointer 
+
 
 	// 2- Read the gearPos
+
+	pOut->PrintMessage("New Rotating Gear: Click on the cell to add a Rotating Gear...");
+	gearPos = pIn->GetCellClicked();
 	// 3- Read whether the direction will be clockwise or not
+	// (Done in the constructor)
 
 	// 4- Make the needed validations on the read parameters
+	if (gearPos.HCell() == 0 && gearPos.VCell() == 4)
+	{
+		pOut->PrintMessage("You can't put a game object in the first cell");
+		return;
+	}
+
 
 	// 5- Clear status bar
+	pOut->ClearStatusBar();
 }
 
 void AddRotatingGearAction::Execute()
