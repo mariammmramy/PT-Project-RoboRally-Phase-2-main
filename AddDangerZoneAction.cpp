@@ -31,7 +31,11 @@ void AddDangerZoneAction::ReadActionParameters()
 	// 4- Make the needed validations on the read parameters
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	if (DangerPos.VCell() == DangerPos.HCell() == 0)
+=======
+	if (DangerPos.VCell() == 4 && DangerPos.HCell() == 0)
+>>>>>>> Stashed changes
 =======
 	if (DangerPos.VCell() == 4 && DangerPos.HCell() == 0)
 >>>>>>> Stashed changes
