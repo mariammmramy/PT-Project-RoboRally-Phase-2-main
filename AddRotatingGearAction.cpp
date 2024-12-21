@@ -46,10 +46,24 @@ void AddRotatingGearAction::Execute()
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
 	// 1-Create a rotating gear object
+	RotatingGear* pGear = new RotatingGear(gearPos, clockwise);
+	Grid* pGrid = pManager->GetGrid();
+
 	// 2-get a pointer to the Grid from the ApplicationManager
+	
+
 	// 3-Add the rotating object to the GameObject of its Cell:
+	
+	bool added = pGrid->AddObjectToCell(pGear);
+
+	// 4-Check if the Rotatinggear was added and print an errror message if rotating gear couldn't be added
+	if (!added)
+	{
+		pGrid->PrintErrorMessage("Rotating gear couldn't be added");
+	}
 	// 4-Check if the rotating gear was added and print an errror message if flag couldn't be added
 }
+
 
 AddRotatingGearAction::~AddRotatingGearAction()
 {
