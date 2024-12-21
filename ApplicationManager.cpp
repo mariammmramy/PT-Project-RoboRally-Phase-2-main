@@ -7,6 +7,7 @@
 #include "ToPlayModeAction.h"
 #include "ToDesignModeAction.h"
 #include "AddWaterpitAction.h"
+#include "AddDangerZoneAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -92,6 +93,24 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case SET_WATERPIT:				//TODO:
 		pAct = new AddWaterpitAction(this);
 		break;
+	case SET_DANGERZONE:				//TODO:
+		pAct = new AddDangerZoneAction(this);
+		break;
+
+	/* for each of these enums you have to add a case in the switch case and to include its addobjectaction.h 
+			SET_ANTENNA,
+			SET_BELT, (Done)
+			SET_WATERPIT, (Done)
+			SET_DANGERZONE, (Done)
+			SET_WORKSHOP, 
+			SET_ROTATING_CW, (Done)
+			SET_ROTATING_ACW, (Done)
+			COPY, 
+			CUT,
+			PASTE,
+			DELETE_OBJECT,
+			SAVE,
+			OPEN,*/
 
 		
 
