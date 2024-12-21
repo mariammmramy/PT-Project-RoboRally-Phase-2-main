@@ -79,6 +79,23 @@ void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 	// Draw the player's triangle on the new cell position
 	player->Draw(pOut);
 }
+bool Grid::flagfound() 
+{
+	
+		for (int i = 0; i < NumVerticalCells; ++i)
+		{
+			for (int j = 0; j < NumHorizontalCells; ++j)
+			{
+				Cell* cell = CellList[i][j];
+				if (cell->GetGameObject() != nullptr && cell -> HasFlag()) 
+				{
+					return true; 
+				}
+			}
+		
+		return false; 
+	}
+}
 
 
 // ========= Setters and Getters Functions =========
