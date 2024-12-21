@@ -323,6 +323,7 @@ void Output::CreatePlayModeToolBar() const
 		ITM_USE_HACK,
 		ITM_NEW,
 		ITM_EXITP,*/
+	MenuItemImages[ITM_REBOOT] = "image\\Repair.jpg";
 	MenuItemImages[ITM_USE_TOOLKIT] = "image\\Toolkit.jpg";
 	MenuItemImages[ITM_USE_HACK] = "image\\Hack.jpg";
 	MenuItemImages[ITM_NEW] = "image\\New.jpg";
