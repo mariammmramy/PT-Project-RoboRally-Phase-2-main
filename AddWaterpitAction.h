@@ -2,11 +2,7 @@
 #include "Action.h"
 #include "Input.h"
 #include "Output.h"
-<<<<<<< Updated upstream
-#include "Waterpit.h"
-=======
 #include "WaterPit.h"
->>>>>>> Stashed changes
 class AddWaterpitAction :public Action
 {
 	// Always add action parameters as private data members
