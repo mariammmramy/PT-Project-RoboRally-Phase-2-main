@@ -72,6 +72,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case EXIT:
+		/*Clear all areas to ensure smoother exit*/
+		pOut->ClearStatusBar();
+		pOut->ClearCommandsBar();
+		pOut->ClearGridArea();
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
@@ -84,8 +88,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new ToDesignModeAction(this); // temporary till you made its action class (CHANGE THIS LATTER)
 		//in progress
 		break;
-
-		
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
