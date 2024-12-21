@@ -11,6 +11,16 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNu
 
 // ====== Setters and Getters ======
 
+Direction  Player::GetDirection()
+{
+	return currDirection;
+}
+
+void Player::SetDirection(Direction d)
+{
+	currDirection = d;
+}
+
 int Player::Getplayernum()
 {
 	return playerNum;
@@ -28,8 +38,12 @@ Cell* Player::GetCell() const
 
 void Player::SetHealth(int h)
 {
-	this->health = h;
-	///TODO: Do any needed validations
+	if (h > 10 || h < 0)
+	{
+		this->health = h;
+	}
+	
+	///TODO: Do any needed validations (done)
 }
 
 int Player::GetHealth()
@@ -38,6 +52,8 @@ int Player::GetHealth()
 }
 
 // ====== Drawing Functions ======
+
+
 
 void Player::Draw(Output* pOut) const
 {
