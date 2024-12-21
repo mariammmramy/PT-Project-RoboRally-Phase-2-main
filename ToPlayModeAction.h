@@ -9,6 +9,5 @@ public:
 	virtual void ReadActionParameters(); 
 	virtual void Execute();  // Executes switch to play mode
 	virtual ~ToPlayModeAction();
-	void ExecuteAction(ActionType ActType);//function to excute action types with switch case
 };
 
