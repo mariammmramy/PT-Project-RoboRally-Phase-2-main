@@ -3,7 +3,7 @@
 #include "Input.h"
 #include "Output.h"
 #include "Player.h"
-class RebootAndRepair :public Action, public Player
+class RebootAndRepair :public Action
 {
 public:
 	RebootAndRepair(ApplicationManager* pApp);

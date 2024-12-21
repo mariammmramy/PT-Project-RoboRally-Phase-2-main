@@ -1,4 +1,5 @@
 #include "RebootAndRepair.h"
+#include "Player.h"
 #include "Action.h"
 #include "Input.h"
 #include "Output.h"
@@ -17,7 +18,10 @@ void RebootAndRepair::ReadActionParameters() {  //(in progress)
 }
 void RebootAndRepair::Execute() {    //Switch to Design mode (in progress)
 	ReadActionParameters();
-	
+	Grid* pGrid = pManager->GetGrid();
+	Player* pPlay;
+	//add health points
+	//robot does not move or shoot
 
 }
 RebootAndRepair::~RebootAndRepair() {  //Created destructor
