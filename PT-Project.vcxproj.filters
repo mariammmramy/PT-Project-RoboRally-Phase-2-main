@@ -199,6 +199,9 @@
     <ClCompile Include="ToDesignModeAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="RebootAndRepair.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -326,6 +329,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="ToDesignModeAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="RebootAndRepair.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
