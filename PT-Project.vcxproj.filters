@@ -199,9 +199,6 @@
     <ClCompile Include="ToDesignModeAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="ExitDesignMode.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -329,9 +326,6 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="ToDesignModeAction.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="ExitDesignMode.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
