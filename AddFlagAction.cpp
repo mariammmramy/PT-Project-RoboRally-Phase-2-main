@@ -11,31 +11,54 @@ AddFlagAction::AddFlagAction(ApplicationManager *pApp) : Action(pApp)
 void AddFlagAction::ReadActionParameters()
 {
 
+		if (flagfound())
+	{
+		pGrid->PrintErrorMessage("Error: There is already a flag")
+	}
+
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 
 
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
 	// 1- Get a Pointer to the Input / Output Interfaces
-	/* Implemented same method in AddBeltAction */
-	Grid* pGrid = pManager->GetGrid(); 
-	Output* pOut = pGrid->GetOutput();    //Output pointer
-	Input* pIn = pGrid->GetInput();       //Input pointer 
+
+	Grid* pGrid = pManager->GetGrid();
+	Output* pOut = pGrid->GetOutput();
+	Input* pIn = pGrid->GetInput();
+	Flag* flagptr = pGrid->GetFlag();
 
 	// 2- Read the flagPos
 
-	pOut->PrintMessage("New Flag: Click on the cell to add a flag ...");  
+	pOut->PrintMessage("New Flag: Click on the cell to add a flag ...");
 	flagPos = pIn->GetCellClicked();
 
-	// 4- Make the needed validations on the read parameters
 
+	// 4- Make the needed validations on the read parameters
+	if (pGrid->flagfound())
+	{
+
+		pGrid->PrintErrorMessage("A flag already exists .You can't add another one");
+		return;
+	}
+	if (!flagPos.IsValidCell())
+	{
+
+		pGrid->PrintErrorMessage("Invalid cell please select a valid cell.");
+		return;
+	}
 
 	// 5- Clear status bar
-	pOut->ClearStatusBar();   //Use output pointer to clear status bar
+
+	pOut->ClearStatusBar();
+
+}
+
 }
 
 void AddFlagAction::Execute()
 {
+	
 	// The first line of any Action Execution is to read its parameter first 
 	// and hence initializes its data members
 	ReadActionParameters();
@@ -43,10 +66,19 @@ void AddFlagAction::Execute()
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
 	// 1-Create a flag object
+	Flag* pFlag = new Flag(flagPos);
 	// 2-get a pointer to the Grid from the ApplicationManager
+	Grid* pGrid = pManager->GetGrid();
 	// 3-Add the flag object to the GameObject of its Cell:
 	// 4-Check if the flag was added and print an errror message if flag couldn't be added
-	
+	bool addflag = pGrid->AddObjectToCell(pFlag);
+	if (!addflag)
+	{
+		delete pFlag;
+		pGrid->PrintErrorMessage("Error! cell already has an object");
+	}
+	Output* pOut = pGrid->GetOutput();
+	pGrid->UpdateInterface();
 }
 
 AddFlagAction::~AddFlagAction()
