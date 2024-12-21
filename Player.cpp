@@ -11,6 +11,11 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNu
 
 // ====== Setters and Getters ======
 
+int Player::Getplayernum()
+{
+	return playerNum;
+}
+
 void Player::SetCell(Cell * cell)
 {
 	pCell = cell;
