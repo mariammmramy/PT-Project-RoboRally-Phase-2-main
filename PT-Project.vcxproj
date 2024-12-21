@@ -186,6 +186,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RotatingGear.cpp" />
+    <ClCompile Include="UseConsumableToolkit.cpp" />
     <ClCompile Include="WaterPit.cpp" />
     <ClCompile Include="Workshop.cpp" />
   </ItemGroup>
@@ -233,6 +234,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="RotatingGear.h" />
     <ClInclude Include="UI_Info.h" />
+    <ClInclude Include="UseConsumableToolkit.h" />
     <ClInclude Include="WaterPit.h" />
     <ClInclude Include="Workshop.h" />
   </ItemGroup>
