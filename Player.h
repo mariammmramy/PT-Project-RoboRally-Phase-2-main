@@ -34,7 +34,8 @@ public:
 
 
 	///TODO: You can add setters and getters for data members here (if needed)
-
+	Direction GetDirection();
+	void SetDirection(Direction d);
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Triangle on its current cell
