@@ -19,11 +19,11 @@ void ToPlayModeAction::ReadActionParameters() {  //(in progress)
 	pOut->ClearStatusBar();
 }
 void ToPlayModeAction::Execute(){    //Switch to play mode (in progress)
-	ReadActionParameters();
+	/*ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 
-	pOut->CreatePlayModeToolBar();
+	pOut->CreatePlayModeToolBar();*/
 
 }
 void ToPlayModeAction::ExecuteAction(ActionType ActType) {
