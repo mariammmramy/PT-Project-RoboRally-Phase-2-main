@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "Belt.h"
 #include "WaterPit.h"
+#include "Flag.h"
 #include "Player.h"
 #include "DangerZone.h"
 #include "Output.h"
@@ -50,26 +51,16 @@ Belt * Cell::HasBelt() const
 
 Flag * Cell::HasFlag() const
 {
-
-	///TODO: Implement the following function like HasBelt() function
-
-	return false; // THIS LINE SHOULD CHANGED WITH YOUR IMPLEMENTATION
-
+	return dynamic_cast<Flag*>(pGameObject);
 }
 WaterPit * Cell::HasWaterPit() const
 {
-
-	///TODO: Implement the following function like HasBelt() function
-
-	return false; // THIS LINE SHOULD CHANGED WITH YOUR IMPLEMENTATION
-
+	return dynamic_cast<WaterPit*>(pGameObject);
 }
 
 DangerZone * Cell::HasDangerZone() const
 {
-	///TODO: Implement the following function like HasBelt() function
-
-	return false; // THIS LINE SHOULD CHANGED WITH YOUR IMPLEMENTATION
+	return dynamic_cast<DangerZone*>(pGameObject);
 }
 
 

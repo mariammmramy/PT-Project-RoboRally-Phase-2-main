@@ -6,6 +6,7 @@
 #include "AddFlagAction.h"
 #include "ToPlayModeAction.h"
 #include "ToDesignModeAction.h"
+#include "AddWaterpitAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -87,6 +88,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case TO_DESIGN_MODE:				//TODO:
 		pAct = new ToDesignModeAction(this); // temporary till you made its action class (CHANGE THIS LATTER)
 		//in progress
+		break;
+	case SET_WATERPIT:				//TODO:
+		pAct = new AddWaterpitAction(this);
 		break;
 
 		
