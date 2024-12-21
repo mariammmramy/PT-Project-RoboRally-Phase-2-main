@@ -97,11 +97,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case(USE_TOOLKIT):
 
+
 		break;
 	case(USE_HACK):
 
 		break;
 	case(NEW):
+
 
 		break;
 	case(EXITP):
