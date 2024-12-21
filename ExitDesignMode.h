@@ -7,7 +7,7 @@ class ExitDesignMode :public Action
 	public:
 		ExitDesignMode(ApplicationManager* pApp);
 		virtual void ReadActionParameters();
-		virtual void Execute();  // Executes switch to play mode
+		virtual void Execute();  //exits design mode when clicked and clears everything
 		virtual ~ExitDesignMode();
 };
 

@@ -15,9 +15,11 @@ void ExitDesignMode:: ReadActionParameters() {
 }
 void ExitDesignMode:: Execute() {
 	ReadActionParameters();
-	/*pOut->ClearStatusBar();
+	Grid* pGrid = pManager->GetGrid();
+	Output* pOut = pGrid->GetOutput();
+	pOut->ClearStatusBar();
     pOut->ClearCommandsBar();
-	pOut->ClearGridArea();*/
+	pOut->ClearGridArea();
 }
 ExitDesignMode:: ~ExitDesignMode() {
 
