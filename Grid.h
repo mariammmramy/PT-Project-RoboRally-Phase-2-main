@@ -63,8 +63,8 @@ public:
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 	// ========= Other Getters =========
 	
-	int GetCurrentPlayerNum() const; //gets current player index
-	Player* GetOppPlayer(int num) const; //gets pointer to opponent player
+	int GetCurrentPlayerNum() const; //Gets current player index
+	Player* GetOppPlayer(int num) const; //Gets pointer to opponent player
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    
 	Belt * GetNextBelt(const CellPosition & position);  // Gets a Pointer to the first Belth after the passed "position"
 
