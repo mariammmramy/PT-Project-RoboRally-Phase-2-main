@@ -11,6 +11,37 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNu
 
 // ====== Setters and Getters ======
 
+int Player::getweapon()
+{
+	return weapon;
+}
+
+void Player::setweapon(int w)
+{
+	weapon = w;
+}
+
+int Player::gethackdevice()
+{
+	return hackdevice;
+}
+
+void Player::sethackdevice(int h)
+{
+	hackdevice = h;
+}
+
+int Player::gettoolkit()
+{
+	return toolkit;
+}
+
+void Player::settoolkit(int t)
+{
+	toolkit = t;
+}
+
+
 Direction  Player::GetDirection()
 {
 	return currDirection;
