@@ -156,7 +156,7 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		// to do: code to interact with game objects 
 
 		pOut->PrintMessage("Click anywhere to execute the next command");
-		pIn->GetCellClicked();
+		pIn->GetCellClicked(); //wait for user input
 	}
 
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
