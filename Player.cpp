@@ -86,20 +86,64 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 	// - If a player has 5 (could have less) saved moveCommands, the robot will execute the first saved command,
 	//		then wait for a mouse click (display a message "Click anywhere to execute the next command").
 	if (COMMANDS_COUNT>5){
-		pOut->PrintMessage("Error! there are more than 5 commands...");
+		pOut->PrintMessage("Error! there are more than 5 commands...");    //cannot execute more than 5 commands
 		
 	}
 	else if (COMMANDS_COUNT <= 0) {
-		pOut->PrintMessage("Error! there areno commands to execute...");
+		pOut->PrintMessage("Error! there are no commands to execute...");  //no commands entered
 
 	}
-	else {
-		for (int i = 0; i < COMMANDS_COUNT; i++) {
-			//code to do command
-			pOut->PrintMessage("Click anywhere to execute the next command");
-			pIn->GetCellClicked();
+
+	
+	for (int i = 0; i < COMMANDS_COUNT; i++) {
+		//code to do command
+		Command pCmd = moveCommands[i];
+		CellPosition currentPos = pCell->GetCellPosition();
+		CellPosition newPos = currentPos;
+
+		/*Switch case to determine what to do based on each command*/
+		switch (pCmd) {
+		case(NO_COMMAND):
+			pOut->PrintMessage("No command to execute...");
+			continue;
+
+		case(MOVE_FORWARD_ONE_STEP):
+			newPos.AddCellNum(1,currDirection);
+			break;
+
+		case(MOVE_BACKWARD_ONE_STEP):
+			newPos.AddCellNum(-1, currDirection);
+			break;
+
+		case(MOVE_FORWARD_TWO_STEPS):
+			newPos.AddCellNum(2, currDirection);
+			break;
+
+		case(MOVE_BACKWARD_TWO_STEPS):
+			newPos.AddCellNum(-2, currDirection);
+			break;
+
+		case(MOVE_FORWARD_THREE_STEPS):
+			newPos.AddCellNum(3, currDirection);
+			break;
+
+		case(MOVE_BACKWARD_THREE_STEPS):
+			newPos.AddCellNum(-3, currDirection);
+			break;
+
+		case(ROTATE_CLOCKWISE)://todo
+
+			break;
+
+		case(ROTATE_COUNTERCLOCKWISE)://todo
+			break;
+
 		}
+
+		pOut->PrintMessage("Click anywhere to execute the next command");
+		pIn->GetCellClicked();
 	}
+	
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
 	//		be applied.
 	// 
