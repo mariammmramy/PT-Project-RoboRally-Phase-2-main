@@ -159,13 +159,14 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		pIn->GetCellClicked(); //wait for user input
 	}
 
+
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
 	//		be applied.
 	// 
 	// - Use the CellPosition class to help you calculate the destination cell using the current cell
 	// - Use the Grid class to update pCell
 	// - Don't forget to apply game objects at the final destination cell and check for game ending
-
+	ShootingPhase(pGrid); //start shooting phase
 }
 
 void Player::AppendPlayerInfo(string & playersInfo) const
@@ -175,4 +176,44 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += to_string(currDirection) + ", ";
 	playersInfo += to_string(health) + ")";
 
+}
+void Player::ShootingPhase(Grid* pGrid) {
+	Output* pOut = pGrid->GetOutput();
+	Input* pIn = pGrid->GetInput();
+
+	// Get opponent player
+	Player* opponent = pGrid->GetOpponent(this);
+
+	// Get positions and directions
+	CellPosition currentPos = pCell->GetCellPosition();
+	CellPosition opponentPos = opponent->GetCell()->GetCellPosition();
+	Direction myDir = currDirection;
+
+	// Check if in the same row or column
+	bool canShoot = false;
+	if (myDir == UP || myDir == DOWN) {
+		canShoot = (currentPos.HCell() == opponentPos.HCell()) &&
+			((myDir == UP && opponentPos.VCell() < currentPos.VCell()) ||
+				(myDir == DOWN && opponentPos.VCell() > currentPos.VCell()));
+	}
+	else if (myDir == LEFT || myDir == RIGHT) {
+		canShoot = (currentPos.VCell() == opponentPos.VCell()) &&
+			((myDir == LEFT && opponentPos.HCell() < currentPos.HCell()) ||
+				(myDir == RIGHT && opponentPos.HCell() > currentPos.HCell()));
+	}
+
+	// If shooting is possible
+	if (canShoot) {
+		int damage = 1; // Basic Laser damage
+		if (hasDoubleLaser) damage = 2; // Check if the player has a double laser
+
+		opponent->ReduceHealth(damage); // Reduce opponent's health
+
+		// Display hit message
+		pOut->PrintMessage("You hit another player, click to continue...");
+		pIn->GetPointClicked(); // Wait for user to click
+	}
+	else {
+		pOut->PrintMessage("No opponent in line of sight. Shooting skipped.");
+	}
 }
