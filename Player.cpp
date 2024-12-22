@@ -1,5 +1,5 @@
 #include "Player.h"
-
+#include "RotatingGear.h"
 #include "GameObject.h"
 
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
@@ -131,12 +131,19 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 			newPos.AddCellNum(-3, currDirection);
 			break;
 
-		case(ROTATE_CLOCKWISE)://todo
+		case(ROTATE_CLOCKWISE): {
+			RotatingGear rotateGear(currentPos, true);
+			rotateGear.Apply(pGrid, this);   //Apply clockwise movement
+			continue; //skip  turn
 
-			break;
+		}
 
-		case(ROTATE_COUNTERCLOCKWISE)://todo
+		case(ROTATE_COUNTERCLOCKWISE): {
+			RotatingGear rotateGear(currentPos, false);
+			rotateGear.Apply(pGrid, this);   //Apply counter clockwise movement
+			continue; //skip this turn
 			break;
+		}
 
 		}
 
