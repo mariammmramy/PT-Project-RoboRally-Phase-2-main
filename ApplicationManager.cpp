@@ -9,6 +9,7 @@
 #include "AddWaterpitAction.h"
 #include "AddDangerZoneAction.h"
 #include "Exit.h"
+#include "AddWorkshopAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -104,6 +105,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case SET_DANGERZONE:				//TODO:
 		pAct = new AddDangerZoneAction(this);
+		break;
+	case SET_WORKSHOP:				//TODO:
+		pAct = new AddWorkshopAction(this);
 		break;
 
 	/* for each of these enums you have to add a case in the switch case and to include its addobjectaction.h 
