@@ -170,9 +170,9 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 	else if (direction == DOWN)
 	{
 		x1 = triangleCenterX - triangleWidth / 2;
-		y1 = triangleCenterY + triangleHeight / 2;
+		y1 = triangleCenterY - triangleHeight / 2;
 		x2 = triangleCenterX + triangleWidth / 2;
-		y2 = triangleCenterY + triangleHeight / 2;
+		y2 = triangleCenterY - triangleHeight / 2;
 		x3 = triangleCenterX;
 		y3 = triangleCenterY + triangleHeight / 2;
 	}
