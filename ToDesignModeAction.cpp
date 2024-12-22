@@ -22,6 +22,8 @@ void ToDesignModeAction::Execute() {    //Switch to Design mode (in progress)
 
 	pOut->CreateDesignModeToolBar();
 
+	pGrid->UpdateInterface();
+	pGrid->SetEndGame(false);
 }
 ToDesignModeAction::~ToDesignModeAction() {  //Created destructor
 
