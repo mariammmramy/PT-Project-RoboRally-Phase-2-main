@@ -84,7 +84,7 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 	///TODO: Implement this function using the guidelines mentioned below
 
 	// - If a player has 5 (could have less) saved moveCommands, the robot will execute the first saved command,
-	//		then wait for a mouse click (display a message "Click anywhere to execute the next command").
+	//		then wait for a mouse click (display a message "Click anywhere to execute the next command"). (done)
 	if (COMMANDS_COUNT>5){
 		pOut->PrintMessage("Error! there are more than 5 commands...");    //cannot execute more than 5 commands
 		
