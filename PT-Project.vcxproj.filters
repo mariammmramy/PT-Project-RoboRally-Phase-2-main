@@ -205,6 +205,17 @@
     <ClCompile Include="AddDangerZoneAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
+=======
+    <ClCompile Include="Exit.cpp" />
+    <ClCompile Include="UseConsumableToolkit.cpp" />
+    <ClCompile Include="AddWorkshopAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -340,5 +351,16 @@
     <ClInclude Include="AddDangerZoneAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
+=======
+    <ClInclude Include="Exit.h" />
+    <ClInclude Include="UseConsumableToolkit.h" />
+    <ClInclude Include="AddWorkshopAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+>>>>>>> Stashed changes
   </ItemGroup>
 </Project>

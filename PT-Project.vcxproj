@@ -176,6 +176,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant1.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
+    <ClCompile Include="DeleteAction.cpp" />
     <ClCompile Include="Exit.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpegint.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
+    <ClInclude Include="DeleteAction.h" />
     <ClInclude Include="Exit.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
