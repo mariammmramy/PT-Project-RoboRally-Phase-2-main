@@ -13,7 +13,9 @@ class Player
 	int stepCount;		   // step count which is the same as his cellNum: from 1 to NumVerticalCells*NumHorizontalCells
 	Direction currDirection; // Current Direction of the player
 	int health;				// Player's current health points
-
+	int toolkit = 0;
+	int hackdevice = 0;		//tool kit and hack device shoul not be more than one so you should validate that in the buying conumables
+	int weapon = 0;			// 0 means single laser and 1 means double laser
 	// owned equipments
 	// carried consumables
 	// carried laser type (default, double laser)
@@ -34,6 +36,15 @@ public:
 
 
 	///TODO: You can add setters and getters for data members here (if needed)
+	int getweapon();
+	void setweapon(int w);
+	int gethackdevice();
+	void sethackdevice(int h);
+	int gettoolkit();
+	void settoolkit(int t);     //done by ziad
+
+
+
 	Direction GetDirection();
 	void SetDirection(Direction d);
 	// ====== Drawing Functions ======
