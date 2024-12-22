@@ -2,12 +2,12 @@
 #include "Action.h"
 #include "Input.h"
 #include "Output.h"
-class ToPlayModeAction: public Action
+class ToPlayMode: public Action
 {
 public:
-	ToPlayModeAction(ApplicationManager* pApp);
+	ToPlayMode(ApplicationManager* pApp);
 	virtual void ReadActionParameters(); 
 	virtual void Execute();  // Executes switch to play mode
-	virtual ~ToPlayModeAction();
+	virtual ~ToPlayMode();
 };
 

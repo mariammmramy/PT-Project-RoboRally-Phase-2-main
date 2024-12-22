@@ -205,7 +205,6 @@
     <ClCompile Include="AddDangerZoneAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -341,6 +340,5 @@
     <ClInclude Include="AddDangerZoneAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
->>>>>>> Stashed changes
   </ItemGroup>
 </Project>
