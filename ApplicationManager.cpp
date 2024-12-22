@@ -78,10 +78,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case EXIT:
+		/*Clear all areas to ensure smoother exit*/
+		pOut->ClearStatusBar();
+		pOut->ClearCommandsBar();
+		pOut->ClearGridArea();
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
 		pAct = new ToPlayModeAction(this); // temporary till you made its action class (CHANGE THIS LATTER) 
+		/*pOut->CreatePlayModeToolBar()*/;
 		//in progress
 		break;
 	
@@ -112,11 +117,25 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			SAVE,
 			OPEN,*/
 
-		
-
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
+	case(REBOOT):
 
+		break;
+	case(USE_TOOLKIT):
+
+
+		break;
+	case(USE_HACK):
+
+		break;
+	case(NEW):
+
+
+		break;
+	case(EXITP):
+
+		break; 
 
 	case STATUS:	// a click on the status bar ==> no action
 		return;

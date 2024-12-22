@@ -6,6 +6,9 @@
 ToPlayModeAction::ToPlayModeAction(ApplicationManager* pApp) : Action(pApp) {   //Created Constructor
 
 }
+ToPlayModeAction::~ToPlayModeAction() {  //Created destructor
+
+}
 void ToPlayModeAction::ReadActionParameters() {  //(in progress)
 	// Get a Pointer to the Input / Output Interfaces
 	Grid* pGrid = pManager->GetGrid();
@@ -21,8 +24,5 @@ void ToPlayModeAction::Execute(){    //Switch to play mode (in progress)
 	Output* pOut = pGrid->GetOutput();
 
 	pOut->CreatePlayModeToolBar();
-
-}
-ToPlayModeAction::~ToPlayModeAction() {  //Created destructor
 
 }

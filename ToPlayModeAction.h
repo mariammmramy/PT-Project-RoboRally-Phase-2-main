@@ -8,7 +8,6 @@ public:
 	ToPlayModeAction(ApplicationManager* pApp);
 	virtual void ReadActionParameters(); 
 	virtual void Execute();  // Executes switch to play mode
-
 	virtual ~ToPlayModeAction();
 };
 
