@@ -1,19 +1,19 @@
-#include "ExitDesignMode.h"
+#include "Exit.h"
 #include "Action.h"
 #include "Input.h"
 #include "Output.h"
 #include"Grid.h"
-ExitDesignMode::ExitDesignMode(ApplicationManager* pApp):Action(pApp) {
+Exit::Exit(ApplicationManager* pApp):Action(pApp) {
 	
 }
-void ExitDesignMode:: ReadActionParameters() {
+void Exit:: ReadActionParameters() {
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();     //Output pointer
 	Input* pIn = pGrid->GetInput();        //Input pointer 
 
 	pOut->PrintMessage(" Select this option to close the application ");
 }
-void ExitDesignMode:: Execute() {
+void Exit:: Execute() {
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
@@ -21,6 +21,6 @@ void ExitDesignMode:: Execute() {
     pOut->ClearCommandsBar();
 	pOut->ClearGridArea();
 }
-ExitDesignMode:: ~ExitDesignMode() {
+Exit:: ~Exit() {
 
 }

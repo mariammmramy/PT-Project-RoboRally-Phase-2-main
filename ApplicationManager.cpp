@@ -6,7 +6,7 @@
 #include "AddFlagAction.h"
 #include "ToPlayModeAction.h"
 #include "ToDesignModeAction.h"
-#include "ExitDesignMode.h"
+#include "Exit.h"
 
 ///TODO: Add #include for all action types
 
@@ -77,7 +77,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		/*pOut->ClearStatusBar();
 		pOut->ClearCommandsBar();
 		pOut->ClearGridArea();*/
-		pAct = new ExitDesignMode(this);
+		pAct = new Exit(this);
+		delete pIn;
+		delete pOut;
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
