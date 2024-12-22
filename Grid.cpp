@@ -164,10 +164,13 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	return NULL; // not found
 }
 
-int Grid::GetCurrentPlayerNum() {
+int Grid::GetCurrentPlayerNum() const {
 	return currPlayerNumber;
 }
 
+Player* Grid::GetOppPlayer(int oppNum) const {
+	return PlayerList[oppNum];
+}
 // ========= User Interface Functions =========
 
 

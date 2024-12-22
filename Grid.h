@@ -61,9 +61,10 @@ public:
 	void AdvanceCurrentPlayer();     // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
-
 	// ========= Other Getters =========
 	
+	int GetCurrentPlayerNum() const; //gets current player index
+	Player* GetOppPlayer(int num) const; //gets pointer to opponent player
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    
 	Belt * GetNextBelt(const CellPosition & position);  // Gets a Pointer to the first Belth after the passed "position"
 
