@@ -11,10 +11,7 @@ AddFlagAction::AddFlagAction(ApplicationManager *pApp) : Action(pApp)
 void AddFlagAction::ReadActionParameters()
 {
 
-		if (flagfound())
-	{
-		pGrid->PrintErrorMessage("Error: There is already a flag")
-	}
+		
 
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 
@@ -26,7 +23,7 @@ void AddFlagAction::ReadActionParameters()
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	Flag* flagptr = pGrid->GetFlag();
+
 
 	// 2- Read the flagPos
 
@@ -54,7 +51,6 @@ void AddFlagAction::ReadActionParameters()
 
 }
 
-}
 
 void AddFlagAction::Execute()
 {
