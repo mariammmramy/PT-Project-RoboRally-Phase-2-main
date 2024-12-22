@@ -80,7 +80,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case TO_PLAY_MODE:					//TODO:
 		pAct = new ToPlayModeAction(this); // temporary till you made its action class (CHANGE THIS LATTER) 
-		pOut->CreatePlayModeToolBar();
+		/*pOut->CreatePlayModeToolBar()*/;
 		//in progress
 		break;
 	
