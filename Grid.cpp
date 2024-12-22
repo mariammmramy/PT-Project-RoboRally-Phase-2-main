@@ -97,6 +97,24 @@ bool Grid::flagfound()
 	}
 }
 
+bool Grid::antennafound()
+{
+
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
+		{
+			Cell* cell = CellList[i][j];
+			if (cell->GetGameObject() != nullptr && cell->HasAntenna())
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+}
+
 
 // ========= Setters and Getters Functions =========
 
