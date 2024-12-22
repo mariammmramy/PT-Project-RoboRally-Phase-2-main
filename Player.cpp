@@ -147,18 +147,13 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 
 		}
 
-	if (!newPos.IsValidCell()) {  //validate the new position cell
-		pOut->PrintMessage("Invalid move! Position out of bounds. Skipping...");
-		continue;
-	}
-
-	//CellPosition* newCell = (CellPosition)pCell->GetCellPosition();
-
-	//if (newCell != nullptr) {
-	//	pCell->ClearDrawing(pOut); // Clear drawing at the old cell
-	//	SetCell(newCell);          // Update the player's cell
-	//	newCell->Draw(pOut);       // Draw the player in the new cell
-	//}
+		if (!newPos.IsValidCell()) {  //validate the new position cell
+			pOut->PrintMessage("Invalid move! Position out of bounds. Skipping...");
+			continue;
+		}
+	
+		pGrid->UpdatePlayerCell(this, newPos); //updates player cell
+		// to do: code to interact with game objects 
 
 		pOut->PrintMessage("Click anywhere to execute the next command");
 		pIn->GetCellClicked();
