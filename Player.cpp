@@ -97,7 +97,7 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		for (int i = 0; i < COMMANDS_COUNT; i++) {
 			//code to do command
 			pOut->PrintMessage("Click anywhere to execute the next command");
-			pIn->GetUserAction();
+			pIn->GetCellClicked();
 		}
 	}
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
