@@ -20,6 +20,7 @@ void Exit:: Execute() {
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
+
 	pOut->ClearStatusBar();
     pOut->ClearCommandsBar();
 	pOut->ClearGridArea();
