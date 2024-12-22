@@ -84,8 +84,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pOut->ClearCommandsBar();
 		pOut->ClearGridArea();*/
 		pAct = new Exit(this);
-		delete pIn;
-		delete pOut;
+		delete pIn;//deletes memory in pIn 
+		delete pOut;//deletes memory in pIn 
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
@@ -119,7 +119,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			PASTE,
 			DELETE_OBJECT,
 			SAVE,
-			OPEN,*/
+			OPEN,
+			EXIT, (done)
+			EXITP (done)*/
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
@@ -138,6 +140,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		break;
 	case(EXITP):
+		pAct = new Exit(this); //class to exit the app
+		delete pIn; //deletes memory in pIn 
+		delete pOut; // deletes memory in pOut
+		break;
 
 		break; 
 
