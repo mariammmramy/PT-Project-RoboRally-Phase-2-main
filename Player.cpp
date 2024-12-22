@@ -94,12 +94,12 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 
 	}
 
+		CellPosition currentPos = pCell->GetCellPosition();
+		CellPosition newPos = currentPos;
 	
 	for (int i = 0; i < COMMANDS_COUNT; i++) {
 		//code to do command
 		Command pCmd = moveCommands[i];
-		CellPosition currentPos = pCell->GetCellPosition();
-		CellPosition newPos = currentPos;
 
 		/*Switch case to determine what to do based on each command*/
 		switch (pCmd) {
@@ -147,10 +147,23 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 
 		}
 
+	if (!newPos.IsValidCell()) {  //validate the new position cell
+		pOut->PrintMessage("Invalid move! Position out of bounds. Skipping...");
+		continue;
+	}
+
+	//CellPosition* newCell = (CellPosition)pCell->GetCellPosition();
+
+	//if (newCell != nullptr) {
+	//	pCell->ClearDrawing(pOut); // Clear drawing at the old cell
+	//	SetCell(newCell);          // Update the player's cell
+	//	newCell->Draw(pOut);       // Draw the player in the new cell
+	//}
+
 		pOut->PrintMessage("Click anywhere to execute the next command");
 		pIn->GetCellClicked();
 	}
-	
+
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
 	//		be applied.
 	// 
