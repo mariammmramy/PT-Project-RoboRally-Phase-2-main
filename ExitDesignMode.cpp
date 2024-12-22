@@ -8,8 +8,8 @@ ExitDesignMode::ExitDesignMode(ApplicationManager* pApp):Action(pApp) {
 }
 void ExitDesignMode:: ReadActionParameters() {
 	Grid* pGrid = pManager->GetGrid();
-	Output* pOut = pGrid->GetOutput();    //Output pointer
-	Input* pIn = pGrid->GetInput();       //Input pointer 
+	Output* pOut = pGrid->GetOutput();     //Output pointer
+	Input* pIn = pGrid->GetInput();        //Input pointer 
 
 	pOut->PrintMessage(" Select this option to close the application ");
 }
