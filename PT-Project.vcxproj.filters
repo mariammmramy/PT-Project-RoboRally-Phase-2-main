@@ -199,9 +199,6 @@
     <ClCompile Include="ToDesignModeAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-<<<<<<< Updated upstream
-=======
-    <ClCompile Include="RebootAndRepair.cpp">
     <ClCompile Include="AddWaterpitAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -338,9 +335,6 @@
     <ClInclude Include="ToDesignModeAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
-<<<<<<< Updated upstream
-=======
-    <ClInclude Include="RebootAndRepair.h">
     <ClInclude Include="AddWaterpitAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
