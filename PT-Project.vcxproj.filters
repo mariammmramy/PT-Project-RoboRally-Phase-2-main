@@ -203,6 +203,7 @@
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="AddDangerZoneAction.cpp">
+    <ClCompile Include="Exit.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -338,6 +339,7 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="AddDangerZoneAction.h">
+    <ClInclude Include="Exit.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

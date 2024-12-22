@@ -8,6 +8,7 @@
 #include "ToDesignModeAction.h"
 #include "AddWaterpitAction.h"
 #include "AddDangerZoneAction.h"
+#include "Exit.h"
 
 ///TODO: Add #include for all action types
 
@@ -79,9 +80,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case EXIT:
 		/*Clear all areas to ensure smoother exit*/
-		pOut->ClearStatusBar();
+		/*pOut->ClearStatusBar();
 		pOut->ClearCommandsBar();
-		pOut->ClearGridArea();
+		pOut->ClearGridArea();*/
+		pAct = new Exit(this);
+		delete pIn;
+		delete pOut;
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
