@@ -6,7 +6,10 @@
 #include"Output.h"
 #include "Grid.h"
 
+DeleteAction::DeleteAction(ApplicationManager* pApp) : Action(pApp)
+{
 
+}
 
 void DeleteAction::ReadActionParameters()
 {
@@ -16,8 +19,15 @@ void DeleteAction::ReadActionParameters()
 	pOut->PrintMessage("Delete a figure ");
 
 	deletePos = pIn->GetCellClicked();
+	GameObject* pObj = pGrid->Getgameobjectfromcell(deletePos);
 
+	if (pObj == NULL)
+	{
+		pGrid->PrintErrorMessage("There is no game object in this cell to delete. Click to continue...");
+		return;
+	}
 
+	pOut->ClearStatusBar();
 }
 
 void DeleteAction::Execute()
