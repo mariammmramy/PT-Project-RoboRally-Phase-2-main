@@ -200,6 +200,11 @@
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="RebootAndRepair.cpp">
+    <ClCompile Include="AddWaterpitAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="AddDangerZoneAction.cpp">
+    <ClCompile Include="Exit.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -332,6 +337,11 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="RebootAndRepair.h">
+    <ClInclude Include="AddWaterpitAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="AddDangerZoneAction.h">
+    <ClInclude Include="Exit.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

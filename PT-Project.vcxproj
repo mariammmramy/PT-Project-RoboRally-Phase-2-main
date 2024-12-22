@@ -130,8 +130,11 @@
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="AddBeltAction.cpp" />
+    <ClCompile Include="AddDangerZoneAction.cpp" />
     <ClCompile Include="AddFlagAction.cpp" />
     <ClCompile Include="AddRotatingGearAction.cpp" />
+    <ClCompile Include="AddWaterpitAction.cpp" />
+    <ClCompile Include="AddWorkshopAction.cpp" />
     <ClCompile Include="Antenna.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Belt.cpp" />
@@ -174,6 +177,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
     <ClCompile Include="RebootAndRepair.cpp" />
+    <ClCompile Include="Exit.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
@@ -191,8 +195,11 @@
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="AddBeltAction.h" />
+    <ClInclude Include="AddDangerZoneAction.h" />
     <ClInclude Include="AddFlagAction.h" />
     <ClInclude Include="AddRotatingGearAction.h" />
+    <ClInclude Include="AddWaterpitAction.h" />
+    <ClInclude Include="AddWorkshopAction.h" />
     <ClInclude Include="Antenna.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Belt.h" />
@@ -219,6 +226,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
     <ClInclude Include="RebootAndRepair.h" />
+    <ClInclude Include="Exit.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
     <ClInclude Include="DangerZone.h" />
