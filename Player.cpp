@@ -182,7 +182,16 @@ void Player::ShootingPhase(Grid* pGrid) {
 	Input* pIn = pGrid->GetInput();
 
 	// Get opponent player
-	Player* opponent = pGrid->GetOpponent(this);
+	int currNum = pGrid->GetCurrentPlayerNum();
+	int oppNum;
+
+	if (currNum == 0) {
+		oppNum == 1;
+	}
+	else {
+		oppNum == 1;
+	}
+	Player* opponent = pGrid->GetCurrentPlayer();
 
 	// Get positions and directions
 	CellPosition currentPos = pCell->GetCellPosition();
@@ -211,7 +220,7 @@ void Player::ShootingPhase(Grid* pGrid) {
 
 		// Display hit message
 		pOut->PrintMessage("You hit another player, click to continue...");
-		pIn->GetPointClicked(); // Wait for user to click
+		pIn->GetCellClicked(); // Wait for user to click
 	}
 	else {
 		pOut->PrintMessage("No opponent in line of sight. Shooting skipped.");
