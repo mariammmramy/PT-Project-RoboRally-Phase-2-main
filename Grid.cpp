@@ -119,6 +119,12 @@ bool Grid::antennafound()
 // ========= Setters and Getters Functions =========
 
 
+GameObject* Grid::Getgameobjectfromcell(CellPosition pos)
+{
+	GameObject* pObj = CellList[pos.VCell()][pos.HCell()]->GetGameObject();
+	return pObj;
+}
+
 Input * Grid::GetInput() const
 {
 	return pIn;

@@ -1,13 +1,14 @@
 #pragma once
 #include "Action.h"
 #include "GameObject.h"
-class deleteAction : public Action
+
+class DeleteAction : public Action
 {
 	CellPosition deletePos;
 
 public:
+	DeleteAction(ApplicationManager* pApp);
 
-	deleteAction(ApplicationManager* pApp);
 
 	virtual void ReadActionParameters();
 
@@ -15,4 +16,3 @@ public:
 
 
 };
-

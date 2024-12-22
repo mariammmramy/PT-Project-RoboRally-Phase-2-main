@@ -6,13 +6,12 @@
 #include"Output.h"
 #include "Grid.h"
 
-deleteAction::deleteAction(ApplicationManager* pApp) : Action(pApp)
+DeleteAction::DeleteAction(ApplicationManager* pApp) : Action(pApp)
 {
-	deletePos = NULL;
 
 }
 
-void deleteAction::ReadActionParameters()
+void DeleteAction::ReadActionParameters()
 {
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
@@ -20,11 +19,18 @@ void deleteAction::ReadActionParameters()
 	pOut->PrintMessage("Delete a figure ");
 
 	deletePos = pIn->GetCellClicked();
+	GameObject* pObj = pGrid->Getgameobjectfromcell(deletePos);
 
+	if (pObj == NULL)
+	{
+		pGrid->PrintErrorMessage("There is no game object in this cell to delete. Click to continue...");
+		return;
+	}
 
+	pOut->ClearStatusBar();
 }
 
-void deleteAction::Execute()
+void DeleteAction::Execute()
 {
 	ReadActionParameters();
 

@@ -1,5 +1,4 @@
 #include "ApplicationManager.h"
-
 #include "Grid.h"
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
@@ -10,7 +9,8 @@
 #include "AddDangerZoneAction.h"
 #include "Exit.h"
 #include "AddWorkshopAction.h"
-
+#include "DeleteAction.h"
+#include "deleteAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -109,13 +109,17 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case SET_WORKSHOP:				//TODO:
 		pAct = new AddWorkshopAction(this);
 		break;
+	case DELETE_OBJECT:				//TODO:
+		pAct = new DeleteAction(this);
+		break;
+
 
 	/* for each of these enums you have to add a case in the switch case and to include its addobjectaction.h 
 			SET_ANTENNA,
 			SET_BELT, (Done)
 			SET_WATERPIT, (Done)
 			SET_DANGERZONE, (Done)
-			SET_WORKSHOP, 
+			SET_WORKSHOP,  (done)
 			SET_ROTATING_CW, (Done)
 			SET_ROTATING_ACW, (Done)
 			COPY, 
