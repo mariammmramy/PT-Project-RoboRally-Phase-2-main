@@ -164,6 +164,9 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	return NULL; // not found
 }
 
+int Grid::GetCurrentPlayerNum() {
+	return currPlayerNumber;
+}
 
 // ========= User Interface Functions =========
 
