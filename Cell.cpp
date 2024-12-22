@@ -8,6 +8,9 @@
 #include "Player.h"
 #include "DangerZone.h"
 #include "Output.h"
+#include "RotatingGear.h"
+#include "Antenna.h"
+#include "Workshop.h"
 Cell::Cell(const CellPosition & pos) : position(pos)
 {
 	// initializes the data members (position & pGameObject)
@@ -63,6 +66,20 @@ DangerZone * Cell::HasDangerZone() const
 	return dynamic_cast<DangerZone*>(pGameObject);
 }
 
+RotatingGear* Cell::HasRotatingGear() const
+{
+	return dynamic_cast<RotatingGear*>(pGameObject);
+}
+
+Antenna* Cell::HasAntenna() const
+{
+	return dynamic_cast<Antenna*>(pGameObject);
+}
+
+Workshop* Cell::HasWorkshop() const
+{
+	return dynamic_cast<Workshop*>(pGameObject);
+}
 
 // ======= Drawing Functions ======= 
 
@@ -81,7 +98,7 @@ void Cell::DrawCellOrWaterPitOrDangerZone(Output* pOut) const
 void Cell::DrawGameObject(Output* pOut) const
 {
 	//TODO: edit this incomplete implemntation to check for other game objects (excluding waterpits and dangerzones)
-	if (HasFlag()|| HasBelt())
+	if (HasFlag() || HasBelt() || HasRotatingGear() || HasAntenna() || HasWorkshop())
 		pGameObject->Draw(pOut); // draw game object
 
 }
