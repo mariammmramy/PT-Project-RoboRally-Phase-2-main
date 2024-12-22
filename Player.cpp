@@ -78,11 +78,28 @@ void Player::ClearDrawing(Output* pOut) const
 
 void Player::Move(Grid * pGrid, Command moveCommands[])
 {
+	Output* pOut = pGrid->GetOutput();
+	Input* pIn = pGrid->GetInput();
 
 	///TODO: Implement this function using the guidelines mentioned below
 
 	// - If a player has 5 (could have less) saved moveCommands, the robot will execute the first saved command,
 	//		then wait for a mouse click (display a message "Click anywhere to execute the next command").
+	if (COMMANDS_COUNT>5){
+		pOut->PrintMessage("Error! there are more than 5 commands...");
+		
+	}
+	else if (COMMANDS_COUNT <= 0) {
+		pOut->PrintMessage("Error! there areno commands to execute...");
+
+	}
+	else {
+		for (int i = 0; i < COMMANDS_COUNT; i++) {
+			//code to do command
+			pOut->PrintMessage("Click anywhere to execute the next command");
+			pIn->GetUserAction();
+		}
+	}
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
 	//		be applied.
 	// 
