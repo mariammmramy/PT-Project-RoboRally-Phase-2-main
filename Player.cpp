@@ -269,7 +269,8 @@ void Player::ShootingPhase(Grid* pGrid) {
 
 		// Display hit message
 		pOut->PrintMessage("You hit another player, click to continue...");
-		pIn->GetCellClicked(); // Wait for user to click
+		int x, y;
+		pIn->GetPointClicked(x,y); // Wait for user to click
 	}
 	else {
 		pOut->PrintMessage("No opponent in line of sight. Shooting skipped.");
