@@ -14,6 +14,7 @@
 #include "DeleteAction.h"
 #include "AddAntennaAction.h"
 #include "CopyAction.h"
+#include "NewAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -135,7 +136,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			SAVE,
 			OPEN,
 			EXIT, (done)
-			EXITP (done)*/
+			EXITP (done)
+			REBOOT(done)
+			NEW (done) */
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
@@ -150,8 +153,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		break;
 	case(NEW):
-
-
+		pAct = new NewAction(this);
 		break;
 	case(EXITP):
 		pAct = new Exit(this); //class to exit the app
