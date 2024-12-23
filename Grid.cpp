@@ -97,9 +97,33 @@ bool Grid::flagfound()
 	}
 }
 
+bool Grid::antennafound()
+{
+
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
+		{
+			Cell* cell = CellList[i][j];
+			if (cell->GetGameObject() != nullptr && cell->HasAntenna())
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+}
+
 
 // ========= Setters and Getters Functions =========
 
+
+GameObject* Grid::Getgameobjectfromcell(CellPosition pos)
+{
+	GameObject* pObj = CellList[pos.VCell()][pos.HCell()]->GetGameObject();
+	return pObj;
+}
 
 Input * Grid::GetInput() const
 {
@@ -163,14 +187,22 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	}
 	return NULL; // not found
 }
+// Gets a Pointer to the Current Player	                                   
+Player *Grid:: GetOppositePlayer() const {
+	int oppPlayerNum;
+	if (currPlayerNumber == 0) {
+		oppPlayerNum = 1;
+	}
+	else {
+		oppPlayerNum = 0;
+	}
+	return PlayerList[oppPlayerNum];
+}
 
 int Grid::GetCurrentPlayerNum() const {
 	return currPlayerNumber;
 }
 
-Player* Grid::GetOppPlayer(int oppNum) const {
-	return PlayerList[oppNum];
-}
 // ========= User Interface Functions =========
 
 

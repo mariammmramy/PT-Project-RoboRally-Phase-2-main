@@ -64,7 +64,7 @@ void AddWaterpitAction::Execute()
 	{
 		pOut->PrintMessage("Waterpit couldn't be added");
 	}
-
+	pGrid->UpdateInterface();
 }
 
 AddWaterpitAction::~AddWaterpitAction()

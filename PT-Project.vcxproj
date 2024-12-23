@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="AddAntennaAction.cpp" />
     <ClCompile Include="AddBeltAction.cpp" />
     <ClCompile Include="AddDangerZoneAction.cpp" />
     <ClCompile Include="AddFlagAction.cpp" />
@@ -176,7 +177,12 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant1.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
+    <ClCompile Include="CopyAction.cpp" />
+    <ClCompile Include="DeleteAction.cpp" />
+    <ClCompile Include="ExecutePlayerMovement.cpp" />
     <ClCompile Include="Exit.cpp" />
+    <ClCompile Include="NewAction.cpp" />
+    <ClCompile Include="RebootAndRepair.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
@@ -194,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="AddAntennaAction.h" />
     <ClInclude Include="AddBeltAction.h" />
     <ClInclude Include="AddDangerZoneAction.h" />
     <ClInclude Include="AddFlagAction.h" />
@@ -225,7 +232,12 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpegint.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
+    <ClInclude Include="CopyAction.h" />
+    <ClInclude Include="DeleteAction.h" />
+    <ClInclude Include="ExecutePlayerMovement.h" />
     <ClInclude Include="Exit.h" />
+    <ClInclude Include="NewAction.h" />
+    <ClInclude Include="RebootAndRepair.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
     <ClInclude Include="DangerZone.h" />

@@ -20,7 +20,6 @@ class Player
 	bool canMove;
 	bool canShoot;
 
-	bool canShootInPhase=true;
 	Command savedCommands[5];
 	// owned equipments
 	// carried consumables
@@ -33,7 +32,6 @@ public:
 	Player(Cell * pCell, int playerNum); // Constructor making any needed initializations
 
 	// ====== Setters and Getters ======
-	int Getplayernum();
 	void SetCell(Cell * cell);		// A setter for the pCell
 	Cell* GetCell() const;			// A getter for the pCell
 
@@ -42,8 +40,27 @@ public:
 
 
 	///TODO: You can add setters and getters for data members here (if needed)
+	int getweapon();
+	void setweapon(int w);
+	int gethackdevice();
+	void sethackdevice(int h);
+	int gettoolkit();
+	void settoolkit(int t);     //done by ziad
+
+
+
+	int Getplayernum();
 	Direction GetDirection();
 	void SetDirection(Direction d);
+
+	void SetMovement(bool move);
+	bool GetMovement();
+
+	void SetShooting(bool shoot);
+	bool GetShooting();    //done by mariam
+	
+	void SetSavedCommands(Command commands[], int num);  //set saved commands (should be used in select commands)
+	Command* GetSavedCommands();  //get saved commands
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Triangle on its current cell

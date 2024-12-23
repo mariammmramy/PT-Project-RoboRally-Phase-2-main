@@ -2,7 +2,7 @@
 #include "RotatingGear.h"
 #include "GameObject.h"
 
-Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
+Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT), canMove(true), canShoot(true)
 {
 	this->pCell = pCell;
 
@@ -10,6 +10,37 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNu
 }
 
 // ====== Setters and Getters ======
+
+int Player::getweapon()
+{
+	return weapon;
+}
+
+void Player::setweapon(int w)
+{
+	weapon = w;
+}
+
+int Player::gethackdevice()
+{
+	return hackdevice;
+}
+
+void Player::sethackdevice(int h)
+{
+	hackdevice = h;
+}
+
+int Player::gettoolkit()
+{
+	return toolkit;
+}
+
+void Player::settoolkit(int t)
+{
+	toolkit = t;
+}
+
 
 Direction  Player::GetDirection()
 {
@@ -49,6 +80,26 @@ void Player::SetHealth(int h)
 int Player::GetHealth()
 {
 	return this->health;
+}
+void Player::SetMovement(bool move) {
+
+}
+bool Player::GetMovement() {
+	return canMove;
+}
+
+void Player::SetShooting(bool shoot) {
+
+}
+bool Player::GetShooting() {
+	return canShoot;
+}
+Command* Player::GetSavedCommands() {
+	return savedCommands; // Return a pointer to saved commands
+}
+void Player::SetSavedCommands(Command commands[], int num) {
+	for (int i = 0; i < num; i++)
+		savedCommands[i] = commands[i];
 }
 
 // ====== Drawing Functions ======

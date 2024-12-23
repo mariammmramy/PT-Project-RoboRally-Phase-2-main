@@ -46,7 +46,7 @@ public:
 	void UpdatePlayerCell(Player * player, const CellPosition & newPosition); // Update the player's pCell with the CellList's Cell pointer of the "newPosition",
 	                                                                          // Clears the player's circle from the previous cell
 	    																	  // and  Draws it in the new cell
-
+	bool antennafound();
 	// ========= Setters and Getters Functions =========
 
 	Input * GetInput() const;	// Gets a Pointer to the Input
@@ -63,9 +63,13 @@ public:
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 	int GetCurrentPlayerNum() const; //Gets current player index
 	Player* GetOppPlayer(int num) const; //Gets pointer to opponent player
+	GameObject* Getgameobjectfromcell(CellPosition pos);
+	Player* GetOppositePlayer() const;	// Gets a Pointer to the opposite Player	                                   
+	
+
 	// ========= Other Getters =========
 	
-	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    
+	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	       
 	Belt * GetNextBelt(const CellPosition & position);  // Gets a Pointer to the first Belth after the passed "position"
 
 	// ========= User Interface Functions =========
