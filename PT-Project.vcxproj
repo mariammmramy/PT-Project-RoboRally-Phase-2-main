@@ -179,6 +179,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
     <ClCompile Include="CopyAction.cpp" />
     <ClCompile Include="DeleteAction.cpp" />
+    <ClCompile Include="ExecutePlayerMovement.cpp" />
     <ClCompile Include="Exit.cpp" />
     <ClCompile Include="RebootAndRepair.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
@@ -232,6 +233,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
     <ClInclude Include="CopyAction.h" />
     <ClInclude Include="DeleteAction.h" />
+    <ClInclude Include="ExecutePlayerMovement.h" />
     <ClInclude Include="Exit.h" />
     <ClInclude Include="RebootAndRepair.h" />
     <ClInclude Include="ToDesignModeAction.h" />

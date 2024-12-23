@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "Action.h"
-#include"Grid.h"
+#include "Grid.h"
 #include "Input.h"
 #include "Output.h"
 #include "ToPlayModeAction.h"
@@ -30,16 +30,6 @@ void ToPlayMode::Execute(){    //Switch to play mode (in progress)
 	
 	srand(time(NULL)); //initialize the random seed
 
-	Command availableCommands[COMMANDS_COUNT] = {
-		NO_COMMAND, MOVE_FORWARD_ONE_STEP, MOVE_BACKWARD_ONE_STEP, 
-		MOVE_FORWARD_TWO_STEPS, MOVE_BACKWARD_TWO_STEPS, 
-		MOVE_FORWARD_THREE_STEPS, MOVE_BACKWARD_THREE_STEPS, 
-		ROTATE_CLOCKWISE, ROTATE_COUNTERCLOCKWISE,
-
-	}; // Initialize available commands
-
-	Command savedCommands[5];
-
 	for (int i = 0; i < 5; i++) {
 		int RandIndex = rand() % 9; //generates a random number between 0 and 8
 		savedCommands[i] = availableCommands[RandIndex];
@@ -50,4 +40,7 @@ void ToPlayMode::Execute(){    //Switch to play mode (in progress)
 	pOut->CreateCommandsBar(savedCommands,5,availableCommands,5); //commands bar with random commands
 
 	pGrid->UpdateInterface();
+}
+Command ToPlayMode:: GetSavedCommands() {
+	return savedCommands[5];
 }
