@@ -185,6 +185,7 @@
     <ClCompile Include="NewAction.cpp" />
     <ClCompile Include="RebootAndRepair.cpp" />
     <ClCompile Include="PasteAction.cpp" />
+    <ClCompile Include="Selectcommands.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
@@ -243,6 +244,7 @@
     <ClInclude Include="NewAction.h" />
     <ClInclude Include="RebootAndRepair.h" />
     <ClInclude Include="PasteAction.h" />
+    <ClInclude Include="Selectcommands.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
     <ClInclude Include="DangerZone.h" />
