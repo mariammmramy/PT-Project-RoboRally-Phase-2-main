@@ -14,6 +14,7 @@ public:
 
 	GameObject(const CellPosition & pos); // Constructor for initializing data members
 	
+	GameObject(const GameObject& oldobj);
 	CellPosition GetPosition() const;     // A Getter for position
 	void SetPosition(CellPosition pos);
 

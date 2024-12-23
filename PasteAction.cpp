@@ -37,10 +37,25 @@ void PasteAction::Execute()
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 
+
+
+	GameObject* testobj = pGrid->Getgameobjectfromcell(pastePos);
+
+	if (testobj)
+	{
+		pGrid->PrintErrorMessage("Cell already has another game object, click to continue...");
+		return;
+	}
+
 	GameObject* pObj = pGrid->GetClipboard();	// getting a pointer to the game object in the selected cell
+	CellPosition oldpos = pObj->GetPosition();
+
 	GameObject* pNewObj = pObj;
+
 	pNewObj->SetPosition(pastePos);
-	pObj->Draw(pOut);
+	
+	pGrid->AddObjectToCell(pNewObj);
+
 
 	pOut->PrintMessage("Pasted successfully!. Click to continue...");
 
