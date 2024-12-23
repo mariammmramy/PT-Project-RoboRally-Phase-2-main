@@ -13,7 +13,6 @@ void RebootAndRepair::ReadActionParameters() {  //
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 
-
 	pOut->ClearStatusBar();
 }
 void RebootAndRepair::Execute() {   
