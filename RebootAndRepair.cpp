@@ -34,7 +34,7 @@ void RebootAndRepair::Execute() {
     else {
         // Handle case where no player is selected or valid
         Output* pOut = pGrid->GetOutput();
-        pOut->PrintMessage("Error: No valid player to reboot and repair.");
+        pGrid->PrintErrorMessage("Error: No valid player to reboot and repair.");
     }
 }
 

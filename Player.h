@@ -30,7 +30,6 @@ public:
 	Player(Cell * pCell, int playerNum); // Constructor making any needed initializations
 
 	// ====== Setters and Getters ======
-	int Getplayernum();
 	void SetCell(Cell * cell);		// A setter for the pCell
 	Cell* GetCell() const;			// A getter for the pCell
 
@@ -48,6 +47,7 @@ public:
 
 
 
+	int Getplayernum();
 	Direction GetDirection();
 	void SetDirection(Direction d);
 
@@ -55,7 +55,7 @@ public:
 	bool GetMovement();
 
 	void SetShooting(bool shoot);
-	bool GetShooting();
+	bool GetShooting();    //done by mariam
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Triangle on its current cell
