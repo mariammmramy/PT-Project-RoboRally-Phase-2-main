@@ -39,6 +39,5 @@ void ToPlayMode::Execute(){    //Switch to play mode (in progress)
 
 	pOut->CreatePlayModeToolBar();
 	pOut->CreateCommandsBar(savedCommands,5,availableCommands,5); //commands bar with random commands
-	pPlayer->SetSavedCommands(savedCommands, 5);  //initialise saved commands in player
 	pGrid->UpdateInterface();
 }

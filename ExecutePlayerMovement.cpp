@@ -22,7 +22,7 @@ void ExecutePlayerMovement::Execute() {
     Output* pOut = pGrid->GetOutput();
     Player* pPlayer = pGrid->GetCurrentPlayer();
     Command* commands = pPlayer->GetSavedCommands();
-    if (!commands) {
+    if (commands==NULL) {
         pOut->PrintMessage("Cannot fetch play mode commands.");
         return;
     }

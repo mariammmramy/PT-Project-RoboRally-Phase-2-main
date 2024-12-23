@@ -58,8 +58,8 @@ public:
 	void SetShooting(bool shoot);
 	bool GetShooting();
 
-	void SetSavedCommands(Command commands[], int num);
-	Command* GetSavedCommands();
+	void SetSavedCommands(Command commands[], int num);  //set saved commands (should be used in select commands)
+	Command* GetSavedCommands();  //get saved commands
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Triangle on its current cell
