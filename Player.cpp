@@ -41,6 +41,16 @@ void Player::settoolkit(int t)
 	toolkit = t;
 }
 
+bool Player:: getishacked()
+{
+	return ishacked;
+}
+
+void Player::setishacked(bool hacked)
+{
+	ishacked = hacked;
+}
+
 
 Direction  Player::GetDirection()
 {
@@ -226,6 +236,7 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += "P" + to_string(playerNum) + "(" ;
 	playersInfo += to_string(currDirection) + ", ";
 	playersInfo += to_string(health) + ")";
+	playersInfo += " Cellnum: " + stepCount;
 
 }
 void Player::ShootingPhase(Grid* pGrid) {

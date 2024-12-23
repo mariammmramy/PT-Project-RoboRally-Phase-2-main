@@ -18,6 +18,7 @@
 #include "NewAction.h"
 #include "PasteAction.h"
 #include "CutAction.h"
+#include "UseHackDevice.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -171,6 +172,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		break;
 	case(USE_HACK):
+		pAct = new UseHackDevice(this);
 
 		break;
 	case(NEW):

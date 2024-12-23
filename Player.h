@@ -16,6 +16,8 @@ class Player
 	int toolkit = 0;
 	int hackdevice = 0;		//tool kit and hack device shoul not be more than one so you should validate that in the buying conumables
 	int weapon = 0;			// 0 means single laser and 1 means double laser
+	bool ishacked = false;
+	bool isrepaired = false;
 
 	bool canMove;
 	bool canShoot;
@@ -47,7 +49,8 @@ public:
 	int gettoolkit();
 	void settoolkit(int t);     //done by ziad
 
-
+	bool getishacked();
+	void setishacked(bool hacked);
 
 	int Getplayernum();
 	Direction GetDirection();

@@ -197,6 +197,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RotatingGear.cpp" />
     <ClCompile Include="UseConsumableToolkit.cpp" />
+    <ClCompile Include="UseHackDevice.cpp" />
     <ClCompile Include="WaterPit.cpp" />
     <ClCompile Include="Workshop.cpp" />
   </ItemGroup>
@@ -255,6 +256,7 @@
     <ClInclude Include="RotatingGear.h" />
     <ClInclude Include="UI_Info.h" />
     <ClInclude Include="UseConsumableToolkit.h" />
+    <ClInclude Include="UseHackDevice.h" />
     <ClInclude Include="WaterPit.h" />
     <ClInclude Include="Workshop.h" />
   </ItemGroup>
