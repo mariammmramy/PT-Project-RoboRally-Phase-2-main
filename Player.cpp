@@ -181,42 +181,51 @@ void Player::ShootingPhase(Grid* pGrid) {
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 
+	if (canShoot == false) {
+		pGrid->PrintErrorMessage("Player cannot currently shoot...");
+		return;
+	}
+
 	// Get opponent player
 	int currNum = pGrid->GetCurrentPlayerNum();
-	int oppNum;
+	int oppNum; 
 
 	if (currNum == 0) {
 		oppNum == 1;
 	}
 	else {
-		oppNum == 1;
+		oppNum == 0;
 	}
-	Player* opponent = pGrid->GetCurrentPlayer();
+	//Player* currentP = pGrid->GetCurrentPlayer();
+	Player* opponentP= pGrid->GetOppPlayer(oppNum);
 
 	// Get positions and directions
 	CellPosition currentPos = pCell->GetCellPosition();
-	CellPosition opponentPos = opponent->GetCell()->GetCellPosition();
+	CellPosition opponentPos = opponentP->GetCell()->GetCellPosition();
 	Direction myDir = currDirection;
 
 	// Check if in the same row or column
-	bool canShoot = false;
+	bool canShootInPhase = false; //check to see if can shoot
 	if (myDir == UP || myDir == DOWN) {
-		canShoot = (currentPos.HCell() == opponentPos.HCell()) &&
+		canShootInPhase = (currentPos.HCell() == opponentPos.HCell()) &&
 			((myDir == UP && opponentPos.VCell() < currentPos.VCell()) ||
 				(myDir == DOWN && opponentPos.VCell() > currentPos.VCell()));
 	}
 	else if (myDir == LEFT || myDir == RIGHT) {
-		canShoot = (currentPos.VCell() == opponentPos.VCell()) &&
+		canShootInPhase = (currentPos.VCell() == opponentPos.VCell()) &&
 			((myDir == LEFT && opponentPos.HCell() < currentPos.HCell()) ||
 				(myDir == RIGHT && opponentPos.HCell() > currentPos.HCell()));
 	}
 
 	// If shooting is possible
-	if (canShoot) {
+	if (canShootInPhase) {
 		int damage = 1; // Basic Laser damage
-		if (hasDoubleLaser) damage = 2; // Check if the player has a double laser
+		if (weapon == 1)
+			damage = 2; //check if the player has a double laser
+		else
+			damage = 1;//damage = 1 if single laser
 
-		opponent->ReduceHealth(damage); // Reduce opponent's health
+		opponentP->SetHealth(health-damage); //reduce opponent's health
 
 		// Display hit message
 		pOut->PrintMessage("You hit another player, click to continue...");

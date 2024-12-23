@@ -13,12 +13,20 @@ class Player
 	int stepCount;		   // step count which is the same as his cellNum: from 1 to NumVerticalCells*NumHorizontalCells
 	Direction currDirection; // Current Direction of the player
 	int health;				// Player's current health points
+	int toolkit = 0;
+	int hackdevice = 0;		//tool kit and hack device shoul not be more than one so you should validate that in the buying conumables
+	int weapon = 0;			// 0 means single laser and 1 means double laser
 
+	bool canMove;
+	bool canShoot;
+
+	bool canShootInPhase=true;
+	Command savedCommands[5];
 	// owned equipments
 	// carried consumables
 	// carried laser type (default, double laser)
 	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
-	
+
 	
 public:
 
