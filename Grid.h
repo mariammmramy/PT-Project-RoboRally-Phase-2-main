@@ -62,7 +62,6 @@ public:
 
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 	int GetCurrentPlayerNum() const; //Gets current player index
-	Player* GetOppPlayer(int num) const; //Gets pointer to opponent player
 	GameObject* Getgameobjectfromcell(CellPosition pos);
 	Player* GetOppositePlayer() const;	// Gets a Pointer to the opposite Player	                                   
 	
