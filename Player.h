@@ -12,7 +12,7 @@ class Player
 
 	int stepCount;		   // step count which is the same as his cellNum: from 1 to NumVerticalCells*NumHorizontalCells
 	Direction currDirection; // Current Direction of the player
-	int health;				// Player's current health points
+	int health = 10;				// Player's current health points
 	int toolkit = 0;
 	int hackdevice = 0;		//tool kit and hack device shoul not be more than one so you should validate that in the buying conumables
 	int weapon = 0;			// 0 means single laser and 1 means double laser

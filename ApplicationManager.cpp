@@ -19,6 +19,7 @@
 #include "PasteAction.h"
 #include "CutAction.h"
 #include "UseHackDevice.h"
+#include "Selectcommands.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -165,6 +166,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case(EXECUTE_COMMANDS):
 		pAct = new ExecutePlayerMovement(this);
+		break;
+	case(SELECT_COMMANDS):
+		pAct = new Selectcommands(this);
 		break;
 
 	case(USE_TOOLKIT):

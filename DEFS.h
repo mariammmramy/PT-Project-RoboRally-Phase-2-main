@@ -33,7 +33,7 @@ enum ActionType // The actions supported (add more as needed)
 	//  [2] Actions of Play Mode
 
 	EXECUTE_COMMANDS,	// Execute the saved commands
-	SELECT_COMMAND,		// Select a command from the available ones to be executed
+	SELECT_COMMANDS,		// Select a command from the available ones to be executed
 	TO_DESIGN_MODE,	// Go to Design Mode
 
 
