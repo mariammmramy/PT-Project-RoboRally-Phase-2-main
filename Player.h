@@ -14,6 +14,8 @@ class Player
 	Direction currDirection; // Current Direction of the player
 	int health;				// Player's current health points
 
+	bool canMove;
+	bool canShoot;
 	// owned equipments
 	// carried consumables
 	// carried laser type (default, double laser)
@@ -36,6 +38,12 @@ public:
 	///TODO: You can add setters and getters for data members here (if needed)
 	Direction GetDirection();
 	void SetDirection(Direction d);
+
+	void SetMovement(bool move);
+	bool GetMovement();
+
+	void SetShooting(bool shoot);
+	bool GetShooting();
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Triangle on its current cell

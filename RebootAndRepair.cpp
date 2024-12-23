@@ -25,8 +25,8 @@ void RebootAndRepair::Execute() {
         pPlayer->SetHealth(10);
 
         //Disable movement and shooting for this round (in progress)
-        //pPlayer->DisableMovement();
-        //pPlayer->DisableShooting();
+        pPlayer->SetMovement(false);
+        pPlayer->SetShooting(false);
 
         // message to inform the player
         Output* pOut = pGrid->GetOutput();
