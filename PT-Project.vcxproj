@@ -180,6 +180,7 @@
     <ClCompile Include="CopyAction.cpp" />
     <ClCompile Include="DeleteAction.cpp" />
     <ClCompile Include="Exit.cpp" />
+    <ClCompile Include="RebootAndRepair.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
