@@ -31,26 +31,6 @@ void ToPlayMode::Execute(){    //Switch to play mode
 	//get random commands
 
 
-	int health = pPlayer->GetHealth();
-	Command* commands = new Command[health];
-	for (int i = 0; i < health; i++)
-	{
-		commands[i] = NO_COMMAND;
-	}
-
-
-	srand(time(NULL)); //initialize the random seed
-
-	for (int i = 0; i < health; i++) {
-		int RandIndex = rand() % 8; //generates a random number between 0 and 8
-		commands[i] = availableCommands[RandIndex];
-	}
-
-	pOut->CreateCommandsBar(savedCommands, 5, commands, health);
-
-
-	
-
 	pOut->CreatePlayModeToolBar();
 	 //commands bar with random commands
 	pOut->PrintMessage("Switched to play mode...");
