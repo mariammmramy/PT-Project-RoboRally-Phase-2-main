@@ -73,6 +73,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case EXIT:EXITP:
+		pAct = new Exit(this);
 		delete pOut; //delete pointer to output
 		pOut = nullptr;
 
@@ -82,10 +83,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		delete pIn;  //delete pointer to input
 		pIn = nullptr;
 
-
-		pAct = new Exit(this);
-
-		delete pAct;
+		delete pAct; //delete pointer to any action
+		pAct = nullptr;
 
 		break;
 
