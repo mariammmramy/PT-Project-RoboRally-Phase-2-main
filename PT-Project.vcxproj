@@ -180,6 +180,7 @@
     <ClCompile Include="CopyAction.cpp" />
     <ClCompile Include="DeleteAction.cpp" />
     <ClCompile Include="Exit.cpp" />
+    <ClCompile Include="PasteAction.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
@@ -232,6 +233,7 @@
     <ClInclude Include="CopyAction.h" />
     <ClInclude Include="DeleteAction.h" />
     <ClInclude Include="Exit.h" />
+    <ClInclude Include="PasteAction.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
     <ClInclude Include="DangerZone.h" />

@@ -210,9 +210,18 @@
     <ClCompile Include="AddWorkshopAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="CopyAction.cpp" />
-    <ClCompile Include="DeleteAction.cpp" />
-    <ClCompile Include="AddAntennaAction.cpp" />
+    <ClCompile Include="AddAntennaAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="PasteAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -353,8 +362,17 @@
     <ClInclude Include="AddWorkshopAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="CopyAction.h" />
-    <ClInclude Include="DeleteAction.h" />
-    <ClInclude Include="AddAntennaAction.h" />
+    <ClInclude Include="AddAntennaAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="PasteAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
