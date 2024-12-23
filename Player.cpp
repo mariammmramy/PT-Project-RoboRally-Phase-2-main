@@ -18,6 +18,11 @@ int Player::getweapon()
 
 void Player::setweapon(int w)
 {
+	if (w > 1 || w < 0)
+	{
+		return;
+	}
+	
 	weapon = w;
 }
 
@@ -28,6 +33,11 @@ int Player::gethackdevice()
 
 void Player::sethackdevice(int h)
 {
+
+	if (h > 1 || h < 0)
+	{
+		return;
+	}
 	hackdevice = h;
 }
 
@@ -38,6 +48,11 @@ int Player::gettoolkit()
 
 void Player::settoolkit(int t)
 {
+	
+	if (t > 1 || t < 0)
+	{
+		return;
+	}
 	toolkit = t;
 }
 
@@ -49,6 +64,30 @@ bool Player:: getishacked()
 void Player::setishacked(bool hacked)
 {
 	ishacked = hacked;
+}
+
+int Player::getexmem()
+{
+	return exmem;
+}
+
+int Player::getnumsavedcommands()
+{
+	return numsavedcommands;
+}
+
+void Player::setexmem(int x)
+{
+	if (x > 1 || x < 0)
+	{
+		return;
+	}
+
+	exmem = x;
+}
+void Player::setnumsavedcommands(int num)
+{
+	numsavedcommands = num;
 }
 
 

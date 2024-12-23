@@ -54,12 +54,13 @@ void Selectcommands::Execute()
 		commands[i] = availableCommands[RandIndex];
 	}
 
-	pOut->CreateCommandsBar(savedCommands, 5, commands, health);
+	int numsaved = pPlayer->getnumsavedcommands();
+	pOut->CreateCommandsBar(savedCommands, numsaved, commands, health);
 
 	int iteration;
-	if (health >= 5)
+	if (health >= numsaved)
 	{
-		iteration = 5;
+		iteration = numsaved;
 	}
 	else
 	{
@@ -70,7 +71,7 @@ void Selectcommands::Execute()
 	{
 		int x = -1, y = -1;
 		pIn->GetPointClicked(x, y);
-		int clickedItemOrder;
+		int clickedItemOrder = 999;
 
 		if (y >= (UI.height - UI.CommandsBarHeight + UI.AvailableCommandsYOffset) && y < (UI.AvailableCommandsYOffset))
 		{

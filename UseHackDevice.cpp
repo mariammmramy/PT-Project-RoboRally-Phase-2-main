@@ -46,9 +46,12 @@ void UseHackDevice::Execute()
 		hackednum = 1;
 	}
 
+	Player* pPlayer = pGrid->GetCurrentPlayer();
 	Player* phacked = pGrid->GetOppositePlayer();
-	phacked->setishacked(true);
-	
+
+	phacked->SetMovement(false);
+	pPlayer->sethackdevice(0);
+
 	pGrid->UpdateInterface();
 }
 

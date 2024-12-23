@@ -14,11 +14,13 @@ class Player
 	Direction currDirection; // Current Direction of the player
 	int health = 10;				// Player's current health points
 	int toolkit = 0;
-	int hackdevice = 0;		//tool kit and hack device shoul not be more than one so you should validate that in the buying conumables
+	int hackdevice = 0;		//tool kit and hack device should not be more than one so you should validate that in the buying conumables
 	int weapon = 0;			// 0 means single laser and 1 means double laser
 	bool ishacked = false;
 	bool isrepaired = false;
 
+	int exmem = 0;		//bonus; extended memory, cannot have more the one
+	int numsavedcommands = 5;
 	bool canMove;
 	bool canShoot;
 
@@ -51,6 +53,12 @@ public:
 
 	bool getishacked();
 	void setishacked(bool hacked);
+
+	int getexmem();
+	int getnumsavedcommands();
+
+	void setexmem(int x);
+	void setnumsavedcommands(int num);
 
 	int Getplayernum();
 	Direction GetDirection();

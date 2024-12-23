@@ -20,6 +20,7 @@
 #include "CutAction.h"
 #include "UseHackDevice.h"
 #include "Selectcommands.h"
+#include "ActivateExmem.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -179,6 +180,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new UseHackDevice(this);
 
 		break;
+	case(USE_EXMEM):
+		pAct = new ActivateExmem(this);
+
+		break;
+
 	case(NEW):
 
 		pAct = new NewAction(this);

@@ -41,6 +41,7 @@ enum ActionType // The actions supported (add more as needed)
 	REBOOT,
 	USE_TOOLKIT,
 	USE_HACK,
+	USE_EXMEM,
 	NEW,
 	EXITP,
 
