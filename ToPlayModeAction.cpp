@@ -13,7 +13,7 @@ ToPlayMode::ToPlayMode(ApplicationManager* pApp) : Action(pApp) {   //Created Co
 ToPlayMode::~ToPlayMode() {  //Created destructor
 
 }
-void ToPlayMode::ReadActionParameters() {  //(in progress)
+void ToPlayMode::ReadActionParameters() { 
 	// Get a Pointer to the Input / Output Interfaces
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
@@ -22,7 +22,7 @@ void ToPlayMode::ReadActionParameters() {  //(in progress)
 
 	pOut->ClearStatusBar();
 }
-void ToPlayMode::Execute(){    //Switch to play mode (in progress)
+void ToPlayMode::Execute(){    //Switch to play mode 
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
@@ -39,6 +39,8 @@ void ToPlayMode::Execute(){    //Switch to play mode (in progress)
 
 	pOut->CreatePlayModeToolBar();
 	pOut->CreateCommandsBar(savedCommands,5,commands,5); //commands bar with random commands
-
+	pOut->PrintMessage("Switched to play mode...");
 	pGrid->UpdateInterface();
+	pGrid->SetEndGame(false);
+
 }
