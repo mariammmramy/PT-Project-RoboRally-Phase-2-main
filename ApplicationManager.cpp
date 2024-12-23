@@ -72,14 +72,21 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new AddFlagAction(this);
 		break;
 
-	case EXIT:
-		/*Clear all areas to ensure smoother exit*/
-		/*pOut->ClearStatusBar();
-		pOut->ClearCommandsBar();
-		pOut->ClearGridArea();*/
+	case EXIT:EXITP:
+		delete pOut; //delete pointer to output
+		pOut = nullptr;
+
+		delete pGrid; //delete pointer to grid
+		pGrid = nullptr;
+
+		delete pIn;  //delete pointer to input
+		pIn = nullptr;
+
+
 		pAct = new Exit(this);
-		delete pIn;
-		delete pOut;
+
+		delete pAct;
+
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
