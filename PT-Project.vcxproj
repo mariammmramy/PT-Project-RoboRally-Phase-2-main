@@ -183,6 +183,7 @@
     <ClCompile Include="Exit.cpp" />
     <ClCompile Include="NewAction.cpp" />
     <ClCompile Include="RebootAndRepair.cpp" />
+    <ClCompile Include="PasteAction.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
@@ -238,6 +239,7 @@
     <ClInclude Include="Exit.h" />
     <ClInclude Include="NewAction.h" />
     <ClInclude Include="RebootAndRepair.h" />
+    <ClInclude Include="PasteAction.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
     <ClInclude Include="DangerZone.h" />

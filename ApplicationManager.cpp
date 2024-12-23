@@ -16,6 +16,7 @@
 #include "CopyAction.h"
 #include "ExecutePlayerMovement.h"
 #include "NewAction.h"
+#include "PasteAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -129,6 +130,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case COPY:
 		pAct = new CopyAction(this);
 		break;
+	case PASTE:
+		pAct = new PasteAction(this);
+		break;
 	/* for each of these enums you have to add a case in the switch case and to include its addobjectaction.h 
 			SET_ANTENNA, (Done)
 			SET_BELT, (Done)
@@ -136,9 +140,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			SET_DANGERZONE, (Done)
 			SET_ROTATING_CW, (Done)
 			SET_ROTATING_ACW, (Done)
-			COPY, 
+			COPY, (Done)
 			CUT,
-			PASTE,
+			PASTE, (Done)
 			DELETE_OBJECT, (Done)
 			SAVE,
 			OPEN,
