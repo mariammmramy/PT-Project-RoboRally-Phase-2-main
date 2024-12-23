@@ -181,6 +181,7 @@
     <ClCompile Include="DeleteAction.cpp" />
     <ClCompile Include="ExecutePlayerMovement.cpp" />
     <ClCompile Include="Exit.cpp" />
+    <ClCompile Include="NewAction.cpp" />
     <ClCompile Include="RebootAndRepair.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
@@ -235,6 +236,7 @@
     <ClInclude Include="DeleteAction.h" />
     <ClInclude Include="ExecutePlayerMovement.h" />
     <ClInclude Include="Exit.h" />
+    <ClInclude Include="NewAction.h" />
     <ClInclude Include="RebootAndRepair.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
