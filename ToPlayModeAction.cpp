@@ -27,17 +27,18 @@ void ToPlayMode::Execute(){    //Switch to play mode (in progress)
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	Player* pPlayer = pGrid->GetCurrentPlayer();
-
+	Command commands[5] = { NO_COMMAND };
 	//get random commands
 	
 	srand(time(NULL)); //initialize the random seed
 
 	for (int i = 0; i < 5; i++) {
-		int RandIndex = rand() % 9; //generates a random number between 0 and 8
-		savedCommands[i] = availableCommands[RandIndex];
+		int RandIndex = rand() % 8; //generates a random number between 0 and 8
+		commands[i] = availableCommands[RandIndex];
 	}
 
 	pOut->CreatePlayModeToolBar();
-	pOut->CreateCommandsBar(savedCommands,5,availableCommands,5); //commands bar with random commands
+	pOut->CreateCommandsBar(savedCommands,5,commands,5); //commands bar with random commands
+
 	pGrid->UpdateInterface();
 }
