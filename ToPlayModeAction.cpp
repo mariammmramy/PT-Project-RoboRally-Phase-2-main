@@ -33,8 +33,14 @@ void ToPlayMode::Execute(){    //Switch to play mode
 	srand(time(NULL)); //initialize the random seed
 
 	for (int i = 0; i < 5; i++) {
-		int RandIndex = rand() % 8; //generates a random number between 0 and 7
-		commands[i] = availableCommands[RandIndex];
+		if (pPlayer->GetHealth() >= 8) {
+			int RandIndex = rand() % 8; //generates a random number between 0 and 7
+			commands[i] = availableCommands[RandIndex];
+		}
+		else {
+			int RandIndex = rand() % (pPlayer->GetHealth()); //generates a random number between 0 and 7
+			commands[i] = availableCommands[RandIndex];
+		}
 	}
 
 	pOut->CreatePlayModeToolBar();
