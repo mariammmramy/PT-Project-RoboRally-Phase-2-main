@@ -15,6 +15,7 @@
 #include "AddAntennaAction.h"
 #include "CopyAction.h"
 #include "ExecutePlayerMovement.h"
+#include "NewAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -142,8 +143,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			SAVE,
 			OPEN,
 			EXIT, (done)
-			EXITP,(done)
-			EXECUTE_COMMANDS (done)*/
+			EXECUTE_COMMANDS (done)
+			EXITP (done)
+			REBOOT(done)
+			NEW (done) */
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
@@ -164,8 +167,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case(NEW):
 
-		break; 
-
+		pAct = new NewAction(this);
+		pAct->Execute();
+		pAct = new ToDesignModeAction(this);
+		break;
+		
 	case STATUS:	// a click on the status bar ==> no action
 		return;
 	}

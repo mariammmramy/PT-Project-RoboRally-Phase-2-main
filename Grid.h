@@ -62,11 +62,12 @@ public:
 
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 	GameObject* Getgameobjectfromcell(CellPosition pos);
-
+	Player* GetOppositePlayer() const;	// Gets a Pointer to the opposite Player	                                   
+	
 
 	// ========= Other Getters =========
 	
-	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    
+	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	       
 	Belt * GetNextBelt(const CellPosition & position);  // Gets a Pointer to the first Belth after the passed "position"
 
 	// ========= User Interface Functions =========
