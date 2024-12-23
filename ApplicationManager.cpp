@@ -14,6 +14,7 @@
 #include "DeleteAction.h"
 #include "AddAntennaAction.h"
 #include "CopyAction.h"
+#include "ExecutePlayerMovement.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -135,13 +136,19 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			SAVE,
 			OPEN,
 			EXIT, (done)
-			EXITP (done)*/
+			EXITP,(done)
+			EXECUTE_COMMANDS (done)*/
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
 	case(REBOOT):
 		pAct = new RebootAndRepair(this);
 		break;
+
+	case(EXECUTE_COMMANDS):
+		pAct = new ExecutePlayerMovement(this);
+		break;
+
 	case(USE_TOOLKIT):
 
 

@@ -6,6 +6,7 @@
 #include "Input.h"
 #include "Output.h"
 #include "ToPlayModeAction.h"
+#include "Player.h"
 ToPlayMode::ToPlayMode(ApplicationManager* pApp) : Action(pApp) {   //Created Constructor
 
 }
@@ -25,6 +26,7 @@ void ToPlayMode::Execute(){    //Switch to play mode (in progress)
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
+	Player* pPlayer = pGrid->GetCurrentPlayer();
 
 	//get random commands
 	
@@ -35,12 +37,8 @@ void ToPlayMode::Execute(){    //Switch to play mode (in progress)
 		savedCommands[i] = availableCommands[RandIndex];
 	}
 
-
 	pOut->CreatePlayModeToolBar();
 	pOut->CreateCommandsBar(savedCommands,5,availableCommands,5); //commands bar with random commands
-
+	pPlayer->SetSavedCommands(savedCommands, 5);  //initialise saved commands in player
 	pGrid->UpdateInterface();
-}
-Command ToPlayMode:: GetSavedCommands() {
-	return savedCommands[5];
 }

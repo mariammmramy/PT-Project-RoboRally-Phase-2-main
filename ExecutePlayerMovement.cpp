@@ -19,11 +19,16 @@ void ExecutePlayerMovement::ReadActionParameters() {  //
 void ExecutePlayerMovement::Execute() {
     ReadActionParameters();
     Grid* pGrid = pManager->GetGrid();
+    Output* pOut = pGrid->GetOutput();
     Player* pPlayer = pGrid->GetCurrentPlayer();
-    ToPlayMode* pPlay; //pointer to get commands in play mode
-    Command commands[5];
-    commands[5] = pPlay->GetSavedCommands(); //save commands in array
+    Command* commands = pPlayer->GetSavedCommands();
+    if (!commands) {
+        pOut->PrintMessage("Cannot fetch play mode commands.");
+        return;
+    }
+
     pPlayer->Move(pGrid,commands);   //execute move
+    pGrid->UpdateInterface();
 }
 
 

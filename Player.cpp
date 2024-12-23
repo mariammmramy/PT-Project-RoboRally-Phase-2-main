@@ -94,6 +94,14 @@ void Player::SetShooting(bool shoot) {
 bool Player::GetShooting() {
 	return canShoot;
 }
+Command* Player::GetSavedCommands() {
+	return savedCommands; // Return a pointer to saved commands
+}
+void Player::SetSavedCommands(Command commands[], int num) {
+	for (int i = 0; i < num; i++)
+		savedCommands[i] = commands[i];
+}
+
 // ====== Drawing Functions ======
 
 
