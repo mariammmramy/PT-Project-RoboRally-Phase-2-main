@@ -44,7 +44,7 @@ void ToPlayMode::Execute(){    //Switch to play mode
 	}
 
 	pOut->CreatePlayModeToolBar();
-	pOut->CreateCommandsBar(savedCommands,5,commands,5); //commands bar with random commands
+	pOut->CreateCommandsBar(savedCommands,5,commands, pPlayer->GetHealth()); //commands bar with random commands
 	pOut->PrintMessage("Switched to play mode...");
 	pGrid->UpdateInterface();
 	pGrid->SetEndGame(false);
