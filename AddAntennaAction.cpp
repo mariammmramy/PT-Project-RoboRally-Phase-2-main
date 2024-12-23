@@ -20,7 +20,7 @@ void AddAntennaAction::ReadActionParameters()
 
     if (!antennapos.IsValidCell())
     {
-        pOut->PrintMessage("The cell isinvalid");
+        pOut->PrintMessage("The cell is invalid");
 
     }
     if (pGrid->antennafound())
@@ -39,9 +39,6 @@ void AddAntennaAction::Execute()
     ReadActionParameters();
 
 
-    if (!antennapos.IsValidCell())
-        return;
-
     Antenna* pantenna = new Antenna(antennapos);
     bool addantenna = pGrid->AddObjectToCell(pantenna);
     if (!addantenna)
@@ -52,18 +49,10 @@ void AddAntennaAction::Execute()
     }
 
 
-
-    if (pGrid->AddObjectToCell(pantenna))
-    {
-        pGrid->GetOutput()->PrintMessage("Antenna added successfully!");
-    }
-    else
-    {
-        delete pantenna;
-        pGrid->GetOutput()->PrintMessage("Failed to add antenna.");
-    }
 }
 
 AddAntennaAction::~AddAntennaAction()
 {
+
+}
 
