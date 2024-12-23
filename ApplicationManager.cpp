@@ -154,14 +154,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case(NEW):
 		pAct = new NewAction(this);
+		pAct->Execute();
+		pAct = new ToDesignModeAction(this);
 		break;
+
 	case(EXITP):
 		pAct = new Exit(this); //class to exit the app
 		delete pIn; //deletes memory in pIn 
 		delete pOut; // deletes memory in pOut
 		break;
-
-		break; 
 
 	case STATUS:	// a click on the status bar ==> no action
 		return;
