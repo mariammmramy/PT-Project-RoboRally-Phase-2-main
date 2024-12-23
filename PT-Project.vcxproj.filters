@@ -210,9 +210,9 @@
     <ClCompile Include="AddWorkshopAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="AddAntennaAction.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
+    <ClCompile Include="CopyAction.cpp" />
+    <ClCompile Include="DeleteAction.cpp" />
+    <ClCompile Include="AddAntennaAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -353,6 +353,8 @@
     <ClInclude Include="AddWorkshopAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
+    <ClInclude Include="CopyAction.h" />
+    <ClInclude Include="DeleteAction.h" />
     <ClInclude Include="AddAntennaAction.h" />
   </ItemGroup>
 </Project>
