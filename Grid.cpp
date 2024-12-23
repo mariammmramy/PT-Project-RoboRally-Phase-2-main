@@ -187,7 +187,17 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	}
 	return NULL; // not found
 }
-
+// Gets a Pointer to the Current Player	                                   
+Player *Grid:: GetOppositePlayer() const {
+	int oppPlayerNum;
+	if (currPlayerNumber == 0) {
+		oppPlayerNum = 1;
+	}
+	else {
+		oppPlayerNum = 0;
+	}
+	return PlayerList[oppPlayerNum];
+}
 
 // ========= User Interface Functions =========
 
