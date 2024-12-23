@@ -236,19 +236,8 @@ void Player::ShootingPhase(Grid* pGrid) {
 		pGrid->PrintErrorMessage("Player cannot currently shoot...");
 		return;
 	}
-
-	// Get opponent player
-	int currNum = pGrid->GetCurrentPlayerNum();
-	int oppNum; 
-
-	if (currNum == 0) {
-		oppNum == 1;
-	}
-	else {
-		oppNum == 0;
-	}
-	//Player* currentP = pGrid->GetCurrentPlayer();
-	Player* opponentP= pGrid->GetOppPlayer(oppNum);
+	
+	Player* opponentP= pGrid->GetOppositePlayer();
 
 	// Get positions and directions
 	CellPosition currentPos = pCell->GetCellPosition();
