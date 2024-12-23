@@ -232,6 +232,7 @@
     <ClInclude Include="CopyAction.h" />
     <ClInclude Include="DeleteAction.h" />
     <ClInclude Include="Exit.h" />
+    <ClInclude Include="RebootAndRepair.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
     <ClInclude Include="DangerZone.h" />
