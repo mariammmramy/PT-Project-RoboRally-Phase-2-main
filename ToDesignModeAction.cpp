@@ -20,6 +20,7 @@ void ToDesignModeAction::Execute() {    //Switch to Design mode (in progress)
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 
+	pOut->ClearCommandsBar();
 	pOut->CreateDesignModeToolBar();
 
 	pGrid->UpdateInterface();
