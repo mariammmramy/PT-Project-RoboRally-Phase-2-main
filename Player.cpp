@@ -2,7 +2,7 @@
 #include "RotatingGear.h"
 #include "GameObject.h"
 
-Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
+Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT), canMove(true), canShoot(true)
 {
 	this->pCell = pCell;
 
@@ -81,7 +81,19 @@ int Player::GetHealth()
 {
 	return this->health;
 }
+void Player::SetMovement(bool move) {
 
+}
+bool Player::GetMovement() {
+	return canMove;
+}
+
+void Player::SetShooting(bool shoot) {
+
+}
+bool Player::GetShooting() {
+	return canShoot;
+}
 // ====== Drawing Functions ======
 
 

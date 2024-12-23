@@ -16,6 +16,9 @@ class Player
 	int toolkit = 0;
 	int hackdevice = 0;		//tool kit and hack device shoul not be more than one so you should validate that in the buying conumables
 	int weapon = 0;			// 0 means single laser and 1 means double laser
+
+	bool canMove;
+	bool canShoot;
 	// owned equipments
 	// carried consumables
 	// carried laser type (default, double laser)
@@ -47,6 +50,12 @@ public:
 
 	Direction GetDirection();
 	void SetDirection(Direction d);
+
+	void SetMovement(bool move);
+	bool GetMovement();
+
+	void SetShooting(bool shoot);
+	bool GetShooting();
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Triangle on its current cell

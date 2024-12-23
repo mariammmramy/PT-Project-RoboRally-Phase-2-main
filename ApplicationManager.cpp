@@ -6,6 +6,7 @@
 #include "AddFlagAction.h"
 #include "ToPlayModeAction.h"
 #include "ToDesignModeAction.h"
+#include "RebootAndRepair.h"
 #include "AddWaterpitAction.h"
 #include "AddDangerZoneAction.h"
 #include "Exit.h"
@@ -139,7 +140,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
 	case(REBOOT):
-
+		pAct = new RebootAndRepair(this);
 		break;
 	case(USE_TOOLKIT):
 
