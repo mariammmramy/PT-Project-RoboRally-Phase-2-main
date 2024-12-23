@@ -13,6 +13,7 @@ public:
 	virtual void ReadActionParameters();
 
 	virtual void Execute(); // executes delete action
-
+	
+	~DeleteAction();
 
 };

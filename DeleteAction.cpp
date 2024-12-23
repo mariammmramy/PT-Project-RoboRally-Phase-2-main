@@ -41,3 +41,8 @@ void DeleteAction::Execute()
 	pGrid->RemoveObjectFromCell(deletePos);
 	pGrid->UpdateInterface();
 }
+
+DeleteAction:: ~DeleteAction()
+{
+
+}

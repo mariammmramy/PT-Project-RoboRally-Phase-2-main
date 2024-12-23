@@ -12,6 +12,7 @@
 #include "AddWorkshopAction.h"
 #include "DeleteAction.h"
 #include "AddAntennaAction.h"
+#include "CopyAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -116,8 +117,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case SET_ANTENNA:
 		pAct = new AddAntennaAction(this);
 		break;
+	case COPY:
+		pAct = new CopyAction(this);
+		break;
 	/* for each of these enums you have to add a case in the switch case and to include its addobjectaction.h 
-			SET_ANTENNA,
+			SET_ANTENNA, (Done)
 			SET_BELT, (Done)
 			SET_WATERPIT, (Done)
 			SET_DANGERZONE, (Done)
@@ -126,7 +130,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			COPY, 
 			CUT,
 			PASTE,
-			DELETE_OBJECT,
+			DELETE_OBJECT, (Done)
 			SAVE,
 			OPEN,
 			EXIT, (done)
