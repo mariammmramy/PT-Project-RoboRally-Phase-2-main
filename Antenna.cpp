@@ -68,9 +68,6 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 
     if (closestplayer != -1)
     {
-
-
-
         pGrid->GetOutput()->PrintMessage("Player" + to_string(closestplayer) + "will play first ");
     }
 
