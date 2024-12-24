@@ -218,14 +218,15 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		pGrid->PrintErrorMessage("Error! there are no commands to execute. Click to continue...");  //no commands entered
 		return;
 	}
-		//CellPosition currentPos = pCell->GetCellPosition();
-		//CellPosition newPos = currentPos;
+		CellPosition currentPos = pCell->GetCellPosition();
+		CellPosition newPos = currentPos;
+		Command pCmd;
 	
 	for (int i = 0; i < numsavedcommands; i++) {
 		//code to do command
-		CellPosition currentPos = pCell->GetCellPosition();
-		CellPosition newPos = currentPos;
-		Command pCmd = moveCommands[i];
+		currentPos = pCell->GetCellPosition();
+		newPos = currentPos;
+		pCmd = moveCommands[i];
 
 		/*Switch case to determine what to do based on each command*/
 		switch (pCmd) {
