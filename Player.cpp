@@ -131,7 +131,7 @@ int Player::GetHealth()
 	return this->health;
 }
 void Player::SetMovement(bool move) {
-
+	canMove = move;
 }
 bool Player::GetMovement() {
 	return canMove;
@@ -187,12 +187,15 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 	Input* pIn = pGrid->GetInput();
 
 	///TODO: Implement this function using the guidelines mentioned below
-
+	if (!canMove) {
+		pGrid->PrintErrorMessage("This player cannot move this round. Click anywhere to continue...");  //movement restricted
+		return;
+	}
 	// - If a player has 5 (could have less) saved moveCommands, the robot will execute the first saved command,
 	//		then wait for a mouse click (display a message "Click anywhere to execute the next command"). (done)
 	
 	if (numsavedcommands <= 0) {
-		pOut->PrintMessage("Error! there are no commands to execute...");  //no commands entered
+		pGrid->PrintErrorMessage("Error! there are no commands to execute. Click to continue...");  //no commands entered
 
 	}
 		CellPosition currentPos = pCell->GetCellPosition();

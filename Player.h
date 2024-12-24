@@ -21,8 +21,8 @@ class Player
 
 	int exmem = 0;		//bonus; extended memory, cannot have more the one
 	int numsavedcommands = 5;
-	bool canMove;
-	bool canShoot;
+	bool canMove = true;;
+	bool canShoot = true;;
 
 	Command savedCommands[5] = { NO_COMMAND,NO_COMMAND,NO_COMMAND,NO_COMMAND,NO_COMMAND };  //initialise saved commands
 	// owned equipments
