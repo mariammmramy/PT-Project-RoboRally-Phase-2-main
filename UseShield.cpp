@@ -30,7 +30,7 @@ void UseShield::Execute() {
 
 
     Player* pPlayer = pGrid->GetCurrentPlayer();
-    pPlayer->
+    pPlayer->SetShield(0);
 
     //clear status bar
     pOut->ClearStatusBar();

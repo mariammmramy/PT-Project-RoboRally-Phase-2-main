@@ -89,6 +89,17 @@ void Player::setnumsavedcommands(int num)
 {
 	numsavedcommands = num;
 }
+int Player:: GetShield() {
+	return shield;
+}
+void Player::SetShield(int t) {
+	if (t > 1 || t < 0)
+	{
+		return;
+	}
+
+	shield=t;
+}
 
 
 Direction  Player::GetDirection()
