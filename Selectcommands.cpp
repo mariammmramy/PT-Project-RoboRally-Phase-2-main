@@ -79,8 +79,9 @@ void Selectcommands::Execute()
 	
 		// after this if function, you have the item number that was clicked from the available commands
 
-		savedCommands[i] = (availableCommands[clickedItemOrder]);
-		pOut->CreateCommandsBar(savedCommands, 5, availableCommands, health);
+		savedCommands[i] = (commands[clickedItemOrder]);
+		commands[clickedItemOrder] = NO_COMMAND;
+		pOut->CreateCommandsBar(savedCommands, 5, commands, health);
 	}
 
 	pPlayer->SetSavedCommands(savedCommands, iteration);
