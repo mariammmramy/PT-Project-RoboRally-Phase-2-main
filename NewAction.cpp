@@ -39,12 +39,12 @@ void NewAction::Execute() {
         pPlayer2->SetHealth(10);
         pPlayer2->SetDirection(RIGHT);
     }
-     //code to delete game objects from cells (in progress)
+     //code to delete game objects from cells 
     for (int i = 0; i < NumVerticalCells; ++i) {
         for (int j = 0; j < NumHorizontalCells; ++j) {
             CellPosition cellPos(i, j);
             if (pGrid->Getgameobjectfromcell(cellPos)) {
-                pGrid->RemoveObjectFromCell(cellPos);     // Delete the game object
+                pGrid->RemoveObjectFromCell(cellPos); //delete each game object in cell
             }
         }
     }
