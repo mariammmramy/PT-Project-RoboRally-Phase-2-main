@@ -2,12 +2,12 @@
 #include "Action.h"
 #include "Grid.h"
 #include "Player.h"
-class UseShield
+class UseShield:public Action
 {
 public:
-    UseConsumableToolkit(ApplicationManager* pApp);
+    UseShield(ApplicationManager* pApp);
     virtual void ReadActionParameters();
     virtual void Execute();
-    virtual ~UseConsumableToolkit();
+    virtual ~UseShield();
 };
 
