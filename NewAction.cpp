@@ -37,6 +37,10 @@ void NewAction::Execute() {
         pPlayer1->SetSavedCommands(commands, 5);
         pPlayer1->sethackdevice(0);
         pPlayer1->settoolkit(0);
+        pPlayer1->setExMemory(0);
+        pPlayer1->SetShooting(true);
+        pPlayer1->SetMovement(true);
+        pPlayer1->SetStepCount(1);
     }    
     if (pPlayer2) {
         pPlayer2->ClearDrawing(pOut);
@@ -45,7 +49,10 @@ void NewAction::Execute() {
         pPlayer2->SetSavedCommands(commands, 5);
         pPlayer2->sethackdevice(0);
         pPlayer2->settoolkit(0);
-
+        pPlayer2->setExMemory(0);
+        pPlayer2->SetShooting(true);
+        pPlayer2->SetMovement(true);
+        pPlayer2->SetStepCount(1);
     }
     
      //code to delete game objects from cells 
