@@ -41,6 +41,8 @@ void NewAction::Execute() {
         pPlayer1->SetShooting(true);
         pPlayer1->SetMovement(true);
         pPlayer1->SetStepCount(1);
+        pPlayer2->Draw(pOut);
+
     }    
     if (pPlayer2) {
         pPlayer2->ClearDrawing(pOut);
@@ -53,26 +55,14 @@ void NewAction::Execute() {
         pPlayer2->SetShooting(true);
         pPlayer2->SetMovement(true);
         pPlayer2->SetStepCount(1);
+        pPlayer2->Draw(pOut);
     }
-    
-     //code to delete game objects from cells 
-    //for (int i = 0; i < NumVerticalCells; ++i) {
-    //    for (int j = 0; j < NumHorizontalCells; ++j) {
-    //        CellPosition cellPos(i, j);
-    //        if (pGrid->Getgameobjectfromcell(cellPos)) {
-    //            pGrid->RemoveObjectFromCell(cellPos); //delete each game object in cell
-    //        }
-    //    }
-    //}
 
     //clear status bar
     pOut->ClearStatusBar();
     
     //clear commands bar
     pOut->ClearCommandsBar();
-
-    //clear grid area
-    pOut->ClearGridArea();
 
     //update user interface
     pGrid->UpdateInterface();

@@ -216,7 +216,7 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 	
 	if (numsavedcommands <= 0) {
 		pGrid->PrintErrorMessage("Error! there are no commands to execute. Click to continue...");  //no commands entered
-
+		return;
 	}
 		CellPosition currentPos = pCell->GetCellPosition();
 		CellPosition newPos = currentPos;
@@ -229,7 +229,7 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		switch (pCmd) {
 		case(NO_COMMAND):
 			pOut->PrintMessage("No command to execute...");
-			continue;
+			break;
 
 		case(MOVE_FORWARD_ONE_STEP):
 			newPos.AddCellNum(1,currDirection);
