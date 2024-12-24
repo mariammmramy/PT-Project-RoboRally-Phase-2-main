@@ -34,43 +34,15 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
     //If there is a tie, player number will break it, for example if player 1 & 2 are in the same cell and they have the same distance from the antenna, player 1 will play first in that round.
     // 3- After deciding the turn of player Print a message indicating which player will play first example: "Player 1 will play first"
 
-    const int maxPlayers = 2;
-    int mindist = 999;
-    int closestplayer = -1;
 
-
-    for (int i = 0; i < maxPlayers; i++) {
-        Player* cplayer = pGrid->GetCurrentPlayer();
-        if (cplayer) {
-
-            CellPosition playerPos = cplayer->GetCell()->GetCellPosition();
-
-
-            int distance = abs(position.HCell() - playerPos.HCell()) + abs(position.VCell() - playerPos.VCell());
-
-
-            if (distance < mindist)
-            {
-                mindist = distance;
-                closestplayer = i;
-
-            }
-            else if (distance == mindist)
-            {
-                if (i < closestplayer)
-                {
-                    closestplayer = i;
-                }
-
-            }
-        }
+    CellPosition cplayerPos = pGrid->GetCurrentPlayer()->GetCell()->GetCellPosition();
+    CellPosition oplayerPos = pGrid->GetOppositePlayer()->GetCell()->GetCellPosition();
+    int cPlayerDistance = abs(position.HCell() - cplayerPos.HCell()) + abs(position.VCell() - cplayerPos.VCell());
+    int oPlayerDistance = abs(position.HCell() - oplayerPos.HCell()) + abs(position.VCell() - oplayerPos.VCell());
+    if (oPlayerDistance <= cPlayerDistance) {
+        pGrid->AdvanceCurrentPlayer();
     }
-
-    if (closestplayer != -1)
-    {
-        pGrid->GetOutput()->PrintMessage("Player" + to_string(closestplayer) + "will play first ");
-    }
-
+    pGrid->GetOutput()->PrintMessage("Player" + to_string(pGrid->GetCurrentPlayer()->Getplayernum()) + "will play first ");
 }
 
 
