@@ -16,7 +16,7 @@ void UseConsumableToolkit::ReadActionParameters() {  //
     Player* pPlayer = pGrid->GetCurrentPlayer();
     if (!pPlayer->gettoolkit())
     {
-        pGrid->PrintErrorMessage("You don't own any tool kits yet. Click to contnue...");
+        pGrid->PrintErrorMessage("You don't own any tool kits yet. Click to continue...");
         return;
     }
     pOut->ClearStatusBar();

@@ -16,13 +16,14 @@ class Player
 	int toolkit = 0;
 	int hackdevice = 0;		//tool kit and hack device should not be more than one so you should validate that in the buying conumables
 	int weapon = 0;			// 0 means single laser and 1 means double laser
+	int shield = 0;
 	bool ishacked = false;
 	bool isrepaired = false;
 
 	int ExMemory = 0;		//bonus; extended memory, cannot have more the one
 	int numsavedcommands = 5;
-	bool canMove = true;;
-	bool canShoot = true;;
+	bool canMove = true;
+	bool canShoot = true;
 
 	Command savedCommands[5] = { NO_COMMAND,NO_COMMAND,NO_COMMAND,NO_COMMAND,NO_COMMAND };  //initialise saved commands
 	// owned equipments
@@ -59,6 +60,9 @@ public:
 
 	void setExMemory(int x);
 	void setnumsavedcommands(int num);
+
+	int GetShield();
+	void SetShield(int t);
 
 	int Getplayernum();
 	Direction GetDirection();
