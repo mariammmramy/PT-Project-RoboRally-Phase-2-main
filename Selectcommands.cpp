@@ -71,20 +71,10 @@ void Selectcommands::Execute()
 		int x = -1, y = -1;
 		pIn->GetPointClicked(x, y);
 		int clickedItemOrder;
-		float availableCommandWidth = UI.CommandItemWidth / 2;
 
-		bool clickedcorrecty = (y >= (UI.height - UI.CommandsBarHeight + UI.AvailableCommandsYOffset) && y < (UI.AvailableCommandsYOffset));
-		bool clickedcorrectx = (x >= UI.AvailableCommandsXOffset && x < UI.AvailableCommandsXOffset + (health * availableCommandWidth));
-		while (!clickedcorrectx || !clickedcorrecty)
-		{
-			pGrid->PrintErrorMessage("Invalid cell clicked, try again");
-			pIn->GetPointClicked(x, y);
 
-			clickedcorrecty = (y >= (UI.height - UI.CommandsBarHeight + UI.AvailableCommandsYOffset) && y < (UI.AvailableCommandsYOffset));
-			clickedcorrectx = (x >= UI.AvailableCommandsXOffset && x < UI.AvailableCommandsXOffset + (health * availableCommandWidth));
-		}
 
-		clickedItemOrder = ((x-UI.AvailableCommandsXOffset) / availableCommandWidth);
+		clickedItemOrder = pIn->GetSelectedCommandIndex();
 		
 	
 		// after this if function, you have the item number that was clicked from the available commands
