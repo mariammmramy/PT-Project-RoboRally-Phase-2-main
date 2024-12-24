@@ -129,6 +129,18 @@ bool Grid::checkOverlap(const Belt* belt1, const Belt& belt2) {
 	int belt2EndVCell = belt2.GetEndPosition().VCell();
 	int belt2EndHCell = belt2.GetEndPosition().HCell();
 
+	if (belt1StartVCell == belt1EndVCell && belt2StartVCell == belt2EndVCell) { // Both are horizontal
+		return !(belt1EndHCell < belt2StartHCell || belt2EndHCell < belt1StartHCell) && belt1StartVCell == belt2StartVCell;
+	}
+	else if (belt1StartHCell == belt1EndHCell && belt2StartHCell == belt2EndHCell) { // Both are vertical
+		return !(belt1EndVCell < belt2StartVCell || belt2EndVCell < belt1StartVCell) && belt1StartHCell == belt2StartHCell;
+	}
+	else { // One is vertical, one is horizontal
+		// Check if the two belts intersect at a single point
+		return (belt1StartHCell <= belt2StartHCell && belt1EndHCell >= belt2StartHCell && belt2StartVCell <= belt1StartVCell && belt2EndVCell >= belt1StartVCell) ||
+			(belt2StartHCell <= belt1StartHCell && belt2EndHCell >= belt1StartHCell && belt1StartVCell <= belt2StartVCell && belt1EndVCell >= belt2StartVCell);
+	}
+
 	// Calculate area of parallelogram formed by p1-q1 and p2-q2
 	double crossProduct = (belt1EndVCell - belt1StartVCell) * (belt2StartHCell - belt2EndHCell) - (belt1EndHCell - belt1StartHCell) * (belt2StartVCell - belt2EndVCell);
 
