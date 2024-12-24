@@ -20,7 +20,7 @@
 #include "CutAction.h"
 #include "UseHackDevice.h"
 #include "Selectcommands.h"
-#include "ActivateExmem.h"
+#include "ActivateExMemory.h"
 #include "UseConsumableToolkit.h"
 
 ///TODO: Add #include for all action types
