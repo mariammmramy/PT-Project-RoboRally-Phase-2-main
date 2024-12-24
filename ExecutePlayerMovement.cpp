@@ -38,6 +38,8 @@ void ExecutePlayerMovement::Execute() {
     }
     pPlayer->Move(pGrid,commands);   //execute move after validation of health player and commands
     pGrid->UpdateInterface();
+    pGrid->AdvanceCurrentPlayer();   //next player will do commands
+    pGrid->UpdateInterface();
 }
 
 
