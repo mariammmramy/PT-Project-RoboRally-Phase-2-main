@@ -58,6 +58,8 @@ enum PLAY_MODE_ITEMS // The items of the Play Mode (you should add more items)
 	ITM_REBOOT,
 	ITM_USE_TOOLKIT,
 	ITM_USE_HACK,
+	ITM_USE_EXMEM,
+	ITM_USE_SHIELD,
 	ITM_NEW,
 	ITM_EXITP,
 

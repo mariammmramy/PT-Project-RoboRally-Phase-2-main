@@ -46,7 +46,6 @@ public:
 	void UpdatePlayerCell(Player * player, const CellPosition & newPosition); // Update the player's pCell with the CellList's Cell pointer of the "newPosition",
 	                                                                          // Clears the player's circle from the previous cell
 	    																	  // and  Draws it in the new cell
-
 	// ========= Setters and Getters Functions =========
 
 	Input * GetInput() const;	// Gets a Pointer to the Input
@@ -61,10 +60,18 @@ public:
 	void AdvanceCurrentPlayer();     // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
+	int GetCurrentPlayerNum() const; //Gets current player index
+	GameObject* Getgameobjectfromcell(CellPosition pos);
+	Player* GetOppositePlayer() const;	// Gets a Pointer to the opposite Player	                                   
+	
+	bool flagfound();
+	bool checkOverlap(const Belt* belt1, const Belt& belt2);
+	bool antennafound();
+	bool isBeltOverlap(CellPosition beltStartPosition, CellPosition beltEndPosition);
 
 	// ========= Other Getters =========
 	
-	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    
+	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	       
 	Belt * GetNextBelt(const CellPosition & position);  // Gets a Pointer to the first Belth after the passed "position"
 
 	// ========= User Interface Functions =========
@@ -77,6 +84,7 @@ public:
 
 	void PrintErrorMessage(string msg); // Prints an error message on statusbar, Waits for mouse click then clears statusbar
 									    // We added this function once here because it is used many times by other classes
+
 
 	~Grid(); // A destructor for any needed deallcations
 };

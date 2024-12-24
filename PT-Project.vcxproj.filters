@@ -205,6 +205,53 @@
     <ClCompile Include="AddDangerZoneAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="UseConsumableToolkit.cpp" />
+    <ClCompile Include="AddWorkshopAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="AddAntennaAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="PasteAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="CutAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="AddAntennaAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="ActivateExmem.cpp" />
+    <ClCompile Include="ExecutePlayerMovement.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exit.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="NewAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="RebootAndRepair.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Selectcommands.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="UseHackDevice.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -338,6 +385,53 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="AddDangerZoneAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="UseConsumableToolkit.h" />
+    <ClInclude Include="AddWorkshopAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="AddAntennaAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="PasteAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="CutAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="AddAntennaAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivateExmem.h" />
+    <ClInclude Include="ExecutePlayerMovement.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exit.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="NewAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="RebootAndRepair.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Selectcommands.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="UseHackDevice.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

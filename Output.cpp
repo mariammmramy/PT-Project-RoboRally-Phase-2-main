@@ -170,9 +170,9 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 	else if (direction == DOWN)
 	{
 		x1 = triangleCenterX - triangleWidth / 2;
-		y1 = triangleCenterY + triangleHeight / 2;
+		y1 = triangleCenterY - triangleHeight / 2;
 		x2 = triangleCenterX + triangleWidth / 2;
-		y2 = triangleCenterY + triangleHeight / 2;
+		y2 = triangleCenterY - triangleHeight / 2;
 		x3 = triangleCenterX;
 		y3 = triangleCenterY + triangleHeight / 2;
 	}
@@ -326,8 +326,12 @@ void Output::CreatePlayModeToolBar() const
 	MenuItemImages[ITM_REBOOT] = "images\\Repair.jpg";
 	MenuItemImages[ITM_USE_TOOLKIT] = "images\\Toolkit.jpg";
 	MenuItemImages[ITM_USE_HACK] = "images\\Hack.jpg";
+	MenuItemImages[ITM_USE_EXMEM] = "images\\Exmem.jpg";
+	MenuItemImages[ITM_USE_SHIELD] = "images\\Shield.jpg";
 	MenuItemImages[ITM_NEW] = "images\\New.jpg";
 	MenuItemImages[ITM_EXITP] = "images\\Menu_Exit.jpg";
+
+
 
 
 	// Draw menu item one image at a time

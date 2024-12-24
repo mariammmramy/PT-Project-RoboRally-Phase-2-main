@@ -1,5 +1,6 @@
 #include "Grid.h"
-
+#include<vector>
+#include<iostream>
 #include "Cell.h"
 #include "GameObject.h"
 #include "Belt.h"
@@ -80,9 +81,126 @@ void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 	player->Draw(pOut);
 }
 
+bool Grid::flagfound()
+{
 
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
+		{
+			Cell* cell = CellList[i][j];
+			if (cell->GetGameObject() != nullptr && cell->HasFlag())
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+}
+
+bool Grid::antennafound()
+{
+
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
+		{
+			Cell* cell = CellList[i][j];
+			if (cell->GetGameObject() != nullptr && cell->HasAntenna())
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+}
+
+bool Grid::checkOverlap(const Belt* belt1, const Belt& belt2) {
+
+	using Position = std::pair<int, int>;
+
+	// Extract start and end positions for Belt 1 & Belt 2
+	Position belt1Start = { belt1->GetPosition().HCell(), belt1->GetPosition().VCell() };
+	Position belt1End = { belt1->GetEndPosition().HCell(), belt1->GetEndPosition().VCell() };
+	Position belt2Start = { belt2.GetPosition().HCell(), belt2.GetPosition().VCell() };
+	Position belt2End = { belt2.GetEndPosition().HCell(), belt2.GetEndPosition().VCell() };
+
+	// If Belt 1 Vertical & Belt 2 Horizontal
+	if ((belt1Start.first == belt1End.first) && (belt2Start.second == belt2End.second)) {
+		// Check if X & Y Ranges Overlap
+		return ((belt1Start.first >= min(belt2Start.first, belt2End.first)) && (belt1Start.first <= max(belt2Start.first, belt2End.first))) &&
+			((belt2Start.second >= min(belt1Start.second, belt1End.second)) && (belt2Start.second <= max(belt1Start.second, belt1End.second)));
+	}
+	// If Belt 1 Horizontal & Belt 2 Vertical
+	else if ((belt1Start.second == belt1End.second) && (belt2Start.first == belt2End.first)) {
+		// Check if X & Y Ranges Overlap
+		return ((belt2Start.first >= min(belt1Start.first, belt1End.first)) && (belt2Start.first <= max(belt1Start.first, belt1End.first))) &&
+			((belt1Start.second >= min(belt2Start.second, belt2End.second)) && (belt1Start.second <= max(belt2Start.second, belt2End.second)));
+	}
+	// If Belt 1 and Belt 2 Horizontal
+	else if ((belt1Start.first == belt1End.first) && (belt2Start.first == belt2End.first)) {
+		// If Lines are in Same Horizontal Level
+		if (belt1Start.second == belt2Start.second) {
+			int x1Min = min(belt1Start.first, belt1End.first);
+			int x1Max = max(belt1Start.first, belt1End.first);
+			int x2Min = min(belt2Start.first, belt2End.first);
+			int x2Max = max(belt2Start.first, belt2End.first);
+			return x1Min <= x2Max && x2Min <= x1Max; // Overlapping x-ranges
+		}
+		return false;
+	}
+	// If Belt 1 and Belt 2 Vertical
+	else if ((belt1Start.second == belt1End.second) && (belt2Start.second == belt2End.second)) {
+		// If Lines are in Same Vertical Level
+		if (belt1Start.first == belt2Start.first) {
+			int y1Min = min(belt1Start.second, belt1End.second);
+			int y1Max = max(belt1Start.second, belt1End.second);
+			int y2Min = min(belt2Start.second, belt2End.second);
+			int y2Max = max(belt2Start.second, belt2End.second);
+			return y1Min <= y2Max && y2Min <= y1Max; // Overlapping y-ranges
+		}
+		return false;
+	}
+	return false;
+}
+
+bool Grid::isBeltOverlap(CellPosition beltStartPosition, CellPosition beltEndPosition)
+{
+	std::vector<CellPosition> forbiddenStarts;
+	Belt beltToAdd = Belt(beltStartPosition, beltEndPosition);
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
+		{
+			Cell* cell = CellList[i][j];
+			if (cell->GetGameObject() != nullptr)
+			{
+				Belt* cellBelt = cell->HasBelt();
+				if (cellBelt) {
+					if (checkOverlap(cellBelt, beltToAdd)) return true;
+					CellPosition cellBeltEnd = cellBelt->GetEndPosition();
+					forbiddenStarts.push_back(cellBeltEnd);
+				}
+			}
+		}
+	}
+	for (CellPosition pos : forbiddenStarts) {
+		if ((pos.VCell() == beltStartPosition.VCell()) && (pos.HCell() == beltStartPosition.HCell())) {
+			return true;
+		}
+	}
+	return false;
+}
 // ========= Setters and Getters Functions =========
 
+
+GameObject* Grid::Getgameobjectfromcell(CellPosition pos)
+{
+	GameObject* pObj = CellList[pos.VCell()][pos.HCell()]->GetGameObject();
+	return pObj;
+}
 
 Input * Grid::GetInput() const
 {
@@ -146,7 +264,21 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	}
 	return NULL; // not found
 }
+// Gets a Pointer to the Current Player	                                   
+Player *Grid:: GetOppositePlayer() const {
+	int oppPlayerNum;
+	if (currPlayerNumber == 0) {
+		oppPlayerNum = 1;
+	}
+	else {
+		oppPlayerNum = 0;
+	}
+	return PlayerList[oppPlayerNum];
+}
 
+int Grid::GetCurrentPlayerNum() const {
+	return currPlayerNumber;
+}
 
 // ========= User Interface Functions =========
 

@@ -129,9 +129,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="ActivateExMemory.cpp" />
+    <ClCompile Include="AddAntennaAction.cpp" />
     <ClCompile Include="AddBeltAction.cpp" />
+    <ClCompile Include="AddDangerZoneAction.cpp" />
     <ClCompile Include="AddFlagAction.cpp" />
     <ClCompile Include="AddRotatingGearAction.cpp" />
+    <ClCompile Include="AddWaterpitAction.cpp" />
+    <ClCompile Include="AddWorkshopAction.cpp" />
     <ClCompile Include="Antenna.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Belt.cpp" />
@@ -173,6 +178,15 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant1.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
+    <ClCompile Include="CopyAction.cpp" />
+    <ClCompile Include="CutAction.cpp" />
+    <ClCompile Include="DeleteAction.cpp" />
+    <ClCompile Include="ExecutePlayerMovement.cpp" />
+    <ClCompile Include="Exit.cpp" />
+    <ClCompile Include="NewAction.cpp" />
+    <ClCompile Include="RebootAndRepair.cpp" />
+    <ClCompile Include="PasteAction.cpp" />
+    <ClCompile Include="Selectcommands.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
@@ -184,14 +198,22 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RotatingGear.cpp" />
+    <ClCompile Include="UseConsumableToolkit.cpp" />
+    <ClCompile Include="UseHackDevice.cpp" />
+    <ClCompile Include="UseShield.cpp" />
     <ClCompile Include="WaterPit.cpp" />
     <ClCompile Include="Workshop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="ActivateExMemory.h" />
+    <ClInclude Include="AddAntennaAction.h" />
     <ClInclude Include="AddBeltAction.h" />
+    <ClInclude Include="AddDangerZoneAction.h" />
     <ClInclude Include="AddFlagAction.h" />
     <ClInclude Include="AddRotatingGearAction.h" />
+    <ClInclude Include="AddWaterpitAction.h" />
+    <ClInclude Include="AddWorkshopAction.h" />
     <ClInclude Include="Antenna.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Belt.h" />
@@ -217,6 +239,15 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpegint.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
+    <ClInclude Include="CopyAction.h" />
+    <ClInclude Include="CutAction.h" />
+    <ClInclude Include="DeleteAction.h" />
+    <ClInclude Include="ExecutePlayerMovement.h" />
+    <ClInclude Include="Exit.h" />
+    <ClInclude Include="NewAction.h" />
+    <ClInclude Include="RebootAndRepair.h" />
+    <ClInclude Include="PasteAction.h" />
+    <ClInclude Include="Selectcommands.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
     <ClInclude Include="DangerZone.h" />
@@ -229,6 +260,9 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="RotatingGear.h" />
     <ClInclude Include="UI_Info.h" />
+    <ClInclude Include="UseConsumableToolkit.h" />
+    <ClInclude Include="UseHackDevice.h" />
+    <ClInclude Include="UseShield.h" />
     <ClInclude Include="WaterPit.h" />
     <ClInclude Include="Workshop.h" />
   </ItemGroup>
