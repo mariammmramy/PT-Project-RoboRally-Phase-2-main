@@ -22,7 +22,6 @@ void ToDesignModeAction::Execute() {    //Switch to Design mode
 
 	pOut->ClearCommandsBar();
 	pOut->CreateDesignModeToolBar();  
-	pOut->PrintMessage("Switched to Design mode..."); //message to indicate to user
 
 	pGrid->UpdateInterface();  
 	pGrid->SetEndGame(false);
