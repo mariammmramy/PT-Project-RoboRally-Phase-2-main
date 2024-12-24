@@ -24,7 +24,7 @@ class Player
 	bool canMove;
 	bool canShoot;
 
-	Command savedCommands[5];
+	Command savedCommands[5] = { NO_COMMAND,NO_COMMAND,NO_COMMAND,NO_COMMAND,NO_COMMAND };  //initialise saved commands
 	// owned equipments
 	// carried consumables
 	// carried laser type (default, double laser)
@@ -71,6 +71,7 @@ public:
 	bool GetShooting();    //done by mariam
 	
 	void SetSavedCommands(Command commands[], int num);  //set saved commands (should be used in select commands)
+	void Player::GetSavedCommands(Command commands[]); //get saved commands in execute movement
 	Command* GetSavedCommands();  //get saved commands
 	// ====== Drawing Functions ======
 
