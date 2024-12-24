@@ -135,6 +135,7 @@ ActionType Input::GetUserAction() const
 			case ITM_USE_TOOLKIT: return USE_TOOLKIT;
 			case ITM_USE_HACK: return USE_HACK;
 			case ITM_USE_EXMEM: return USE_EXMEM;
+			case ITM_USE_SHIELD: return USE_SHIELD;
 			case ITM_NEW: return NEW;
 			case ITM_EXITP: return EXITP;
 
