@@ -268,6 +268,7 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		case(ROTATE_COUNTERCLOCKWISE): {
 			RotatingGear rotateGear(currentPos, false);
 			rotateGear.Apply(pGrid, this);   //Apply counter clockwise movement
+
 			ClearDrawing(pOut); //clear old drawing
 			Draw(pOut); //redraw player
 			continue; //skip this turn
