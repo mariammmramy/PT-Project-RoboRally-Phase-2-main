@@ -25,6 +25,7 @@ void ToPlayMode::Execute(){    //Switch to play mode (in progress)
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
+<<<<<<< Updated upstream
 
 	//get random commands
 	
@@ -48,6 +49,17 @@ void ToPlayMode::Execute(){    //Switch to play mode (in progress)
 
 	pOut->CreatePlayModeToolBar();
 	pOut->CreateCommandsBar(savedCommands,5,availableCommands,5); //commands bar with random commands
+=======
+	Player* pPlayer = pGrid->GetCurrentPlayer();
+	
+	pOut->CreatePlayModeToolBar();
+	pPlayer->Draw(pOut);
+	std::string playerInfo = "Player " + std::to_string(pPlayer->Getplayernum()) + "'s Turn";
+	pOut->PrintMessage(playerInfo);
+	pOut->PrintMessage("Switched to play mode...");
+	pGrid->UpdateInterface();
+	pGrid->SetEndGame(false);
+>>>>>>> Stashed changes
 
 	pGrid->SetEndGame(false);
 	pGrid->UpdateInterface();
