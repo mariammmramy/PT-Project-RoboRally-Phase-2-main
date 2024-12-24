@@ -218,11 +218,13 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		pGrid->PrintErrorMessage("Error! there are no commands to execute. Click to continue...");  //no commands entered
 		return;
 	}
-		CellPosition currentPos = pCell->GetCellPosition();
-		CellPosition newPos = currentPos;
+		//CellPosition currentPos = pCell->GetCellPosition();
+		//CellPosition newPos = currentPos;
 	
 	for (int i = 0; i < numsavedcommands; i++) {
 		//code to do command
+		CellPosition currentPos = pCell->GetCellPosition();
+		CellPosition newPos = currentPos;
 		Command pCmd = moveCommands[i];
 
 		/*Switch case to determine what to do based on each command*/
@@ -260,6 +262,9 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 			rotateGear.Apply(pGrid, this);   //Apply clockwise movement
 
 			ClearDrawing(pOut); //clear old drawing
+			pGrid->UpdatePlayerCell(this, newPos);
+			pOut->ClearGridArea();
+
 			Draw(pOut); //redraw player
 			continue; //skip  turn
 
@@ -270,6 +275,9 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 			rotateGear.Apply(pGrid, this);   //Apply counter clockwise movement
 
 			ClearDrawing(pOut); //clear old drawing
+			pGrid->UpdatePlayerCell(this, newPos);
+			pOut->ClearGridArea();
+
 			Draw(pOut); //redraw player
 			continue; //skip this turn
 		}
