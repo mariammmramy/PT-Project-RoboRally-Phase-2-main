@@ -38,17 +38,34 @@ void AddAntennaAction::Execute()
 
     ReadActionParameters();
 
+    if (!antennapos.IsValidCell())
+    {
+        pGrid->PrintErrorMessage("The cell is invalid");
+        return;
+
+    }
+
+    if ((antennapos.VCell() == 4 && antennapos.HCell() == 0))
+    {
+        pGrid->PrintErrorMessage("You can't put a game object in the first cell");
+        return;
+    }
+
+    if (pGrid->antennafound())
+    {
+        pGrid->PrintErrorMessage("An antenna already exists");
+        return;
+    }
 
     Antenna* pantenna = new Antenna(antennapos);
     bool addantenna = pGrid->AddObjectToCell(pantenna);
     if (!addantenna)
     {
-
         pGrid->PrintErrorMessage("Error! cell already has an object");
         delete pantenna;
     }
-
-
+    Output* pOut = pGrid->GetOutput();
+    pOut->PrintMessage("Added successfully!.");
 }
 
 AddAntennaAction::~AddAntennaAction()
