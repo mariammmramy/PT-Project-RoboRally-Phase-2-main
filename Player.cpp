@@ -298,7 +298,7 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 			pIn->GetCellClicked(); //wait for user input
 		}
 	}
-
+	//
 	pGrid->UpdatePlayerCell(this, newPos); //updates player cell
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
 	//		be applied.
@@ -370,6 +370,9 @@ void Player::ShootingPhase(Grid* pGrid) {
 		pOut->PrintMessage("You hit another player, click to continue...");
 		int x, y;
 		pIn->GetPointClicked(x,y); // Wait for user to click
+		string playerinfo;
+		AppendPlayerInfo(playerinfo);
+		pOut->PrintPlayersInfo(playerinfo);
 	}
 	else {
 		pOut->PrintMessage("No opponent in line of sight. Shooting skipped.");
