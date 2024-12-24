@@ -22,6 +22,7 @@
 #include "Selectcommands.h"
 #include "ActivateExmem.h"
 #include "UseConsumableToolkit.h"
+#include "UseShield.h"
 
 ///TODO: Add #include for all action types
 
@@ -182,6 +183,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case(USE_EXMEM):
 		pAct = new ActivateExmem(this);
+
+		break;
+
+	case(USE_SHIELD):
+		pAct = new UseShield(this);
 
 		break;
 
