@@ -189,10 +189,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case(NEW):
 
 		pAct = new NewAction(this);
-		pAct->Execute();
-		pAct = new ToDesignModeAction(this);
 		break;
-		
+
 	case STATUS:	// a click on the status bar ==> no action
 		return;
 	}
