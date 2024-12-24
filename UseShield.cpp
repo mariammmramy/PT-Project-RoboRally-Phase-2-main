@@ -14,7 +14,7 @@ void UseShield::ReadActionParameters() {  //
     Input* pIn = pGrid->GetInput();
 
     Player* pPlayer = pGrid->GetCurrentPlayer();
-    if (!pPlayer->gettoolkit())
+    if (!pPlayer->GetShield())
     {
         pGrid->PrintErrorMessage("You don't own any shield yet. Click to continue...");
         return;
@@ -30,7 +30,6 @@ void UseShield::Execute() {
 
 
     Player* pPlayer = pGrid->GetCurrentPlayer();
-    pPlayer->SetShield(0);
 
     //clear status bar
     pOut->ClearStatusBar();

@@ -331,6 +331,10 @@ void Player::ShootingPhase(Grid* pGrid) {
 		else
 			damage = 1;//damage = 1 if single laser
 
+		if (opponentP->GetShield() == 1) { //if opponent has shield he takes less damage
+			damage -= 1;
+			opponentP->SetShield(0);
+		}
 		opponentP->SetHealth(health-damage); //reduce opponent's health
 
 		// Display hit message
