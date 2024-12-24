@@ -46,7 +46,6 @@ public:
 	void UpdatePlayerCell(Player * player, const CellPosition & newPosition); // Update the player's pCell with the CellList's Cell pointer of the "newPosition",
 	                                                                          // Clears the player's circle from the previous cell
 	    																	  // and  Draws it in the new cell
-	bool antennafound();
 	// ========= Setters and Getters Functions =========
 
 	Input * GetInput() const;	// Gets a Pointer to the Input
@@ -65,6 +64,10 @@ public:
 	GameObject* Getgameobjectfromcell(CellPosition pos);
 	Player* GetOppositePlayer() const;	// Gets a Pointer to the opposite Player	                                   
 	
+	bool flagfound();
+	bool checkOverlap(const Belt* belt1, const Belt& belt2);
+	bool antennafound();
+	bool isBeltOverlap();
 
 	// ========= Other Getters =========
 	
@@ -83,7 +86,6 @@ public:
 									    // We added this function once here because it is used many times by other classes
 
 
-	bool flagfound();
 	~Grid(); // A destructor for any needed deallcations
 };
 
