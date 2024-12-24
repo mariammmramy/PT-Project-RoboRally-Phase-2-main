@@ -14,20 +14,29 @@ void ExecutePlayerMovement::ReadActionParameters() {  //
     Output* pOut = pGrid->GetOutput();
     Input* pIn = pGrid->GetInput();
 
-    pOut->ClearStatusBar();
+    pPlayer = pGrid->GetCurrentPlayer();
+    health = pPlayer->GetHealth();
+
 }
 void ExecutePlayerMovement::Execute() {
     ReadActionParameters();
     Grid* pGrid = pManager->GetGrid();
     Output* pOut = pGrid->GetOutput();
-    Player* pPlayer = pGrid->GetCurrentPlayer();
-    Command* commands = pPlayer->GetSavedCommands();
-    if (commands==NULL) {
-        pOut->PrintMessage("Cannot fetch play mode commands.");
+    Input* pIn = pGrid->GetInput();
+
+    if (!pPlayer||health<=0) {
+        pGrid->PrintErrorMessage("No player found. Click to continue...");
         return;
     }
 
-    pPlayer->Move(pGrid,commands);   //execute move
+    Command commands[5];
+    pPlayer->GetSavedCommands(commands);
+
+    if (commands[0]==NO_COMMAND) {   //check if commands are done yet or not
+        pGrid->PrintErrorMessage("No saved commands to execute. Click to continue...");
+        return;
+    }
+    pPlayer->Move(pGrid,commands);   //execute move after validation of health player and commands
     pGrid->UpdateInterface();
 }
 

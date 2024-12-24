@@ -146,6 +146,11 @@ bool Player::GetShooting() {
 Command* Player::GetSavedCommands() {
 	return savedCommands; // Return a pointer to saved commands
 }
+void Player::GetSavedCommands(Command commands[]) {
+	for (int i = 0; i < numsavedcommands; i++) {
+		commands[i] = savedCommands[i];
+	}
+}
 void Player::SetSavedCommands(Command commands[], int num) {
 	for (int i = 0; i < num; i++)
 		savedCommands[i] = commands[i];
@@ -185,19 +190,15 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 
 	// - If a player has 5 (could have less) saved moveCommands, the robot will execute the first saved command,
 	//		then wait for a mouse click (display a message "Click anywhere to execute the next command"). (done)
-	if (COMMANDS_COUNT>5){
-		pOut->PrintMessage("Error! there are more than 5 commands...");    //cannot execute more than 5 commands
-		
-	}
-	else if (COMMANDS_COUNT <= 0) {
+	
+	if (numsavedcommands <= 0) {
 		pOut->PrintMessage("Error! there are no commands to execute...");  //no commands entered
 
 	}
-
 		CellPosition currentPos = pCell->GetCellPosition();
 		CellPosition newPos = currentPos;
 	
-	for (int i = 0; i < COMMANDS_COUNT; i++) {
+	for (int i = 0; i < numsavedcommands; i++) {
 		//code to do command
 		Command pCmd = moveCommands[i];
 
@@ -244,7 +245,8 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 			continue; //skip this turn
 			break;
 		}
-
+		default:
+			pGrid->PrintErrorMessage("Invalid command. Click to continue...");
 		}
 
 		if (!newPos.IsValidCell()) {  //validate the new position cell
