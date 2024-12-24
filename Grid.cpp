@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "Belt.h"
 #include "Player.h"
+using namespace std;
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
 {
@@ -210,6 +211,7 @@ bool Grid::isBeltOverlap(CellPosition beltStartPosition, CellPosition beltEndPos
 }
 // ========= Setters and Getters Functions =========
 
+ 
 
 GameObject* Grid::Getgameobjectfromcell(CellPosition pos)
 {
@@ -218,6 +220,7 @@ GameObject* Grid::Getgameobjectfromcell(CellPosition pos)
 }
 
 Input * Grid::GetInput() const
+Input * Grid::GetInput() const 
 {
 	return pIn;
 }
@@ -385,5 +388,44 @@ Grid::~Grid()
 	for (int i = 0; i < MaxPlayerCount; i++) 
 	{
 		delete PlayerList[i];
+	}
+}
+
+void Grid::SaveAll(ofstream& OutFile, GameObjectType type)
+{
+	int count = 0;
+
+	for (int i = 0; i < NumVerticalCells; i++)
+	{
+		for (int j = 0; j < NumHorizontalCells; j++)
+		{
+			Cell* pCell = CellList[i][j];
+			if (pCell)
+			{
+				GameObject* pGameObject = pCell->GetGameObject();
+				if (pGameObject && pGameObject->GetType() == type)
+				{
+					count++;
+				}
+			}
+		}
+	}
+
+	
+
+	for (int i = 0; i < NumVerticalCells; i++)
+	{
+		for (int j = 0; j < NumHorizontalCells; j++)
+		{
+			Cell* pCell = CellList[i][j];
+			if (pCell)
+			{
+				GameObject* pGameObject = pCell->GetGameObject();
+				if (pGameObject && pGameObject->GetType() == type)
+				{
+					pGameObject->Save(OutFile, type);
+				}
+			}
+		}
 	}
 }

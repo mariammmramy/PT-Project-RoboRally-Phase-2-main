@@ -88,5 +88,9 @@ public:
 
 
 	~Grid(); // A destructor for any needed deallcations
+
+	void SaveAll(ofstream& Outfile, GameObjectType type);
+
+
 };
 

@@ -1,5 +1,6 @@
 #include "DangerZone.h"
 #include "Player.h"
+#include"SaveAction.h"
 
 
 DangerZone::DangerZone(const CellPosition & dangerZonePosition): GameObject(dangerZonePosition)
@@ -33,7 +34,20 @@ void DangerZone::Apply(Grid * pGrid, Player * pPlayer)
 	// 3- Update the players info which is displayed (check Grid class and decide which function to use)
 	pGrid->UpdateInterface();
 }
+void DangerZone::Save(ofstream& OutFile, GameObjectType type) {
+	if (!OutFile.is_open()) return;
+	else {
 
+		int Data = position.GetCellNum();
+		OutFile << Data;
+
+	}
+}
+
+
+GameObjectType DangerZone::GetType() const {
+	return DangerZones;
+}
 
 DangerZone::~DangerZone()
 {

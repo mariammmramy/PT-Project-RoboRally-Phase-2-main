@@ -187,6 +187,7 @@
     <ClCompile Include="RebootAndRepair.cpp" />
     <ClCompile Include="PasteAction.cpp" />
     <ClCompile Include="Selectcommands.cpp" />
+    <ClCompile Include="SaveAction.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
     <ClCompile Include="ToPlayModeAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />

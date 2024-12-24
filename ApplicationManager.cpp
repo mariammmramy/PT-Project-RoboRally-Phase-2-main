@@ -24,6 +24,7 @@
 #include "UseConsumableToolkit.h"
 #include "UseShield.h"
 
+#include "CutAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -142,6 +143,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case CUT:
 		pAct = new CutAction(this);
 		break;
+	case CUT:
+		pAct = new CutAction(this);
+		break;
+	case SAVE:
+		pAct = new CutAction(this);
+		break;
+
 	/* for each of these enums you have to add a case in the switch case and to include its addobjectaction.h 
 			SET_ANTENNA, (Done)
 			SET_BELT, (Done)

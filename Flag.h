@@ -7,4 +7,6 @@ public:
 	virtual void Draw(Output* pOut) const; // Draws a flag in a selected cell
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the flag
 	virtual ~Flag(); // Virtual destructor
+	virtual void Save(ofstream& OutFile, GameObjectType type);
+	virtual GameObjectType GetType() const;
 };

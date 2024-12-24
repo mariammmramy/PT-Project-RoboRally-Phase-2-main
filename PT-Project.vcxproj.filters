@@ -252,6 +252,13 @@
     <ClCompile Include="UseHackDevice.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="CopyAction.cpp" />
+    <ClCompile Include="DeleteAction.cpp" />
+    <ClCompile Include="AddAntennaAction.cpp" />
+    <ClCompile Include="RebootAndRepair.cpp" />
+    <ClCompile Include="ExecutePlayerMovement.cpp" />
+    <ClCompile Include="CutAction.cpp" />
+    <ClCompile Include="SaveAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -434,5 +441,12 @@
     <ClInclude Include="UseHackDevice.h">
       <Filter>Actions</Filter>
     </ClInclude>
+    <ClInclude Include="CopyAction.h" />
+    <ClInclude Include="DeleteAction.h" />
+    <ClInclude Include="AddAntennaAction.h" />
+    <ClInclude Include="RebootAndRepair.h" />
+    <ClInclude Include="ExecutePlayerMovement.h" />
+    <ClInclude Include="CutAction.h" />
+    <ClInclude Include="SaveAction.h" />
   </ItemGroup>
 </Project>

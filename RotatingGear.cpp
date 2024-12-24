@@ -1,5 +1,6 @@
 #include "RotatingGear.h"
 #include "Player.h"
+#include"SaveAction.h"
 
 
 
@@ -14,6 +15,7 @@ void RotatingGear::Draw(Output* pOut) const
 }
 
 void RotatingGear::Apply(Grid* pGrid, Player* pPlayer)
+
 {
 
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
@@ -75,7 +77,20 @@ bool RotatingGear::GetisClockWise() const
 {
 	return isClockWise;
 }
+void RotatingGear::Save(ofstream& OutFile, GameObjectType type) {
+	if (!OutFile.is_open()) return;
+	else {
 
-RotatingGear::~RotatingGear()
-{
+		int Data = position.GetCellNum();
+		OutFile << Data;
+
+	}
 }
+
+	GameObjectType RotatingGear::GetType()  const
+	{
+		return RotatingGears;
+	}
+	RotatingGear::~RotatingGear(){}
+	
+
