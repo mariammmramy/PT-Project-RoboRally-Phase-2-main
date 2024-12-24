@@ -118,46 +118,57 @@ bool Grid::antennafound()
 }
 
 bool Grid::checkOverlap(const Belt* belt1, const Belt& belt2) {
-	// Check if the line segments intersect
-	bool intersect = false;
-	int belt1StartVCell = belt1->GetPosition().VCell();
-	int belt1StartHCell = belt1->GetPosition().HCell();
-	int belt1EndVCell = belt1->GetEndPosition().VCell();
-	int belt1EndHCell = belt1->GetEndPosition().HCell();
-	int belt2StartVCell = belt2.GetPosition().VCell();
-	int belt2StartHCell = belt2.GetPosition().HCell();
-	int belt2EndVCell = belt2.GetEndPosition().VCell();
-	int belt2EndHCell = belt2.GetEndPosition().HCell();
 
-	if (belt1StartVCell == belt1EndVCell && belt2StartVCell == belt2EndVCell) { // Both are horizontal
-		return !(belt1EndHCell < belt2StartHCell || belt2EndHCell < belt1StartHCell) && belt1StartVCell == belt2StartVCell;
-	}
-	else if (belt1StartHCell == belt1EndHCell && belt2StartHCell == belt2EndHCell) { // Both are vertical
-		return !(belt1EndVCell < belt2StartVCell || belt2EndVCell < belt1StartVCell) && belt1StartHCell == belt2StartHCell;
-	}
-	else { // One is vertical, one is horizontal
-		// Check if the two belts intersect at a single point
-		return (belt1StartHCell <= belt2StartHCell && belt1EndHCell >= belt2StartHCell && belt2StartVCell <= belt1StartVCell && belt2EndVCell >= belt1StartVCell) ||
-			(belt2StartHCell <= belt1StartHCell && belt2EndHCell >= belt1StartHCell && belt1StartVCell <= belt2StartVCell && belt1EndVCell >= belt2StartVCell);
-	}
+	using Position = std::pair<int, int>;
 
-	// Calculate area of parallelogram formed by p1-q1 and p2-q2
-	double crossProduct = (belt1EndVCell - belt1StartVCell) * (belt2StartHCell - belt2EndHCell) - (belt1EndHCell - belt1StartHCell) * (belt2StartVCell - belt2EndVCell);
+	// Extract start and end positions for Belt 1 & Belt 2
+	Position belt1Start = { belt1->GetPosition().HCell(), belt1->GetPosition().VCell() };
+	Position belt1End = { belt1->GetEndPosition().HCell(), belt1->GetEndPosition().VCell() };
+	Position belt2Start = { belt2.GetPosition().HCell(), belt2.GetPosition().VCell() };
+	Position belt2End = { belt2.GetEndPosition().HCell(), belt2.GetEndPosition().VCell() };
 
-	// If cross product is zero, lines are parallel
-	if (crossProduct == 0) {
-		// Check if one line segment is completely contained within the other
-		return (min(belt1StartVCell, belt1EndVCell) <= max(belt2StartVCell, belt2EndVCell) && max(belt1StartVCell, belt1EndVCell) >= min(belt2StartVCell, belt2EndVCell) && min(belt1StartHCell, belt1EndHCell) <= max(belt2StartHCell, belt2EndHCell) && max(belt1StartHCell, belt1EndHCell) >= min(belt2StartHCell, belt2EndHCell));
+	// If Belt 1 Vertical & Belt 2 Horizontal
+	if ((belt1Start.first == belt1End.first) && (belt2Start.second == belt2End.second)) {
+		// Check if X & Y Ranges Overlap
+		return ((belt1Start.first >= min(belt2Start.first, belt2End.first)) && (belt1Start.first <= max(belt2Start.first, belt2End.first))) &&
+			((belt2Start.second >= min(belt1Start.second, belt1End.second)) && (belt2Start.second <= max(belt1Start.second, belt1End.second)));
 	}
-
-	// If cross product is not zero, lines intersect
-	return true;
+	// If Belt 1 Horizontal & Belt 2 Vertical
+	else if ((belt1Start.second == belt1End.second) && (belt2Start.first == belt2End.first)) {
+		// Check if X & Y Ranges Overlap
+		return ((belt2Start.first >= min(belt1Start.first, belt1End.first)) && (belt2Start.first <= max(belt1Start.first, belt1End.first))) &&
+			((belt1Start.second >= min(belt2Start.second, belt2End.second)) && (belt1Start.second <= max(belt2Start.second, belt2End.second)));
+	}
+	// If Belt 1 and Belt 2 Horizontal
+	else if ((belt1Start.first == belt1End.first) && (belt2Start.first == belt2End.first)) {
+		// If Lines are in Same Horizontal Level
+		if (belt1Start.second == belt2Start.second) {
+			int x1Min = min(belt1Start.first, belt1End.first);
+			int x1Max = max(belt1Start.first, belt1End.first);
+			int x2Min = min(belt2Start.first, belt2End.first);
+			int x2Max = max(belt2Start.first, belt2End.first);
+			return x1Min <= x2Max && x2Min <= x1Max; // Overlapping x-ranges
+		}
+		return false;
+	}
+	// If Belt 1 and Belt 2 Vertical
+	else if ((belt1Start.second == belt1End.second) && (belt2Start.second == belt2End.second)) {
+		// If Lines are in Same Vertical Level
+		if (belt1Start.first == belt2Start.first) {
+			int y1Min = min(belt1Start.second, belt1End.second);
+			int y1Max = max(belt1Start.second, belt1End.second);
+			int y2Min = min(belt2Start.second, belt2End.second);
+			int y2Max = max(belt2Start.second, belt2End.second);
+			return y1Min <= y2Max && y2Min <= y1Max; // Overlapping y-ranges
+		}
+		return false;
+	}
+	return false;
 }
 
 bool Grid::isBeltOverlap(CellPosition beltStartPosition, CellPosition beltEndPosition)
 {
 	std::vector<CellPosition> forbiddenStarts;
-	std::vector<CellPosition> forbiddenOverlaps;
 	Belt beltToAdd = Belt(beltStartPosition, beltEndPosition);
 	for (int i = 0; i < NumVerticalCells; ++i)
 	{
