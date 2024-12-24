@@ -274,12 +274,12 @@ int Grid::GetCurrentPlayerNum() const {
 // ========= User Interface Functions =========
 
 
-void Grid::UpdateInterface() const
+void Grid::UpdateInterface()
 {
 	if (UI.InterfaceMode == MODE_DESIGN)
 	{
 		// 1- Draw cells with or without waterpits or dangerzone 
-		for (int i = NumVerticalCells-1; i >= 0 ; i--) // bottom up
+		for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
 		{
 			for (int j = 0; j < NumHorizontalCells; j++) // left to right
 			{
@@ -288,7 +288,7 @@ void Grid::UpdateInterface() const
 		}
 
 		// 2- Draw other game objects(excluding waterpit and dangerzone)
-		for (int i = NumVerticalCells-1; i >= 0 ; i--) // bottom up
+		for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
 		{
 			for (int j = 0; j < NumHorizontalCells; j++) // left to right
 			{
@@ -304,12 +304,24 @@ void Grid::UpdateInterface() const
 	}
 	else // In PLAY Mode
 	{
+
+		CellPosition cplayerPos = GetCurrentPlayer()->GetCell()->GetCellPosition();
+		CellPosition oplayerPos = GetOppositePlayer()->GetCell()->GetCellPosition();
+		CellPosition antennaPos = getAntennaPosition();
+		if (antennaPos.IsValidCell()) {
+			int cPlayerDistance = abs(antennaPos.HCell() - cplayerPos.HCell()) + abs(antennaPos.VCell() - cplayerPos.VCell());
+			int oPlayerDistance = abs(antennaPos.HCell() - oplayerPos.HCell()) + abs(antennaPos.VCell() - oplayerPos.VCell());
+			if (oPlayerDistance <= cPlayerDistance) {
+				AdvanceCurrentPlayer();
+			}
+		}
+
 		// 1- Print Player's Info
 		string playersInfo = "";
 		for (int i = 0; i < MaxPlayerCount; i++)
 		{
 			PlayerList[i]->AppendPlayerInfo(playersInfo); // passed by reference
-			if (i < MaxPlayerCount-1) // except the last player
+			if (i < MaxPlayerCount - 1) // except the last player
 				playersInfo += ", ";
 		}
 		playersInfo += " | Curr = " + to_string(currPlayerNumber);

@@ -77,7 +77,7 @@ public:
 
 	// ========= User Interface Functions =========
 
-	void UpdateInterface() const;		// It Updates the Grid according to the last state of the game
+	void UpdateInterface();		// It Updates the Grid according to the last state of the game
 	                                    // In Design mode, it draws all cells THEN all game objects THEN all players
 	                                    // In Play mode, it only draws the player's info on the right side of the toolbar
 	                                    // Note: UpdatePlayerCell() function --> already update drawing players in Play Mode
