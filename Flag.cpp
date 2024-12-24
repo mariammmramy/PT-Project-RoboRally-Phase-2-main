@@ -25,7 +25,7 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 	pGrid->GetInput()->GetPointClicked( x,y) ;
 	// 2- Apply the flag's effect by ending the game
 	pGrid->SetEndGame(true);
-	  //  Review the "pGrid" functions and decide which function can be used for that
+	  ///  Review the "pGrid" functions and decide which function can be used for that
 }
 
 Flag::~Flag()
