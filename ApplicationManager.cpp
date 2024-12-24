@@ -158,7 +158,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			EXECUTE_COMMANDS (done)
 			EXITP (done)
 			REBOOT(done)
-			NEW (done) */
+			NEW (done)
+			TOOLKIT(done)*/
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
@@ -174,7 +175,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case(USE_TOOLKIT):
-		pAct->new UseConsumableToolkit(this);
+		pAct=new UseConsumableToolkit(this);
 		break;
 	case(USE_HACK):
 		pAct = new UseHackDevice(this);
