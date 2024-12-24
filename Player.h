@@ -64,6 +64,9 @@ public:
 	Direction GetDirection();
 	void SetDirection(Direction d);
 
+	void SetStepCount(int s);   //set position of player (for new game)
+	int GetStepCount();
+
 	void SetMovement(bool move);
 	bool GetMovement();
 
