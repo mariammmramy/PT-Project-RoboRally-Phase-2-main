@@ -258,6 +258,9 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		case(ROTATE_CLOCKWISE): {
 			RotatingGear rotateGear(currentPos, true);
 			rotateGear.Apply(pGrid, this);   //Apply clockwise movement
+
+			ClearDrawing(pOut); //clear old drawing
+			Draw(pOut); //redraw player
 			continue; //skip  turn
 
 		}
@@ -265,29 +268,34 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		case(ROTATE_COUNTERCLOCKWISE): {
 			RotatingGear rotateGear(currentPos, false);
 			rotateGear.Apply(pGrid, this);   //Apply counter clockwise movement
+			ClearDrawing(pOut); //clear old drawing
+			Draw(pOut); //redraw player
 			continue; //skip this turn
-			break;
 		}
 		default:
 			pGrid->PrintErrorMessage("Invalid command. Click to continue...");
+			continue;
 		}
 
 		if (!newPos.IsValidCell()) {  //validate the new position cell
 			pOut->PrintMessage("Invalid move! Position out of bounds. Skipping...");
 			continue;
 		}
-		pGrid->UpdatePlayerCell(this, newPos); //updates player cell
-		// to do: code to interact with game objects 
-		pGrid->UpdateInterface();
-		if (pCell->GetGameObject()) {
-			if (pCell->HasWorkshop()) {
-				continue;
+		else {
+
+			pGrid->UpdatePlayerCell(this, newPos); //updates player cell
+			// to do: code to interact with game objects 
+			pGrid->UpdateInterface();
+			if (pCell->GetGameObject()) {
+				if (pCell->HasWorkshop()) {
+					continue;
+				}
+				pCell->GetGameObject()->Apply(pGrid,this);// Interact with game objects on the cell
 			}
-			pCell->GetGameObject()->Apply(pGrid,this);// Interact with game objects on the cell
+			pGrid->UpdateInterface();
+			pOut->PrintMessage("Click anywhere to execute the next command");
+			pIn->GetCellClicked(); //wait for user input
 		}
-		pGrid->UpdateInterface();
-		pOut->PrintMessage("Click anywhere to execute the next command");
-		pIn->GetCellClicked(); //wait for user input
 	}
 
 	pGrid->UpdatePlayerCell(this, newPos); //updates player cell
