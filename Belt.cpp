@@ -1,4 +1,5 @@
 #include "Belt.h"
+#include"SaveAction.h"
 
 
 Belt::Belt(const CellPosition & startCellPos, const CellPosition & endCellPos) : GameObject(startCellPos)
@@ -11,6 +12,16 @@ void Belt::Draw(Output* pOut) const
 {
 	pOut->DrawBelt(position, endCellPos);
 }
+void Belt::Save(ofstream& OutFile, GameObjectType type) {
+	if (!OutFile.is_open()) return;
+	else {
+
+		int Data = position.GetCellNum();
+		OutFile << Data;
+
+	}
+}
+
 
 void Belt::Apply(Grid* pGrid, Player* pPlayer)
 {
@@ -30,6 +41,11 @@ void Belt::Apply(Grid* pGrid, Player* pPlayer)
 CellPosition Belt::GetEndPosition() const
 {
 	return endCellPos;
+}
+
+
+GameObjectType Belt::GetType() const {
+	return Belts;
 }
 
 

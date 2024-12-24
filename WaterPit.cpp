@@ -1,5 +1,6 @@
 #include "WaterPit.h"
 #include "Player.h"
+#include"SaveAction.h"
 
 
 WaterPit::WaterPit(const CellPosition & waterPitPosition):GameObject(waterPitPosition)
@@ -32,7 +33,19 @@ void WaterPit::Apply(Grid * pGrid, Player * pPlayer)
 	// 3- Update the players info which is displayed (check Grid class and decide which function to use)
 	pGrid->UpdateInterface();
 }
+void WaterPit::Save(ofstream& OutFile, GameObjectType type) {
+	if (!OutFile.is_open()) return;
+	else {
 
+		int Data = position.GetCellNum();
+		OutFile << Data;
+
+	}
+}
+
+GameObjectType WaterPit::GetType() const {
+	return WaterPits;
+}
 
 WaterPit::~WaterPit()
 {

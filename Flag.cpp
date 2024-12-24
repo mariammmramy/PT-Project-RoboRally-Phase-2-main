@@ -1,4 +1,7 @@
 #include "Flag.h"
+#include"SaveAction.h"
+
+
 Flag::Flag(const CellPosition & flagposition) : GameObject(flagposition)
 {
 
@@ -27,6 +30,19 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 	pGrid->SetEndGame(true);
 	  //  Review the "pGrid" functions and decide which function can be used for that
 }
+void Flag::Save(ofstream& OutFile, GameObjectType type) {
+	if (!OutFile.is_open()) return;
+	else {
+
+		int Data = position.GetCellNum();
+		OutFile << Data;
+
+	}
+}
+GameObjectType Flag::GetType() const {
+	return Flags;
+}
+
 
 Flag::~Flag()
 {

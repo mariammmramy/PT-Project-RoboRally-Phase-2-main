@@ -1,5 +1,6 @@
 #include "Antenna.h"
 #include"Player.h"
+#include"SaveAction.h"
 
 
 
@@ -76,8 +77,19 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 
 }
 
+void Antenna::Save(ofstream& OutFile, GameObjectType type) {
+    if (!OutFile.is_open()) return;
+    else {
 
+        int Data = position.GetCellNum();
+        OutFile << Data;
 
+    }
+}
+
+GameObjectType Antenna::GetType() const {
+    return AntennasType;
+}
 
 Antenna::~Antenna()
 {

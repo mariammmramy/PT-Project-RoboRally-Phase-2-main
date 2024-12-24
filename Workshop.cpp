@@ -1,5 +1,7 @@
 #include "Workshop.h"
 #include "Player.h"
+#include"SaveAction.h"
+#include"SaveAction.h"
 
 
 Workshop::Workshop(const CellPosition & workshopPosition):GameObject( workshopPosition)
@@ -65,7 +67,19 @@ void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 	pIn->GetPointClicked(x, y);
 	pGrid->UpdateInterface();
 }
+void Workshop::Save(ofstream& OutFile, GameObjectType type) {
+	if (!OutFile.is_open()) return;
+	else {
 
-Workshop::~Workshop()
+		int Data = position.GetCellNum();
+		OutFile << Data;
+
+	}
+}
+GameObjectType Workshop::GetType() const {
+	return Workshops;
+}
+
+Workshop::~Workshop( )
 {
 }

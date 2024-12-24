@@ -8,7 +8,8 @@ public:
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the danger zone by reducing the robot's health by 1
 
-
+	virtual void Save(ofstream& OutFile, GameObjectType type);
+	virtual GameObjectType GetType() const;
 	virtual ~DangerZone();
 };
 

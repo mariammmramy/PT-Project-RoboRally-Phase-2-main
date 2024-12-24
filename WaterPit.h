@@ -8,7 +8,9 @@ public:
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the waterPit by killing the robot instantly and ending the game
 
+	virtual void Save(ofstream& OutFile, GameObjectType type);
 
+	virtual GameObjectType GetType() const;
 	virtual ~WaterPit();
 };
 

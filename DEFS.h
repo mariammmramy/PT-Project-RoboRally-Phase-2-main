@@ -75,4 +75,17 @@ enum Command
 	COMMANDS_COUNT,
 };
 
+enum GameObjectType {
+	Belts,
+	WaterPits,
+	DangerZones,
+	Flags,
+	Workshops,
+	RotatingGears,
+	Antennas,
+	
+
+};
+
+
 #endif
