@@ -5,15 +5,15 @@
 #include "Grid.h"
 #include "Input.h"
 #include "Output.h"
-#include "ToPlayModeAction.h"
 #include "Player.h"
+#include "ToPlayModeAction.h"
 ToPlayMode::ToPlayMode(ApplicationManager* pApp) : Action(pApp) {   //Created Constructor
 
 }
 ToPlayMode::~ToPlayMode() {  //Created destructor
 
 }
-void ToPlayMode::ReadActionParameters() { 
+void ToPlayMode::ReadActionParameters() {  
 	// Get a Pointer to the Input / Output Interfaces
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
@@ -27,14 +27,8 @@ void ToPlayMode::Execute(){    //Switch to play mode
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 
-	Player* pPlayer = pGrid->GetCurrentPlayer();
-	
 	pOut->CreatePlayModeToolBar();
-	pPlayer->Draw(pOut);
-	std::string playerInfo = "Player " + std::to_string(pPlayer->Getplayernum()) + "'s Turn";
-	pOut->PrintMessage(playerInfo);
 	pOut->PrintMessage("Switched to play mode...");
 	pGrid->UpdateInterface();
 	pGrid->SetEndGame(false);
-	
 }
