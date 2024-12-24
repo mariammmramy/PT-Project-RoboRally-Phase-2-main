@@ -1,5 +1,4 @@
 #include "Flag.h"
-Flag::Flag(const CellPosition& flagposition) : GameObject(flagposition)
 #include"SaveAction.h"
 
 
