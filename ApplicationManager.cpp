@@ -109,13 +109,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
-		pAct = new ToPlayMode(this); // temporary till you made its action class (CHANGE THIS LATTER) 
+		pAct = new ToPlayMode(this);
 		//in progress
 		break;
 	
 
 	case TO_DESIGN_MODE:				//TODO:
-		pAct = new ToDesignModeAction(this); // temporary till you made its action class (CHANGE THIS LATTER)
+		pAct = new ToDesignModeAction(this);
 		//in progress
 		break;
 	case SET_WATERPIT:				//TODO:
