@@ -39,6 +39,7 @@ void Selectcommands::Execute()
 	{
 		pGrid->PrintErrorMessage("This player cannot play this round click to continue");
 		pPlayer->SetMovement(true);
+		pGrid->AdvanceCurrentPlayer();
 	}
 	Command* commands = new Command[health];
 	for (int i = 0; i < health; i++)
@@ -55,6 +56,11 @@ void Selectcommands::Execute()
 	}
 
 	int numsaved = pPlayer->getnumsavedcommands();
+	if (numsaved > health)
+	{
+		numsaved = health;
+
+	}
 	pOut->CreateCommandsBar(savedCommands, numsaved, commands, health);
 
 	int iteration;

@@ -6,18 +6,18 @@
 #include "Grid.h"
 #include "Player.h"
 
-ActivateExmem::ActivateExmem(ApplicationManager* pApp) : Action(pApp)
+ActivateExMemory::ActivateExMemory(ApplicationManager* pApp) : Action(pApp)
 {
 }
 
-void ActivateExmem::ReadActionParameters()
+void ActivateExMemory::ReadActionParameters()
 {
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 
 	Player* pPlayer = pGrid->GetCurrentPlayer();
-	if (!pPlayer->getexmem())
+	if (!pPlayer->getExMemory())
 	{
 		pGrid->PrintErrorMessage("You don't own an extended memory yet. Click to contnue...");
 		return;
@@ -26,7 +26,7 @@ void ActivateExmem::ReadActionParameters()
 
 }
 
-void ActivateExmem::Execute()
+void ActivateExMemory::Execute()
 {
 	ReadActionParameters();
 
@@ -39,12 +39,12 @@ void ActivateExmem::Execute()
 	int oldnum = pPlayer->getnumsavedcommands();
 
 	pPlayer->setnumsavedcommands(oldnum + 1);
-	pPlayer->setexmem(0);
+	pPlayer->setExMemory(0);
 
 	pGrid->UpdateInterface();
 }
 
-ActivateExmem:: ~ActivateExmem()
+ActivateExMemory:: ~ActivateExMemory()
 {
 
 }

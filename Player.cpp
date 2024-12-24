@@ -66,9 +66,9 @@ void Player::setishacked(bool hacked)
 	ishacked = hacked;
 }
 
-int Player::getexmem()
+int Player::getExMemory()
 {
-	return exmem;
+	return ExMemory;
 }
 
 int Player::getnumsavedcommands()
@@ -76,14 +76,14 @@ int Player::getnumsavedcommands()
 	return numsavedcommands;
 }
 
-void Player::setexmem(int x)
+void Player::setExMemory(int x)
 {
 	if (x > 1 || x < 0)
 	{
 		return;
 	}
 
-	exmem = x;
+	ExMemory = x;
 }
 void Player::setnumsavedcommands(int num)
 {

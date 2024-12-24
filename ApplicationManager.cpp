@@ -181,7 +181,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		break;
 	case(USE_EXMEM):
-		pAct = new ActivateExmem(this);
+		pAct = new ActivateExMemory(this);
 
 		break;
 
