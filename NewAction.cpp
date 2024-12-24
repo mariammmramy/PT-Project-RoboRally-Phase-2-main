@@ -41,9 +41,10 @@ void NewAction::Execute() {
         pPlayer1->SetShooting(true);
         pPlayer1->SetMovement(true);
         pPlayer1->SetStepCount(1);
-        pPlayer2->Draw(pOut);
+        pPlayer1->Draw(pOut);
 
     }    
+    pGrid->AdvanceCurrentPlayer();
     if (pPlayer2) {
         pPlayer2->ClearDrawing(pOut);
         pPlayer2->SetHealth(10);
