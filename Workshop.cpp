@@ -50,13 +50,13 @@ void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 		}
 		break;
 	case 3:
-		if (pPlayer->getexmem())
+		if (pPlayer->getExMemory())
 		{
 			pGrid->PrintErrorMessage("You already have an extended memory, activate this one before buying another Click to continue...");
 		}
 		else
 		{
-			pPlayer->setexmem(1);
+			pPlayer->setExMemory(1);
 		}
 		break;
 	case 4:

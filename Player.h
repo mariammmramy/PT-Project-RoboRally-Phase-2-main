@@ -19,7 +19,7 @@ class Player
 	bool ishacked = false;
 	bool isrepaired = false;
 
-	int exmem = 0;		//bonus; extended memory, cannot have more the one
+	int ExMemory = 0;		//bonus; extended memory, cannot have more the one
 	int numsavedcommands = 5;
 	bool canMove = true;;
 	bool canShoot = true;;
@@ -54,10 +54,10 @@ public:
 	bool getishacked();
 	void setishacked(bool hacked);
 
-	int getexmem();
+	int getExMemory();
 	int getnumsavedcommands();
 
-	void setexmem(int x);
+	void setExMemory(int x);
 	void setnumsavedcommands(int num);
 
 	int Getplayernum();
