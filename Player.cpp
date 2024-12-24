@@ -136,6 +136,15 @@ void Player::SetMovement(bool move) {
 bool Player::GetMovement() {
 	return canMove;
 }
+void Player::SetStepCount(int s) {
+	if (s<1 || s>NumHorizontalCells * NumVerticalCells) {
+		return;
+	}
+	stepCount = s;
+}
+int Player:: GetStepCount() {
+	return stepCount;
+}
 
 void Player::SetShooting(bool shoot) {
 
