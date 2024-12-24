@@ -40,15 +40,11 @@ void NewAction::Execute() {
         pPlayer2->SetDirection(RIGHT);
     }
      //code to delete game objects from cells (in progress)
-    for (int i = 0; i < 5; ++i) {
-        for (int j = 0; j < 11; ++j) {
-            Cell pCell(i, j);
-            if (pCell.GetGameObject()) {
-                pGrid->RemoveObjectFromCell(pCell.GetCellPosition()); // delete game object
-                pGrid->UpdateInterface();
-            }
-            else {
-                continue;
+    for (int i = 0; i < NumVerticalCells; ++i) {
+        for (int j = 0; j < NumHorizontalCells; ++j) {
+            CellPosition cellPos(i, j);
+            if (pGrid->Getgameobjectfromcell(cellPos)) {
+                pGrid->RemoveObjectFromCell(cellPos);     // Delete the game object
             }
         }
     }

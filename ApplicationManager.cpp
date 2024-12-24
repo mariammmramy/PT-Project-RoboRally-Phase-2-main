@@ -189,8 +189,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new NewAction(this);
 		pAct->Execute();
 		pAct = new ToDesignModeAction(this);
-		/*pOut->PrintMessage("New game created!...");
-		pGrid->UpdateInterface();*/
 		break;
 		
 	case STATUS:	// a click on the status bar ==> no action
