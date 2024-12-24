@@ -68,7 +68,7 @@ public:
 	bool checkOverlap(const Belt* belt1, const Belt& belt2);
 	bool antennafound();
 	bool isBeltOverlap(CellPosition beltStartPosition, CellPosition beltEndPosition);
-	CellPosition getAntennaPosition();
+
 	// ========= Other Getters =========
 	
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	       
@@ -76,12 +76,11 @@ public:
 
 	// ========= User Interface Functions =========
 
-	void UpdateInterface();		// It Updates the Grid according to the last state of the game
-	// In Design mode, it draws all cells THEN all game objects THEN all players
-	// In Play mode, it only draws the player's info on the right side of the toolbar
-	// Note: UpdatePlayerCell() function --> already update drawing players in Play Mode
-	//       and the belts/flags/waterpits and other gameObjects positions do NOT change already in Play Mode
-
+	void UpdateInterface() const;		// It Updates the Grid according to the last state of the game
+	                                    // In Design mode, it draws all cells THEN all game objects THEN all players
+	                                    // In Play mode, it only draws the player's info on the right side of the toolbar
+	                                    // Note: UpdatePlayerCell() function --> already update drawing players in Play Mode
+	                                    //       and the belts/flags/waterpits and other gameObjects positions do NOT change already in Play Mode
 
 	void PrintErrorMessage(string msg); // Prints an error message on statusbar, Waits for mouse click then clears statusbar
 									    // We added this function once here because it is used many times by other classes
