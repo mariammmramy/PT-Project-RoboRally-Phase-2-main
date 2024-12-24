@@ -1,4 +1,4 @@
-#include "Grid"
+#include "Grid.h"
 #include<vector>
 #include<iostream>
 #include "Cell.h"

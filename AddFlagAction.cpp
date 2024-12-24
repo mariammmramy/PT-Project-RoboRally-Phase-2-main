@@ -2,7 +2,7 @@
 
 
 
-AddFlagAction::AddFlagAction(ApplicationManager *pApp) : Action(pApp)
+AddFlagAction::AddFlagAction(ApplicationManager* pApp) : Action(pApp)
 {
 	// Initializes the pManager pointer of Action with the passed pointer
 }
@@ -11,7 +11,7 @@ AddFlagAction::AddFlagAction(ApplicationManager *pApp) : Action(pApp)
 void AddFlagAction::ReadActionParameters()
 {
 
-		
+
 
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 
@@ -30,21 +30,6 @@ void AddFlagAction::ReadActionParameters()
 	pOut->PrintMessage("New Flag: Click on the cell to add a flag ...");
 	flagPos = pIn->GetCellClicked();
 
-
-	// 4- Make the needed validations on the read parameters
-	if (pGrid->flagfound())
-	{
-
-		pGrid->PrintErrorMessage("A flag already exists .You can't add another one");
-		return;
-	}
-	if (!flagPos.IsValidCell())
-	{
-
-		pGrid->PrintErrorMessage("Invalid cell please select a valid cell.");
-		return;
-	}
-
 	// 5- Clear status bar
 
 	pOut->ClearStatusBar();
@@ -54,17 +39,28 @@ void AddFlagAction::ReadActionParameters()
 
 void AddFlagAction::Execute()
 {
-	
+
 	// The first line of any Action Execution is to read its parameter first 
 	// and hence initializes its data members
 	ReadActionParameters();
-	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
-	// == Here are some guideline steps (numbered below) to implement this function ==
+
+	// get a pointer to the Grid from the ApplicationManager
+	Grid* pGrid = pManager->GetGrid();
+
+	if (!flagPos.IsValidCell())
+	{
+		pGrid->PrintErrorMessage("Invalid cell please select a valid cell.");
+		return;
+	}
+	if (pGrid->flagfound())
+	{
+		pGrid->PrintErrorMessage("A flag already exists .You can't add another one");
+		return;
+	}
 
 	// 1-Create a flag object
 	Flag* pFlag = new Flag(flagPos);
-	// 2-get a pointer to the Grid from the ApplicationManager
-	Grid* pGrid = pManager->GetGrid();
+
 	// 3-Add the flag object to the GameObject of its Cell:
 	// 4-Check if the flag was added and print an errror message if flag couldn't be added
 	bool addflag = pGrid->AddObjectToCell(pFlag);
@@ -75,6 +71,7 @@ void AddFlagAction::Execute()
 	}
 	Output* pOut = pGrid->GetOutput();
 	pGrid->UpdateInterface();
+	pOut->PrintMessage("Added successfully!.");
 }
 
 AddFlagAction::~AddFlagAction()
