@@ -199,6 +199,10 @@ Player *Grid:: GetOppositePlayer() const {
 	return PlayerList[oppPlayerNum];
 }
 
+int Grid::GetCurrentPlayerNum() const {
+	return currPlayerNumber;
+}
+
 // ========= User Interface Functions =========
 
 

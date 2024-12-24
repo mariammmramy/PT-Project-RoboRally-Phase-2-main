@@ -12,18 +12,24 @@ class Player
 
 	int stepCount;		   // step count which is the same as his cellNum: from 1 to NumVerticalCells*NumHorizontalCells
 	Direction currDirection; // Current Direction of the player
-	int health;				// Player's current health points
+	int health = 10;				// Player's current health points
 	int toolkit = 0;
-	int hackdevice = 0;		//tool kit and hack device shoul not be more than one so you should validate that in the buying conumables
+	int hackdevice = 0;		//tool kit and hack device should not be more than one so you should validate that in the buying conumables
 	int weapon = 0;			// 0 means single laser and 1 means double laser
+	bool ishacked = false;
+	bool isrepaired = false;
 
+	int exmem = 0;		//bonus; extended memory, cannot have more the one
+	int numsavedcommands = 5;
 	bool canMove;
 	bool canShoot;
+
+	Command savedCommands[5];
 	// owned equipments
 	// carried consumables
 	// carried laser type (default, double laser)
 	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
-	
+
 	
 public:
 
@@ -45,7 +51,14 @@ public:
 	int gettoolkit();
 	void settoolkit(int t);     //done by ziad
 
+	bool getishacked();
+	void setishacked(bool hacked);
 
+	int getexmem();
+	int getnumsavedcommands();
+
+	void setexmem(int x);
+	void setnumsavedcommands(int num);
 
 	int Getplayernum();
 	Direction GetDirection();
@@ -56,6 +69,9 @@ public:
 
 	void SetShooting(bool shoot);
 	bool GetShooting();    //done by mariam
+	
+	void SetSavedCommands(Command commands[], int num);  //set saved commands (should be used in select commands)
+	Command* GetSavedCommands();  //get saved commands
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Triangle on its current cell
@@ -70,6 +86,6 @@ public:
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
 	                                                   // for example: P0(Direction, health)
-
+	void ShootingPhase(Grid *pGrid);
 };
 

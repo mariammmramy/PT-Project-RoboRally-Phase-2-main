@@ -326,6 +326,7 @@ void Output::CreatePlayModeToolBar() const
 	MenuItemImages[ITM_REBOOT] = "images\\Repair.jpg";
 	MenuItemImages[ITM_USE_TOOLKIT] = "images\\Toolkit.jpg";
 	MenuItemImages[ITM_USE_HACK] = "images\\Hack.jpg";
+	MenuItemImages[ITM_USE_EXMEM] = "images\\Exmem.jpg";
 	MenuItemImages[ITM_NEW] = "images\\New.jpg";
 	MenuItemImages[ITM_EXITP] = "images\\Menu_Exit.jpg";
 

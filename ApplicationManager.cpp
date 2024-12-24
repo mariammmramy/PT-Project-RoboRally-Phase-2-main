@@ -14,7 +14,13 @@
 #include "DeleteAction.h"
 #include "AddAntennaAction.h"
 #include "CopyAction.h"
+#include "ExecutePlayerMovement.h"
 #include "NewAction.h"
+#include "PasteAction.h"
+#include "CutAction.h"
+#include "UseHackDevice.h"
+#include "Selectcommands.h"
+#include "ActivateExmem.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -83,14 +89,20 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new AddFlagAction(this);
 		break;
 
-	case EXIT:
-		/*Clear all areas to ensure smoother exit*/
-		/*pOut->ClearStatusBar();
-		pOut->ClearCommandsBar();
-		pOut->ClearGridArea();*/
+	case EXIT:EXITP:
 		pAct = new Exit(this);
-		delete pIn;//deletes memory in pIn 
-		delete pOut;//deletes memory in pIn 
+		delete pOut; //delete pointer to output
+		pOut = nullptr;
+
+		delete pGrid; //delete pointer to grid
+		pGrid = nullptr;
+
+		delete pIn;  //delete pointer to input
+		pIn = nullptr;
+
+		delete pAct; //delete pointer to any action
+		pAct = nullptr;
+
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
@@ -121,6 +133,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case COPY:
 		pAct = new CopyAction(this);
 		break;
+	case PASTE:
+		pAct = new PasteAction(this);
+		break;
+	case CUT:
+		pAct = new CutAction(this);
+		break;
 	/* for each of these enums you have to add a case in the switch case and to include its addobjectaction.h 
 			SET_ANTENNA, (Done)
 			SET_BELT, (Done)
@@ -128,13 +146,14 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			SET_DANGERZONE, (Done)
 			SET_ROTATING_CW, (Done)
 			SET_ROTATING_ACW, (Done)
-			COPY, 
-			CUT,
-			PASTE,
+			COPY, (Done)
+			CUT, (Done)
+			PASTE, (Done)
 			DELETE_OBJECT, (Done)
 			SAVE,
 			OPEN,
 			EXIT, (done)
+			EXECUTE_COMMANDS (done)
 			EXITP (done)
 			REBOOT(done)
 			NEW (done) */
@@ -144,27 +163,36 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case(REBOOT):
 		pAct = new RebootAndRepair(this);
 		break;
+
+	case(EXECUTE_COMMANDS):
+		pAct = new ExecutePlayerMovement(this);
+		break;
+	case(SELECT_COMMANDS):
+		pAct = new Selectcommands(this);
+		break;
+
 	case(USE_TOOLKIT):
 
 
 		break;
 	case(USE_HACK):
+		pAct = new UseHackDevice(this);
 
 		break;
+	case(USE_EXMEM):
+		pAct = new ActivateExmem(this);
+
+		break;
+
 	case(NEW):
+
 		pAct = new NewAction(this);
 		pAct->Execute();
 		pAct = new ToDesignModeAction(this);
 		/*pOut->PrintMessage("New game created!...");
 		pGrid->UpdateInterface();*/
 		break;
-
-	case(EXITP):
-		pAct = new Exit(this); //class to exit the app
-		delete pIn; //deletes memory in pIn 
-		delete pOut; // deletes memory in pOut
-		break;
-
+		
 	case STATUS:	// a click on the status bar ==> no action
 		return;
 	}

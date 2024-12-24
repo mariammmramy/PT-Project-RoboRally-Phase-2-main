@@ -18,6 +18,11 @@ int Player::getweapon()
 
 void Player::setweapon(int w)
 {
+	if (w > 1 || w < 0)
+	{
+		return;
+	}
+	
 	weapon = w;
 }
 
@@ -28,6 +33,11 @@ int Player::gethackdevice()
 
 void Player::sethackdevice(int h)
 {
+
+	if (h > 1 || h < 0)
+	{
+		return;
+	}
 	hackdevice = h;
 }
 
@@ -38,7 +48,46 @@ int Player::gettoolkit()
 
 void Player::settoolkit(int t)
 {
+	
+	if (t > 1 || t < 0)
+	{
+		return;
+	}
 	toolkit = t;
+}
+
+bool Player:: getishacked()
+{
+	return ishacked;
+}
+
+void Player::setishacked(bool hacked)
+{
+	ishacked = hacked;
+}
+
+int Player::getexmem()
+{
+	return exmem;
+}
+
+int Player::getnumsavedcommands()
+{
+	return numsavedcommands;
+}
+
+void Player::setexmem(int x)
+{
+	if (x > 1 || x < 0)
+	{
+		return;
+	}
+
+	exmem = x;
+}
+void Player::setnumsavedcommands(int num)
+{
+	numsavedcommands = num;
 }
 
 
@@ -94,6 +143,14 @@ void Player::SetShooting(bool shoot) {
 bool Player::GetShooting() {
 	return canShoot;
 }
+Command* Player::GetSavedCommands() {
+	return savedCommands; // Return a pointer to saved commands
+}
+void Player::SetSavedCommands(Command commands[], int num) {
+	for (int i = 0; i < num; i++)
+		savedCommands[i] = commands[i];
+}
+
 // ====== Drawing Functions ======
 
 
@@ -202,13 +259,14 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 		pIn->GetCellClicked(); //wait for user input
 	}
 
+
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
 	//		be applied.
 	// 
 	// - Use the CellPosition class to help you calculate the destination cell using the current cell
 	// - Use the Grid class to update pCell
 	// - Don't forget to apply game objects at the final destination cell and check for game ending
-
+	ShootingPhase(pGrid); //start shooting phase
 }
 
 void Player::AppendPlayerInfo(string & playersInfo) const
@@ -217,5 +275,54 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += "P" + to_string(playerNum) + "(" ;
 	playersInfo += to_string(currDirection) + ", ";
 	playersInfo += to_string(health) + ")";
+	playersInfo += " Cellnum: " + stepCount;
 
+}
+void Player::ShootingPhase(Grid* pGrid) {
+	Output* pOut = pGrid->GetOutput();
+	Input* pIn = pGrid->GetInput();
+
+	if (canShoot == false) {
+		pGrid->PrintErrorMessage("Player cannot currently shoot...");
+		return;
+	}
+	
+	Player* opponentP= pGrid->GetOppositePlayer();
+
+	// Get positions and directions
+	CellPosition currentPos = pCell->GetCellPosition();
+	CellPosition opponentPos = opponentP->GetCell()->GetCellPosition();
+	Direction myDir = currDirection;
+
+	// Check if in the same row or column
+	bool canShootInPhase = false; //check to see if can shoot
+	if (myDir == UP || myDir == DOWN) {
+		canShootInPhase = (currentPos.HCell() == opponentPos.HCell()) &&
+			((myDir == UP && opponentPos.VCell() < currentPos.VCell()) ||
+				(myDir == DOWN && opponentPos.VCell() > currentPos.VCell()));
+	}
+	else if (myDir == LEFT || myDir == RIGHT) {
+		canShootInPhase = (currentPos.VCell() == opponentPos.VCell()) &&
+			((myDir == LEFT && opponentPos.HCell() < currentPos.HCell()) ||
+				(myDir == RIGHT && opponentPos.HCell() > currentPos.HCell()));
+	}
+
+	// If shooting is possible
+	if (canShootInPhase) {
+		int damage = 1; // Basic Laser damage
+		if (weapon == 1)
+			damage = 2; //check if the player has a double laser
+		else
+			damage = 1;//damage = 1 if single laser
+
+		opponentP->SetHealth(health-damage); //reduce opponent's health
+
+		// Display hit message
+		pOut->PrintMessage("You hit another player, click to continue...");
+		int x, y;
+		pIn->GetPointClicked(x,y); // Wait for user to click
+	}
+	else {
+		pOut->PrintMessage("No opponent in line of sight. Shooting skipped.");
+	}
 }

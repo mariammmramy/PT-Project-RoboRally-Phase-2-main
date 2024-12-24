@@ -18,7 +18,20 @@ void CopyAction::ReadActionParameters()
 	Input* pIn = pGrid->GetInput();
 	pOut->PrintMessage("Copy a figure ");
 
-	copyPos = pIn->GetCellClicked();
+	CellPosition testPos = pIn->GetCellClicked();
+
+	if (testPos.IsValidCell())
+	{
+		copyPos = testPos;
+	}
+	else
+	{
+		pGrid->PrintErrorMessage("Invalid cell, Click to continue...");
+		copyPos.SetHCell(0);
+		copyPos.SetVCell(4);
+		return;
+	}
+
 	GameObject* pObj = pGrid->Getgameobjectfromcell(copyPos);
 
 	if (pObj == NULL)
@@ -38,9 +51,14 @@ void CopyAction::Execute()
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 
+	if (copyPos.HCell() == 0 && copyPos.VCell() == 4)
+	{
+		return;
+	}
 	GameObject* pObj = pGrid->Getgameobjectfromcell(copyPos); // getting a pointer to the game object in the selected cell
+	GameObject* pNewObj = pObj;
 
-	pGrid->SetClipboard(pObj); // putting that game object in the clipboard
+	pGrid->SetClipboard(pNewObj); // putting that game object in the clipboard
 	pOut->PrintMessage("Copied successfully!. Click to continue...");
 
 	pGrid->UpdateInterface();

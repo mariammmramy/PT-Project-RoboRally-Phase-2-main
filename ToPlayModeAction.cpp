@@ -6,13 +6,14 @@
 #include "Input.h"
 #include "Output.h"
 #include "ToPlayModeAction.h"
+#include "Player.h"
 ToPlayMode::ToPlayMode(ApplicationManager* pApp) : Action(pApp) {   //Created Constructor
 
 }
 ToPlayMode::~ToPlayMode() {  //Created destructor
 
 }
-void ToPlayMode::ReadActionParameters() {  //(in progress)
+void ToPlayMode::ReadActionParameters() { 
 	// Get a Pointer to the Input / Output Interfaces
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
@@ -21,26 +22,19 @@ void ToPlayMode::ReadActionParameters() {  //(in progress)
 
 	pOut->ClearStatusBar();
 }
-void ToPlayMode::Execute(){    //Switch to play mode (in progress)
+void ToPlayMode::Execute(){    //Switch to play mode 
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
-
-	//get random commands
+	Player* pPlayer = pGrid->GetCurrentPlayer();
 	
-	srand(time(NULL)); //initialize the random seed
-
-	for (int i = 0; i < 5; i++) {
-		int RandIndex = rand() % 9; //generates a random number between 0 and 8
-		savedCommands[i] = availableCommands[RandIndex];
-	}
+	//get random commands
 
 
 	pOut->CreatePlayModeToolBar();
-	pOut->CreateCommandsBar(savedCommands,5,availableCommands,5); //commands bar with random commands
-
+	 //commands bar with random commands
+	pOut->PrintMessage("Switched to play mode...");
 	pGrid->UpdateInterface();
-}
-Command ToPlayMode:: GetSavedCommands() {
-	return savedCommands[5];
+	pGrid->SetEndGame(false);
+
 }
