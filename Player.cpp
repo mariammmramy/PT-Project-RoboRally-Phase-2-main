@@ -256,18 +256,27 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 			pOut->PrintMessage("Invalid move! Position out of bounds. Skipping...");
 			continue;
 		}
-	
 		pGrid->UpdatePlayerCell(this, newPos); //updates player cell
 		// to do: code to interact with game objects 
-
+		pGrid->UpdateInterface();
+		if (pCell->GetGameObject()) {
+			if (pCell->HasWorkshop()) {
+				continue;
+			}
+			pCell->GetGameObject()->Apply(pGrid,this);// Interact with game objects on the cell
+		}
+		pGrid->UpdateInterface();
 		pOut->PrintMessage("Click anywhere to execute the next command");
 		pIn->GetCellClicked(); //wait for user input
 	}
 
-
+	pGrid->UpdatePlayerCell(this, newPos); //updates player cell
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
 	//		be applied.
-	// 
+	Cell* finalCell = pCell;
+	if (finalCell->GetGameObject()) {
+		finalCell->GetGameObject()->Apply(pGrid, this);
+	}
 	// - Use the CellPosition class to help you calculate the destination cell using the current cell
 	// - Use the Grid class to update pCell
 	// - Don't forget to apply game objects at the final destination cell and check for game ending
