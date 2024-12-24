@@ -25,6 +25,7 @@ void Selectcommands::ReadActionParameters()
 }
 void Selectcommands::Execute()
 {
+	ReadActionParameters(); // call read action parameters
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
