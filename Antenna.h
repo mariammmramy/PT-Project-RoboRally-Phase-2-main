@@ -1,5 +1,7 @@
 #pragma once
 #include "GameObject.h"
+#include"Player.h"
+#include"SaveAction.h"
 class Antenna :public GameObject
 {
 public:

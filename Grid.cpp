@@ -204,7 +204,6 @@ GameObject* Grid::Getgameobjectfromcell(CellPosition pos)
 	return pObj;
 }
 
-Input * Grid::GetInput() const
 Input * Grid::GetInput() const 
 {
 	return pIn;

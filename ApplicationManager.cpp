@@ -143,9 +143,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case CUT:
 		pAct = new CutAction(this);
 		break;
-	case CUT:
-		pAct = new CutAction(this);
-		break;
 	case SAVE:
 		pAct = new CutAction(this);
 		break;
