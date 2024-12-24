@@ -271,8 +271,10 @@ void Player::ShootingPhase(Grid* pGrid) {
 	// If shooting is possible
 	if (canShootInPhase) {
 		int damage = 1; // Basic Laser damage
-		if (weapon == 1)
+		if (weapon == 1) {
 			damage = 2; //check if the player has a double laser
+			weapon = 0;
+		}
 		else
 			damage = 1;//damage = 1 if single laser
 
