@@ -67,7 +67,7 @@ public:
 	bool flagfound();
 	bool checkOverlap(const Belt* belt1, const Belt& belt2);
 	bool antennafound();
-	bool isBeltOverlap();
+	bool isBeltOverlap(CellPosition beltStartPosition, CellPosition beltEndPosition);
 
 	// ========= Other Getters =========
 	
