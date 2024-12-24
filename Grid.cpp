@@ -117,7 +117,20 @@ bool Grid::antennafound()
 		return false;
 	}
 }
-
+CellPosition Grid::getAntennaPosition() {
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
+		{
+			Cell* cell = CellList[i][j];
+			if (cell->GetGameObject() != nullptr && cell->HasAntenna())
+			{
+				return cell->GetCellPosition();
+			}
+		}
+		return CellPosition(-1, -1);
+	}
+}
 bool Grid::checkOverlap(const Belt* belt1, const Belt& belt2) {
 
 	using Position = std::pair<int, int>;
