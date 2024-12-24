@@ -85,7 +85,7 @@ void Antenna::Save(ofstream& OutFile, GameObjectType type) {
 }
 
 GameObjectType Antenna::GetType() const {
-    return AntennasType;
+    return Antennas;
 }
 
 Antenna::~Antenna()
