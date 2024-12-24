@@ -23,7 +23,7 @@ void RebootAndRepair::Execute() {
         // Reboot: Reset player's health points to maximum
         pPlayer->SetHealth(10);
 
-        //Disable movement and shooting for this round (in progress)
+        //Disable movement and shooting for this round
         pPlayer->SetMovement(false);
         pPlayer->SetShooting(false);
 

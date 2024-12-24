@@ -205,13 +205,10 @@
     <ClCompile Include="AddDangerZoneAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Exit.cpp" />
     <ClCompile Include="UseConsumableToolkit.cpp" />
     <ClCompile Include="AddWorkshopAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="RebootAndRepair.cpp" />
-    <ClCompile Include="ExecutePlayerMovement.cpp" />
     <ClCompile Include="AddAntennaAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -224,7 +221,6 @@
     <ClCompile Include="PasteAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="NewAction.cpp" />
     <ClCompile Include="CutAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -235,6 +231,25 @@
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="DeleteAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="ActivateExmem.cpp" />
+    <ClCompile Include="ExecutePlayerMovement.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exit.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="NewAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="RebootAndRepair.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Selectcommands.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="UseHackDevice.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -372,13 +387,10 @@
     <ClInclude Include="AddDangerZoneAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Exit.h" />
     <ClInclude Include="UseConsumableToolkit.h" />
     <ClInclude Include="AddWorkshopAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="RebootAndRepair.h" />
-    <ClInclude Include="ExecutePlayerMovement.h" />
     <ClInclude Include="AddAntennaAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
@@ -391,7 +403,6 @@
     <ClInclude Include="PasteAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="NewAction.h" />
     <ClInclude Include="CutAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
@@ -402,6 +413,25 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="DeleteAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivateExmem.h" />
+    <ClInclude Include="ExecutePlayerMovement.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exit.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="NewAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="RebootAndRepair.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Selectcommands.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="UseHackDevice.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

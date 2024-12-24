@@ -21,6 +21,8 @@
 #include "UseHackDevice.h"
 #include "Selectcommands.h"
 #include "ActivateExmem.h"
+#include "UseConsumableToolkit.h"
+
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -172,8 +174,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case(USE_TOOLKIT):
-
-
+		pAct->new UseConsumableToolkit(this);
 		break;
 	case(USE_HACK):
 		pAct = new UseHackDevice(this);
