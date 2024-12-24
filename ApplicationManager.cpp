@@ -95,7 +95,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case TO_PLAY_MODE:					//TODO:
 		pAct = new ToPlayMode(this); // temporary till you made its action class (CHANGE THIS LATTER) 
-		/*pOut->CreatePlayModeToolBar()*/;
 		//in progress
 		break;
 	
@@ -156,6 +155,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new NewAction(this);
 		pAct->Execute();
 		pAct = new ToDesignModeAction(this);
+		/*pOut->PrintMessage("New game created!...");
+		pGrid->UpdateInterface();*/
 		break;
 
 	case(EXITP):
