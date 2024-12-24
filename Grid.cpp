@@ -1,5 +1,6 @@
 #include "Grid.h"
-
+#include<vector>
+#include<iostream>
 #include "Cell.h"
 #include "GameObject.h"
 #include "Belt.h"
@@ -79,21 +80,22 @@ void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 	// Draw the player's triangle on the new cell position
 	player->Draw(pOut);
 }
-bool Grid::flagfound() 
+
+bool Grid::flagfound()
 {
-	
-		for (int i = 0; i < NumVerticalCells; ++i)
+
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
 		{
-			for (int j = 0; j < NumHorizontalCells; ++j)
+			Cell* cell = CellList[i][j];
+			if (cell->GetGameObject() != nullptr && cell->HasFlag())
 			{
-				Cell* cell = CellList[i][j];
-				if (cell->GetGameObject() != nullptr && cell -> HasFlag()) 
-				{
-					return true; 
-				}
+				return true;
 			}
-		
-		return false; 
+		}
+
+		return false;
 	}
 }
 
@@ -115,7 +117,59 @@ bool Grid::antennafound()
 	}
 }
 
+bool Grid::checkOverlap(const Belt* belt1, const Belt& belt2) {
+	// Check if the line segments intersect
+	bool intersect = false;
+	int belt1StartVCell = belt1->GetPosition().VCell();
+	int belt1StartHCell = belt1->GetPosition().HCell();
+	int belt1EndVCell = belt1->GetEndPosition().VCell();
+	int belt1EndHCell = belt1->GetEndPosition().HCell();
+	int belt2StartVCell = belt2.GetPosition().VCell();
+	int belt2StartHCell = belt2.GetPosition().HCell();
+	int belt2EndVCell = belt2.GetEndPosition().VCell();
+	int belt2EndHCell = belt2.GetEndPosition().HCell();
 
+	// Calculate area of parallelogram formed by p1-q1 and p2-q2
+	double crossProduct = (belt1EndVCell - belt1StartVCell) * (belt2StartHCell - belt2EndHCell) - (belt1EndHCell - belt1StartHCell) * (belt2StartVCell - belt2EndVCell);
+
+	// If cross product is zero, lines are parallel
+	if (crossProduct == 0) {
+		// Check if one line segment is completely contained within the other
+		return (min(belt1StartVCell, belt1EndVCell) <= max(belt2StartVCell, belt2EndVCell) && max(belt1StartVCell, belt1EndVCell) >= min(belt2StartVCell, belt2EndVCell) && min(belt1StartHCell, belt1EndHCell) <= max(belt2StartHCell, belt2EndHCell) && max(belt1StartHCell, belt1EndHCell) >= min(belt2StartHCell, belt2EndHCell));
+	}
+
+	// If cross product is not zero, lines intersect
+	return true;
+}
+
+bool Grid::isBeltOverlap(CellPosition beltStartPosition, CellPosition beltEndPosition)
+{
+	std::vector<CellPosition> forbiddenStarts;
+	std::vector<CellPosition> forbiddenOverlaps;
+	Belt beltToAdd = Belt(beltStartPosition, beltEndPosition);
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
+		{
+			Cell* cell = CellList[i][j];
+			if (cell->GetGameObject() != nullptr)
+			{
+				Belt* cellBelt = cell->HasBelt();
+				if (cellBelt) {
+					if (checkOverlap(cellBelt, beltToAdd)) return true;
+					CellPosition cellBeltEnd = cellBelt->GetEndPosition();
+					forbiddenStarts.push_back(cellBeltEnd);
+				}
+			}
+		}
+	}
+	for (CellPosition pos : forbiddenStarts) {
+		if ((pos.VCell() == beltStartPosition.VCell()) && (pos.HCell() == beltStartPosition.HCell())) {
+			return true;
+		}
+	}
+	return false;
+}
 // ========= Setters and Getters Functions =========
 
 
