@@ -388,8 +388,9 @@ void Player::ShootingPhase(Grid* pGrid) {
 		pGrid->PrintErrorMessage("Player cannot currently shoot...");
 		return;
 	}
-	
-	Player* opponentP= pGrid->GetOppositePlayer();
+
+	Player* opponentP = pGrid->GetOppositePlayer();
+	Player* currentP = pGrid->GetCurrentPlayer();
 
 	// Get positions and directions
 	CellPosition currentPos = pCell->GetCellPosition();
@@ -419,11 +420,20 @@ void Player::ShootingPhase(Grid* pGrid) {
 		else
 			damage = 1;//damage = 1 if single laser
 
+		if (opponentP->GetisReflected())
+		{
+			if (currentP->GetShield() == 1) { //if opponent has shield he takes less damage
+				damage -= 1;
+				opponentP->SetShield(0);
+			}
+			currentP->SetHealth(health - damage);
+		}
 		if (opponentP->GetShield() == 1) { //if opponent has shield he takes less damage
 			damage -= 1;
 			opponentP->SetShield(0);
 		}
-		opponentP->SetHealth(health-damage); //reduce opponent's health
+		int opphealth = opponentP->GetHealth();
+		opponentP->SetHealth(opphealth - damage); //reduce opponent's health
 
 		CellPosition startpos = currentPos;
 		CellPosition endpos = opponentPos;
@@ -432,7 +442,7 @@ void Player::ShootingPhase(Grid* pGrid) {
 		// Display hit message
 		pOut->PrintMessage("You hit another player, click to continue...");
 		int x, y;
-		pIn->GetPointClicked(x,y); // Wait for user to click
+		pIn->GetPointClicked(x, y); // Wait for user to click
 		string playerinfo;
 		AppendPlayerInfo(playerinfo);
 		pOut->PrintPlayersInfo(playerinfo);
