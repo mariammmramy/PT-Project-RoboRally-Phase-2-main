@@ -22,6 +22,7 @@ void SaveAction::ReadActionParameters() {
 void SaveAction::Execute() {
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
+	Input* pIn = pGrid->GetInput();
 
 	ReadActionParameters();
 
@@ -41,8 +42,12 @@ void SaveAction::Execute() {
 	pGrid->SaveAll(OutFile, RotatingGears);
 
 	OutFile.close();
-
-	pOut->PrintMessage("Grid was saved to " + Filename);
+	pOut->PrintMessage("Saving file, Click to continue...");
+	int x, y;
+	pIn->GetPointClicked(x, y);
+	
+	pOut->PrintMessage("Grid was saved to " + Filename + ", Click to continue...");
+	pIn->GetPointClicked(x, y);
 	pOut->ClearStatusBar();
 
 

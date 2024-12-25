@@ -25,6 +25,15 @@
 #include "UseShield.h"
 
 #include "CutAction.h"
+#include "NewAction.h"
+#include "CutAction.h"
+#include "UseHackDevice.h"
+#include "Selectcommands.h"
+#include "ActivateExMemory.h"
+#include "UseConsumableToolkit.h"
+#include "UseShield.h"
+
+#include "SaveAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -144,7 +153,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new CutAction(this);
 		break;
 	case SAVE:
-		pAct = new CutAction(this);
+		pAct = new SaveAction(this);
 		break;
 
 	/* for each of these enums you have to add a case in the switch case and to include its addobjectaction.h 
