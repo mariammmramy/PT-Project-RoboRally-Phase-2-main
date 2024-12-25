@@ -359,7 +359,23 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 {
 	// TODO: Modify the Info as needed
 	playersInfo += "P" + to_string(playerNum) + "(" ;
-	playersInfo += to_string(currDirection) + ", ";
+
+	switch (currDirection)
+	{
+	case UP:
+		playersInfo += "UP, ";
+		break;
+	case RIGHT:
+		playersInfo += "RIGHT, ";
+		break;
+	case DOWN:
+		playersInfo += "DOWN, ";
+		break;
+	case LEFT:
+		playersInfo += "LEFT, ";
+		break;
+	}
+	
 	playersInfo += to_string(health) + ")";
 	playersInfo += " Cellnum: " + stepCount;
 

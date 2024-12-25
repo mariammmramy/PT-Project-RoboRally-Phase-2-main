@@ -354,6 +354,7 @@ void Grid::UpdateInterface()
 		}
 
 		// 1- Print Player's Info
+		
 		string playersInfo = "";
 		for (int i = 0; i < MaxPlayerCount; i++)
 		{
@@ -363,6 +364,7 @@ void Grid::UpdateInterface()
 		}
 		playersInfo += " | Curr = " + to_string(currPlayerNumber);
 
+		pOut->clearplayerinfo(playersInfo);
 		pOut->PrintPlayersInfo(playersInfo);
 
 		// Note: UpdatePlayerCell() function --> already update drawing players in Play Mode

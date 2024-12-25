@@ -5,6 +5,16 @@
 #include <iostream>
 ////////////////////////////////////////////////////////////////////////////////////////// 
 
+void Output::clearplayerinfo(string playersinfo)
+{
+	pWind->SetBrush(UI.ToolBarColor);
+	pWind->SetPen(UI.ToolBarColor);
+	int width, height;
+	pWind->GetStringSize(width, height, playersinfo);
+		pWind->DrawRectangle(UI.width - width, 0, UI.width, UI.ToolBarHeight);
+}
+
+
 void Output::DrawLaser(CellPosition startpos, CellPosition endpos , color c, int weapon)
 {
 	pWind->SetBrush(c);
@@ -495,7 +505,7 @@ void Output::PrintPlayersInfo(string info)
 	///TODO: Draw the string "info" in the specified location (x, y)
 
 	pWind->SetBrush(UI.StatusBarColor);
-	pWind->DrawRectangle(x, y, x + 300, y + 100);
+	pWind->DrawRectangle(x, y, UI.width, UI.ToolBarHeight);
 	pWind->DrawString(x, y, info);
 
 }

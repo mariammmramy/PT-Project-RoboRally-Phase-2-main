@@ -47,6 +47,8 @@ public:
 	void DrawLaser(CellPosition startpos, CellPosition endpos, color c, int weapon);
 	Output();	// A Constructor for any needed initializations
 
+	void clearplayerinfo(string playersinfo);
+
 	window* CreateWind(int, int, int, int) const; // Creates the application window
 
 	Input* CreateInput() const;	// Creates a pointer to the Input object	
