@@ -209,7 +209,11 @@ bool Grid::isBeltOverlap(CellPosition beltStartPosition, CellPosition beltEndPos
 }
 // ========= Setters and Getters Functions =========
 
- 
+void Grid::settoolkit(int t, int playernum)
+{
+	PlayerList[playernum]->settoolkit(t);
+}
+
 
 GameObject* Grid::Getgameobjectfromcell(CellPosition pos)
 {
@@ -261,6 +265,8 @@ Player * Grid::GetCurrentPlayer() const
 	return PlayerList[currPlayerNumber];
 }
 
+
+
 Belt * Grid::GetNextBelt(const CellPosition & position)
 {
 	
@@ -291,9 +297,16 @@ Player *Grid:: GetOppositePlayer() const {
 	return PlayerList[oppPlayerNum];
 }
 
+int Grid::gettoolkit(int playernum)
+{
+	int toolkit = PlayerList[playernum]->gettoolkit();
+	return toolkit;
+}
+
 int Grid::GetCurrentPlayerNum() const {
 	return currPlayerNumber;
 }
+
 
 // ========= User Interface Functions =========
 

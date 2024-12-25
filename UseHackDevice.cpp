@@ -17,7 +17,7 @@ void UseHackDevice::ReadActionParameters()
 	Input* pIn = pGrid->GetInput();
 
 	Player* pPlayer = pGrid->GetCurrentPlayer();
-	if (!pPlayer->gethackdevice())
+	if (pPlayer->gethackdevice() == 0)
 	{
 		pGrid->PrintErrorMessage("You don't own any hack device yet. Click to contnue...");
 		return;
@@ -48,7 +48,9 @@ void UseHackDevice::Execute()
 
 	Player* pPlayer = pGrid->GetCurrentPlayer();
 	Player* phacked = pGrid->GetOppositePlayer();
-
+	pOut->PrintMessage("Hackdevice used successfully, click to continue...");
+	int x, y;
+	pIn->GetPointClicked(x, y);
 	phacked->SetMovement(false);
 	pPlayer->sethackdevice(0);
 

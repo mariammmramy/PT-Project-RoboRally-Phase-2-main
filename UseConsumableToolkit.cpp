@@ -14,7 +14,9 @@ void UseConsumableToolkit::ReadActionParameters() {  //
     Input* pIn = pGrid->GetInput();
    
     Player* pPlayer = pGrid->GetCurrentPlayer();
-    if (!pPlayer->gettoolkit())
+    int toolkit = pPlayer->gettoolkit();
+
+    if (!toolkit)
     {
         pGrid->PrintErrorMessage("You don't own any tool kits yet. Click to continue...");
         return;
@@ -30,6 +32,10 @@ void UseConsumableToolkit::Execute() {
 
    
     Player* pPlayer = pGrid->GetCurrentPlayer();
+    pPlayer->settoolkit(0);
+    pOut->PrintMessage("Toolkit used successfully, click to continue...");
+    int x, y;
+    pIn->GetPointClicked(x, y);
     pPlayer->SetHealth(10);
     pPlayer->settoolkit(0);
 

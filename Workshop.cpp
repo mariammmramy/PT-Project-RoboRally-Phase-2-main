@@ -30,6 +30,7 @@ void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 	pIn->GetPointClicked(x, y);
 	pOut->PrintMessage("Type 6 for reflection gear, Press anything else and click on the repair icon in the toolbar if you want to repair and reboot");
 
+	int playernum = pGrid->GetCurrentPlayerNum();
 	int a = pIn->GetInteger(pOut);
 	switch (a)
 	{
@@ -40,11 +41,12 @@ void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 		}
 		else
 		{
+			
 			pPlayer->settoolkit(1);
 		}
 		break;
 	case 2:
-		if (pPlayer->gethackdevice())
+		if (pPlayer->gethackdevice() == 1)
 		{
 			pGrid->PrintErrorMessage("You already have a hack device, you can't buy more than one. Click to continue...");
 		}

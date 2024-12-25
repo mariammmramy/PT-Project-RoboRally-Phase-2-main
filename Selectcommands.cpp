@@ -64,15 +64,8 @@ void Selectcommands::Execute()
 	}
 	pOut->CreateCommandsBar(savedCommands, numsaved, commands, health);
 
-	int iteration;
-	if (health >= numsaved)
-	{
-		iteration = numsaved;
-	}
-	else
-	{
-		iteration = health;
-	}
+	int iteration = min(health,numsaved);
+
 
 	for (int i = 0; i < iteration; i++)
 	{
@@ -86,10 +79,10 @@ void Selectcommands::Execute()
 		
 	
 		// after this if function, you have the item number that was clicked from the available commands
-
+		
 		savedCommands[i] = (commands[clickedItemOrder]);
 		commands[clickedItemOrder] = NO_COMMAND;
-		pOut->CreateCommandsBar(savedCommands, 5, commands, health);
+		pOut->CreateCommandsBar(savedCommands, numsaved, commands, health);
 	}
 
 	pPlayer->SetSavedCommands(savedCommands, iteration);

@@ -48,6 +48,8 @@ public:
 	    																	  // and  Draws it in the new cell
 	// ========= Setters and Getters Functions =========
 
+	void settoolkit(int t, int playernum);
+
 	Input * GetInput() const;	// Gets a Pointer to the Input
 	Output * GetOutput() const; // Gets a Pointer to the Output 
 
@@ -60,6 +62,9 @@ public:
 	void AdvanceCurrentPlayer();     // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
+	
+	int gettoolkit(int playernum);
+	
 	int GetCurrentPlayerNum() const; //Gets current player index
 	GameObject* Getgameobjectfromcell(CellPosition pos);
 	Player* GetOppositePlayer() const;	// Gets a Pointer to the opposite Player	                                   

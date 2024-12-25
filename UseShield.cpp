@@ -33,7 +33,9 @@ void UseShield::Execute() {
 
     //clear status bar
     pOut->ClearStatusBar();
-
+    pOut->PrintMessage("Hackdevice used successfully, click to continue...");
+    int x, y;
+    pIn->GetPointClicked(x, y);
 
     //update user interface
     pGrid->UpdateInterface();

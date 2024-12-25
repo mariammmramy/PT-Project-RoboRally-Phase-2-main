@@ -40,7 +40,9 @@ void ActivateExMemory::Execute()
 
 	pPlayer->setnumsavedcommands(oldnum + 1);
 	pPlayer->setExMemory(0);
-
+	pOut->PrintMessage("Extended memory used successfully, click to continue...");
+	int x, y;
+	pIn->GetPointClicked(x, y);
 	pGrid->UpdateInterface();
 }
 
