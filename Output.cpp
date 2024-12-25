@@ -5,6 +5,18 @@
 #include <iostream>
 ////////////////////////////////////////////////////////////////////////////////////////// 
 
+void Output::DrawLine(CellPosition startpos, CellPosition endpos , color c)
+{
+	pWind->SetBrush(c);
+	int x1 = (startpos.HCell() * UI.CellWidth) + (UI.CellWidth/2) ;
+	int y1 = ((startpos.VCell() * UI.CellHeight) + UI.ToolBarHeight) + (UI.CellHeight);
+
+	int x2 = (endpos.HCell() * UI.CellWidth) + (UI.CellWidth / 2);
+	int y2 = ((endpos.VCell() * UI.CellHeight) + UI.ToolBarHeight) + (UI.CellHeight);
+	pWind->DrawLine(x1, y1, x2, y2);
+}
+
+
 Output::Output()
 {
 	// Initialize user interface parameters

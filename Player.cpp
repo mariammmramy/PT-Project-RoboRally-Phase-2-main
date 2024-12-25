@@ -364,7 +364,7 @@ void Player::ShootingPhase(Grid* pGrid) {
 		int damage = 1; // Basic Laser damage
 		if (weapon == 1) {
 			damage = 2; //check if the player has a double laser
-			weapon = 0;
+			weapon = 0; // should be removed
 		}
 		else
 			damage = 1;//damage = 1 if single laser
@@ -375,6 +375,9 @@ void Player::ShootingPhase(Grid* pGrid) {
 		}
 		opponentP->SetHealth(health-damage); //reduce opponent's health
 
+		CellPosition startpos = currentPos;
+		CellPosition endpos = opponentPos;
+		pOut->DrawLine(startpos,endpos, RED);
 		// Display hit message
 		pOut->PrintMessage("You hit another player, click to continue...");
 		int x, y;

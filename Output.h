@@ -14,7 +14,7 @@ class Output	// The application manager & grid (phase 2) should have a pointer t
 private:
 
 	window* pWind;	// Pointer to the Graphics Window
-
+	
 	// ========== Some Utility Functions (Private Functions) ==========
 
 	///TODO: IMPLEMENT THE FOLLOWING FUNCTION
@@ -43,6 +43,8 @@ private:
 	void DrawAvailableCommands(Command availableCommands[], int availableCommandsCount, string CommandItemImages[]) const;
 public:
 
+
+	void DrawLine(CellPosition startpos, CellPosition endpos, color c);
 	Output();	// A Constructor for any needed initializations
 
 	window* CreateWind(int, int, int, int) const; // Creates the application window
