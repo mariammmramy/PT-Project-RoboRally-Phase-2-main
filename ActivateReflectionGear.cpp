@@ -18,6 +18,9 @@ void ActivateReflectionGear::ReadActionParameters()
 	Input* pIn = pGrid->GetInput();
 
 	Player* pPlayer = pGrid->GetCurrentPlayer();
+
+
+
 }
 void ActivateReflectionGear::Execute()
 {
@@ -46,3 +49,10 @@ void ActivateReflectionGear::Execute()
 ActivateReflectionGear:: ~ActivateReflectionGear()
 {
 
+}
+//bool isref player done 
+//get set hena true player
+
+
+
+//pOut->drawline

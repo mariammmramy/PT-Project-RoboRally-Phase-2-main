@@ -32,8 +32,9 @@
 #include "ActivateExMemory.h"
 #include "UseConsumableToolkit.h"
 #include "UseShield.h"
-
 #include "SaveAction.h"
+#include "ActivateReflectionGear.h"
+
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -203,6 +204,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case(USE_SHIELD):
 		pAct = new UseShield(this);
+
+		break;
+	case(USE_REFLECTION):
+		pAct = new ActivateReflectionGear(this);
 
 		break;
 

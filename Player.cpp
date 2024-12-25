@@ -102,6 +102,40 @@ void Player::SetShield(int t) {
 }
 
 
+int Player::getReflectionGear()
+{
+	return ReflectionGear;
+}
+
+int Player::GetisReflected()
+{
+	return isReflected;
+}
+
+void Player::setReflectionGear(int r)
+{
+
+
+	if (r > 1 || r < 0)
+	{
+		return;
+	}
+
+	ReflectionGear = r;
+}
+
+void Player::SetisReflected(int isR)
+{
+	if (isR > 1 || isR < 0)
+	{
+		return;
+	}
+
+	isReflected = isR;
+
+}
+
+
 Direction  Player::GetDirection()
 {
 	return currDirection;

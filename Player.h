@@ -19,7 +19,9 @@ class Player
 	int shield = 0;
 	bool ishacked = false;
 	bool isrepaired = false;
+	bool isReflected = false;
 
+	int ReflectionGear = 0;  // cant have more than one
 	int ExMemory = 0;		//bonus; extended memory, cannot have more the one
 	int numsavedcommands = 5;
 	bool canMove = true;
@@ -61,8 +63,14 @@ public:
 	void setExMemory(int x);
 	void setnumsavedcommands(int num);
 
+	int getReflectionGear();
+	void setReflectionGear(int x);
+
 	int GetShield();
 	void SetShield(int t);
+
+	int GetisReflected();
+	void SetisReflected(int isR);
 
 	int Getplayernum();
 	Direction GetDirection();
