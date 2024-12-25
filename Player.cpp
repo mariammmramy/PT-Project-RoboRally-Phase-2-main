@@ -411,7 +411,8 @@ void Player::ShootingPhase(Grid* pGrid) {
 
 		CellPosition startpos = currentPos;
 		CellPosition endpos = opponentPos;
-		pOut->DrawLine(startpos,endpos, RED);
+
+			pOut->DrawLaser(startpos, endpos, RED, weapon);
 		// Display hit message
 		pOut->PrintMessage("You hit another player, click to continue...");
 		int x, y;

@@ -90,7 +90,7 @@ bool Grid::flagfound()
 		for (int j = 0; j < NumHorizontalCells; ++j)
 		{
 			Cell* cell = CellList[i][j];
-			if (cell->GetGameObject() != nullptr && cell->HasFlag())
+			if (CellList[i][j]->HasFlag())
 			{
 				return true;
 			}

@@ -44,7 +44,7 @@ private:
 public:
 
 
-	void DrawLine(CellPosition startpos, CellPosition endpos, color c);
+	void DrawLaser(CellPosition startpos, CellPosition endpos, color c, int weapon);
 	Output();	// A Constructor for any needed initializations
 
 	window* CreateWind(int, int, int, int) const; // Creates the application window

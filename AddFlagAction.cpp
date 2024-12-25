@@ -28,7 +28,24 @@ void AddFlagAction::ReadActionParameters()
 	// 2- Read the flagPos
 
 	pOut->PrintMessage("New Flag: Click on the cell to add a flag ...");
+
+
 	flagPos = pIn->GetCellClicked();
+
+	if (!flagPos.IsValidCell())
+	{
+		pGrid->PrintErrorMessage("Invalid cell please select a valid cell.");
+		return;
+	}
+	if (pGrid->flagfound())
+	{
+		pGrid->PrintErrorMessage("A flag already exists .You can't add another one");
+		flagPos.SetVCell(-5);
+		return;
+	}
+
+	
+
 
 	// 5- Clear status bar
 
@@ -47,18 +64,14 @@ void AddFlagAction::Execute()
 	// get a pointer to the Grid from the ApplicationManager
 	Grid* pGrid = pManager->GetGrid();
 
-	if (!flagPos.IsValidCell())
+
+
+	// 1-Create a flag object
+	if (flagPos.VCell() == -5)
 	{
-		pGrid->PrintErrorMessage("Invalid cell please select a valid cell.");
-		return;
-	}
-	if (pGrid->flagfound())
-	{
-		pGrid->PrintErrorMessage("A flag already exists .You can't add another one");
 		return;
 	}
 
-	// 1-Create a flag object
 	Flag* pFlag = new Flag(flagPos);
 
 	// 3-Add the flag object to the GameObject of its Cell:

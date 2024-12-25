@@ -5,15 +5,28 @@
 #include <iostream>
 ////////////////////////////////////////////////////////////////////////////////////////// 
 
-void Output::DrawLine(CellPosition startpos, CellPosition endpos , color c)
+void Output::DrawLaser(CellPosition startpos, CellPosition endpos , color c, int weapon)
 {
 	pWind->SetBrush(c);
-	int x1 = (startpos.HCell() * UI.CellWidth) + (UI.CellWidth/2) ;
-	int y1 = ((startpos.VCell() * UI.CellHeight) + UI.ToolBarHeight) + (UI.CellHeight);
+	pWind->SetPen(c, 5);
+	int x1 = (startpos.HCell() * UI.CellWidth) + (UI.CellWidth / 2);
+	int y1 = ((startpos.VCell() * UI.CellHeight) + UI.ToolBarHeight) + (UI.CellHeight) / 2;
 
 	int x2 = (endpos.HCell() * UI.CellWidth) + (UI.CellWidth / 2);
-	int y2 = ((endpos.VCell() * UI.CellHeight) + UI.ToolBarHeight) + (UI.CellHeight);
-	pWind->DrawLine(x1, y1, x2, y2);
+	int y2 = ((endpos.VCell() * UI.CellHeight) + UI.ToolBarHeight) + (UI.CellHeight) / 2;
+
+	if (weapon == 0)
+	{
+		pWind->DrawLine(x1, y1, x2, y2);
+	}
+	else
+	{
+		pWind->DrawLine(x1, y1, x2, y2);
+		y1 = y1 + 10;
+		y2 = y2 + 10;
+		pWind->DrawLine(x1, y1, x2, y2);
+	}
+
 }
 
 
