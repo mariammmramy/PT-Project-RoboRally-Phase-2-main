@@ -22,9 +22,11 @@ void WaterPit::Apply(Grid * pGrid, Player * pPlayer)
 
 	// 1- Print a message, make sure to edit this message according to which player wins "You drowned in a water pit. Player (0/1) wins !  Click to continue ..." and wait mouse click
 	Output* pOut = pGrid->GetOutput();
+	Input* pIn = pGrid->GetInput();
 	int playernum = pPlayer->Getplayernum();
 	pOut->PrintMessage("You drowned in a water pit. Player " + to_string(2 - playernum) + " wins! Click to continue");
-
+	int x, y;
+	pIn->GetPointClicked(x, y);
 	// 2- Apply the water pit's effect by setting the player's health which drowned to zero and ending the game
 	
 	pPlayer->SetHealth(0);
