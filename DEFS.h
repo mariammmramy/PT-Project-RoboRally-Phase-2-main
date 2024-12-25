@@ -43,6 +43,7 @@ enum ActionType // The actions supported (add more as needed)
 	USE_HACK,
 	USE_EXMEM,
 	USE_SHIELD,
+	USE_REFLECTION,
 	NEW,
 	EXITP,
 

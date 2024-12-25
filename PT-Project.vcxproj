@@ -186,6 +186,7 @@
     <ClCompile Include="NewAction.cpp" />
     <ClCompile Include="RebootAndRepair.cpp" />
     <ClCompile Include="PasteAction.cpp" />
+    <ClCompile Include="ActivateReflectionGear.cpp" />
     <ClCompile Include="Selectcommands.cpp" />
     <ClCompile Include="SaveAction.cpp" />
     <ClCompile Include="ToDesignModeAction.cpp" />
@@ -248,6 +249,7 @@
     <ClInclude Include="NewAction.h" />
     <ClInclude Include="RebootAndRepair.h" />
     <ClInclude Include="PasteAction.h" />
+    <ClInclude Include="ActivateReflectionGear.h" />
     <ClInclude Include="Selectcommands.h" />
     <ClInclude Include="ToDesignModeAction.h" />
     <ClInclude Include="ToPlayModeAction.h" />
