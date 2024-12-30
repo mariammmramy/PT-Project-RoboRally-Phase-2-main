@@ -296,11 +296,11 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 			RotatingGear rotateGear(currentPos, true);
 			rotateGear.Apply(pGrid, this);   //Apply clockwise movement
 
-			ClearDrawing(pOut); //clear old drawing
+			//ClearDrawing(pOut); //clear old drawing
 			pGrid->UpdatePlayerCell(this, newPos);
-			pOut->ClearGridArea();
+			//pOut->ClearGridArea();
 
-			Draw(pOut); //redraw player
+			//Draw(pOut); //redraw player
 			continue; //skip  turn
 
 		}
@@ -309,11 +309,11 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 			RotatingGear rotateGear(currentPos, false);
 			rotateGear.Apply(pGrid, this);   //Apply counter clockwise movement
 
-			ClearDrawing(pOut); //clear old drawing
+			//ClearDrawing(pOut); //clear old drawing
 			pGrid->UpdatePlayerCell(this, newPos);
-			pOut->ClearGridArea();
+			//pOut->ClearGridArea();
 
-			Draw(pOut); //redraw player
+			//Draw(pOut); //redraw player
 			continue; //skip this turn
 		}
 		default:
@@ -415,7 +415,7 @@ void Player::ShootingPhase(Grid* pGrid) {
 		int damage = 1; // Basic Laser damage
 		if (weapon == 1) {
 			damage = 2; //check if the player has a double laser
-			weapon = 0; // should be removed
+			//weapon = 0; // should be removed
 		}
 		else
 			damage = 1;//damage = 1 if single laser

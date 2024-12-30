@@ -4,7 +4,7 @@
 AddAntennaAction::AddAntennaAction(ApplicationManager* pApp) : Action(pApp)
 {
     /// Initializes the pManager pointer of Action with the passed pointer
-}
+} 
 
 
 void AddAntennaAction::ReadActionParameters()

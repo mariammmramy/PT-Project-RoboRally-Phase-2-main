@@ -13,12 +13,7 @@ void UseShield::ReadActionParameters() {  //
     Output* pOut = pGrid->GetOutput();
     Input* pIn = pGrid->GetInput();
 
-    Player* pPlayer = pGrid->GetCurrentPlayer();
-    if (!pPlayer->GetShield())
-    {
-        pGrid->PrintErrorMessage("You don't own any shield yet. Click to continue...");
-        return;
-    }
+    
     pOut->ClearStatusBar();
 
 }
@@ -28,12 +23,16 @@ void UseShield::Execute() {
     Output* pOut = pGrid->GetOutput();
     Input* pIn = pGrid->GetInput();
 
-
     Player* pPlayer = pGrid->GetCurrentPlayer();
+    if (!pPlayer->GetShield())
+    {
+        pGrid->PrintErrorMessage("You don't own any shield yet. Click to continue...");
+        return;
+    }
 
     //clear status bar
     pOut->ClearStatusBar();
-    pOut->PrintMessage("Hackdevice used successfully, click to continue...");
+    pOut->PrintMessage("shield used successfully, click to continue...");
     int x, y;
     pIn->GetPointClicked(x, y);
 

@@ -13,14 +13,6 @@ void UseConsumableToolkit::ReadActionParameters() {  //
     Output* pOut = pGrid->GetOutput();
     Input* pIn = pGrid->GetInput();
    
-    Player* pPlayer = pGrid->GetCurrentPlayer();
-    int toolkit = pPlayer->gettoolkit();
-
-    if (!toolkit)
-    {
-        pGrid->PrintErrorMessage("You don't own any tool kits yet. Click to continue...");
-        return;
-    }
     pOut->ClearStatusBar();
 
 }
@@ -30,14 +22,21 @@ void UseConsumableToolkit::Execute() {
     Output* pOut = pGrid->GetOutput();
     Input* pIn = pGrid->GetInput();
 
-   
     Player* pPlayer = pGrid->GetCurrentPlayer();
+    int toolkit = pPlayer->gettoolkit();
+
+    if (!toolkit)
+    {
+        pGrid->PrintErrorMessage("You don't own any tool kits yet. Click to continue...");
+        return;
+    }
+
     pPlayer->settoolkit(0);
     pOut->PrintMessage("Toolkit used successfully, click to continue...");
     int x, y;
     pIn->GetPointClicked(x, y);
     pPlayer->SetHealth(10);
-    pPlayer->settoolkit(0);
+    //pPlayer->settoolkit(0);
 
     //clear status bar
     pOut->ClearStatusBar();

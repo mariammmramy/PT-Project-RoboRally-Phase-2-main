@@ -44,7 +44,7 @@ void NewAction::Execute() {
         pPlayer1->Draw(pOut);
 
     }    
-    pGrid->AdvanceCurrentPlayer();
+    //pGrid->AdvanceCurrentPlayer();
     if (pPlayer2) {
         pPlayer2->ClearDrawing(pOut);
         pPlayer2->SetHealth(10);

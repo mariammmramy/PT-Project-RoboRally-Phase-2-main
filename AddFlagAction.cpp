@@ -40,7 +40,7 @@ void AddFlagAction::ReadActionParameters()
 	if (pGrid->flagfound())
 	{
 		pGrid->PrintErrorMessage("A flag already exists .You can't add another one");
-		flagPos.SetVCell(-5);
+		//flagPos.SetVCell(-5);
 		return;
 	}
 
@@ -71,7 +71,11 @@ void AddFlagAction::Execute()
 	{
 		return;
 	}
-
+	if (pGrid->flagfound())
+	{
+		pGrid->PrintErrorMessage("a flag already exists");
+		return;
+	}
 	Flag* pFlag = new Flag(flagPos);
 
 	// 3-Add the flag object to the GameObject of its Cell:

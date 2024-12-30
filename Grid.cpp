@@ -96,8 +96,8 @@ bool Grid::flagfound()
 			}
 		}
 
-		return false;
 	}
+		return false;
 }
 
 bool Grid::antennafound()
